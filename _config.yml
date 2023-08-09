@@ -1,21 +1,16 @@
 title: Chiloh Wei
 description: "一个尝试理解世界，理解自己的人"
 
-github: tw93
-zhihu: tw93
-twitter: HiTw93
-v2ex: tw93
+github: chilohwei
+twitter: chiloh_cn
+v2ex: Y2hpbG9o
 
-url: https://blog.chiloh.cn
+url: https://tw93.fun
 menu:
   - title: 'Categories'
     url: '/categories.html'
   - title: 'About'
     url: '/about'
-  - title: 'Weekly'
-    url: 'https://weekly.tw93.fun/'
-  - title: 'Github'
-    url: 'https://github.com/tw93'
   - title: 'RSS'
     url: '/feed.xml'
 
@@ -30,12 +25,12 @@ sass:
   style: compressed
 
 permalink:   /:year-:month-:day/:title.html
-assetUrl: //tw93.fun/images/
+assetUrl: //blog.chiloh.cn/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 
-google_analytics: UA-57207999-1
-baidu_verify: kxGpkpWG7G
-google_verify: DbapjTyfmMvvmkuA1GiGcXMqgPQrtgxeUTGY-MrEOYw
+google_analytics: 
+baidu_verify: 
+google_verify: 
 
 paginate: 10
 post_ext: md
@@ -45,7 +40,7 @@ page_layout: page
 titlecase: true
 
 showBuyCoffee: false
-payImage: //gw.alipayobjects.com/zos/k/vb/1.png
+payImage: 
 
 include: [".htaccess"]
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","node_modules"]

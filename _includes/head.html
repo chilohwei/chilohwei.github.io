@@ -12,7 +12,7 @@
 
   <!-- Open Graph -->
   <meta property="og:locale" content="{{ site.locale }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} - Tw93{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} - CHiloh Wei{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description"
         content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
@@ -21,17 +21,17 @@
 
 
 {% if page.layout == "post" %}
-<meta name="twitter:creator" content="@hiTw93">
+<meta name="twitter:creator" content="@chiloh_cn">
 <meta name="twitter:site" content="{{ site.url }}" />
 <meta name="twitter:url" content="{{ site.url }}{{page.url}}" />
-<meta name="twitter:title" content="{{ page.title }} - Tw93" />
+<meta name="twitter:title" content="{{ page.title }} - Chiloh Wei" />
 <meta name="twitter:description" content="{{page.summary}}" />
 {% if page.feature %}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="{{ page.feature }}" />
 {% else %}
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png" />
+<meta name="twitter:image" content="https://chilohdata.s3.bitiful.net/logo.jpg" />
 {% endif %}
 {% endif %}
 
@@ -48,7 +48,7 @@
   {% else %}
   <meta
   property="og:image"
-  content="https://gw.alicdn.com/imgextra/i1/O1CN016ppOn21DVGJ1mVHho_!!6000000000221-0-tps-420-420.jpg"
+  content="https://chilohdata.s3.bitiful.net/logo.jpg"
  />
   {% endif %}
 
@@ -67,7 +67,7 @@
 
   <meta http-equiv="cleartype" content="on">
 
-  <link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/k/h9/1.png">
+  <link rel="shortcut icon" href="https://chilohdata.s3.bitiful.net/favicon.ico">
 
   {% if page.layout == "post" %}
   <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>

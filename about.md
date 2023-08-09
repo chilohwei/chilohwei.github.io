@@ -24,7 +24,8 @@ hideHomeActive: true
 
 ## Follow Me
 
-- 微信：Y2hpbG9oLXdlaQ==
-- 邮件：Y2hpbG9od2VpQGdtYWlsLmNvbQ== （注：Base 64解码）
 - [Github](https://github.com/{{site.github}}){:target="\_blank"}
 - [Twitter](https://twitter.com/{{site.twitter}}){:target="\_blank"}
+- [V2EX](https://www.v2ex.com/member/{{site.v2ex}}){:target="\_blank"}
+- 微信：Y2hpbG9oLXdlaQ==
+- 邮件：Y2hpbG9od2VpQGdtYWlsLmNvbQ== （注：Base 64解码）
