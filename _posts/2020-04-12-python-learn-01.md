@@ -12,7 +12,7 @@ Python是一种跨平台的计算机程序设计语言，是一个高层次的�
 
 **代码：**
 
-```
+```python
 # 输出字符串
 message = "Hello Python!"
 print(message)
@@ -61,7 +61,7 @@ print(website3)
 
 **代码实现：**
 
-```
+```python
 name = "Eric"
 message = "Hello " + name.title() + ", would you like to learn some Python today?"
 print(message)
@@ -73,7 +73,7 @@ print(message)
 
 **代码实现：**
 
-```
+```python
 myname = "chiloh wei"
 print(myname.lower()) # 人名小写
 print(myname.upper()) # 人名大写
@@ -86,7 +86,7 @@ print(myname.title()) # 人名首字母大写
 
 **代码实现：**
 
-```
+```python
 person = "Albert Einstein"
 print(person.title() + 'once said, "A person who never made a mistake never tried anything new."')
 ```
@@ -97,7 +97,7 @@ print(person.title() + 'once said, "A person who never made a mistake never trie
 
 **代码实现：**
 
-```
+```python
 famous_person = "Albert Einstein"
 message = famous_person.title() + 'once said, "A person who never made a mistake never tried anything new."'
 print(message)
@@ -109,7 +109,7 @@ print(message)
 
 **代码实现：**
 
-```
+```python
 person_name = "\tHis Name:\n\t\tSteven Paul Jobs\n"
 print(person_name)
 print(person_name.lstrip()) # 剔除开头空白

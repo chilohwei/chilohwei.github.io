@@ -20,7 +20,7 @@ Frp是基于Go语言的，因此参考此教程：[https://golang.org/doc/instal
 
 这里推荐[Frp 服务端一键脚本](https://github.com/MvsCode/frps-onekey)，相比源码配置的方式，更为简单。只需要按照步骤提示，输入相应的端口号即可。
 
-```
+```bash
 +------------------------------------------------------------+
 |   frps for Linux Server, Author Clang ，Mender MvsCode     |
 |      A tool to auto-compile & install frps on Linux        |
@@ -225,7 +225,7 @@ remote_port = 6000
 - 下载[winsw](https://github.com/kohsuke/winsw/releases)，并重命名为winsw.exe
 - 新建一个winsw.xml格式文件，写入下面的内容：
 
-```
+```xml
 <service>
     <id>frp</id>
     <name>frpc</name>
@@ -240,7 +240,7 @@ remote_port = 6000
 
 - 新建一个注册.bat，写入下面的内容：
 
-```
+```bat
 @echo off
 if exist "%SystemRoot%\SysWOW64" path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
 bcdedit >nul
@@ -259,7 +259,7 @@ winsw start
 
 - 新建一个卸载.bat，写入下面的内容：
 
-```
+```bat
 @echo off
 if exist "%SystemRoot%\SysWOW64" path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
 bcdedit >nul

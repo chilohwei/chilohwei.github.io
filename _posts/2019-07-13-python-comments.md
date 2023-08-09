@@ -31,7 +31,7 @@ categories: "Tech"
 
 **第二步：** 利用`pip`命令安装`XlsxWriter`模块，代码如下：
 
-```
+```bash
 pip install XlsxWriter
 ```
 
@@ -39,7 +39,7 @@ pip install XlsxWriter
 
 **第四步：** 保存下面Python脚本为`*.py`格式，例如`comments.py`。
 
-```
+```python
 import urllib.request
 import json
 import xlsxwriter
@@ -100,7 +100,7 @@ workbook.close()
 
 **第五步：**如想在`e:\`盘根目录保存最后生成的应用评论表格，便可以在该目录下的DOS窗口下运行此脚本。
 
-```
+```bash
 cd e:\
 python comments.py
 ```

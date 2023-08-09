@@ -28,7 +28,7 @@ categories: "Thought"
 
 贴一下 GPT 4 帮我生成的 Python 爬虫代码， 我仅仅对其中的 find() 方法做了小的调整，改了 class 属性，这个效率是惊人的。
 
-```
+```python
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd

@@ -18,7 +18,7 @@ categories: "Tech"
 
 打开 Travis CI 自动部署文件 `.travis.yml` 查看：
 
-```
+```yml
 language: node_js
 node_js: stable
 

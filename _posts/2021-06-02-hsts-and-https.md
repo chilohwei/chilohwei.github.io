@@ -17,13 +17,13 @@ HSTS，HTTP严格传输安全协议（HTTP Strict Transport Security）的简称
 
 开启方法很简单，以lnmp部署的网站为例，先切换到nginx站点配置目录：
 
-```
+```bash
 cd /usr/local/nginx/conf/
 ```
 
 然后在nginx目录下找到站点的配置文件，打开`domain.com.conf`文件，在Sever 443下加入：
 
-```
+```conf
 # HSTS
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 ```
@@ -39,20 +39,20 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 1、登录Typecho后台 -> 设置 -> 基本设置 -> 站点地址，将其改成https的域名；  
 2、编辑Typecho站点根目录下的config.inc.php文件，并加入下面一行配置：
 
-```
+```php
 /** 开启HTTPS */
 define('__TYPECHO_SECURE__',true);
 ```
 
 3、编辑主题文件夹下的comments.php文件，将$this->commentUrl()替换成：
 
-```
+```php
 echo str_replace("http","https",$this->commentUrl());
 ```
 
 4、更新站点引用的附件地址为https，执行下方SQL数据库操作，其中domain.com为站点域名：
 
-```
+```bash
 UPDATE `typecho_contents` SET `text` = REPLACE(`text`,'http://domain.com','https://domain.com');
 ```
 

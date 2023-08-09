@@ -40,7 +40,7 @@ categories: "Tech"
 
 安装 Docker：
 
-```
+```bash
 wget -qO- get.docker.com | bash
 
 docker -v  #查看 docker 脚本
@@ -50,7 +50,7 @@ systemctl enable docker  # 设置开机自动启动
 
 安装 Docker-compose：
 
-```
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
@@ -62,7 +62,7 @@ docker-compose --version  #查看 docker-compose 版本
 
 创建安装目录：
 
-```
+```bash
 sudo -i
 
 mkdir -p /root/data/docker_data/npm
@@ -72,13 +72,13 @@ cd /root/data/docker_data/npm
 
 新建 docker-compose.yml 文件：
 
-```
+```bash
 vim docker-compose.yml
 ```
 
 复制并粘贴下方的内容，然后 `:wq` 保存：
 
-```
+```yml
 version: '3'
 services:
   app:
@@ -95,13 +95,13 @@ services:
 
 在服务器防火墙里放行上述端口，运行并访问 Nginx Proxy Manager ：
 
-```
+```bash
 docker-compose up -d 
 ```
 
 默认的登录名和密码分别是：
 
-```
+```txt
 Email:    admin@example.com
 Password: changeme
 ```
@@ -110,7 +110,7 @@ Password: changeme
 
 创建安装目录：
 
-```
+```bash
 sudo -i
 
 mkdir -p /root/data/docker_data/chatgpt-web
@@ -120,13 +120,13 @@ cd /root/data/docker_data/chatgpt-web
 
 新建 docker-compose.yml 文件：
 
-```
+```bash
 vim docker-compose.yml
 ```
 
 复制并粘贴下方的内容，然后 `:wq` 保存：
 
-```
+```yml
 version: '3'
 
 services:
@@ -197,7 +197,7 @@ volumes:
 
 在防火墙里放行上述端口，然后运行并访问：
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -209,7 +209,7 @@ docker-compose up -d
 
 其中 IP 部分，可以在服务器上运行下面命令找到：
 
-```
+```bash
 ip addr show docker0
 ```
 

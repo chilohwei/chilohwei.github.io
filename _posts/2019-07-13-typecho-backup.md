@@ -18,7 +18,7 @@ categories: "Tech"
 
 另外使用时注意给`/var/backups/`目录添加写入权限；如果需要添加Crontab自动备份，切换到`/etc/`目录下并编辑`crontab`加入定时任务。例如：`0 23 * * 6 root sudo /path/backup.sh /path/to/yoursite.com/`，则表示每周六晚11点定时执行该脚本，其中`/path/backup.sh`为脚本存放位置，`/path/to/yoursite.com/`为博客站点根目录（博客程序安装位置）。
 
-```
+```bash
 #设置备份目录
 backup_dir="/var/backups/typecho/"
 function print_help(){
@@ -108,7 +108,7 @@ echo "Backup to $backup_file done."
 
 **第二步：**在该域名文件夹下，使用下面命令来下载、安装、启用Typecho博客程序，可参考[便宜VPS+LAMP搭建+博客一键安装教程](https://www.seoimo.com/wordpress-vps/#add-domain-name)这篇文章；
 
-```
+```bash
 wget https://typecho.org/downloads/1.1-17.10.30-release.tar.gz //下载typecho程序压缩包
 tar -zvxf 1.1-17.10.30-release.tar.gz //解压typecho程序压缩包
 mv build/* . //移动解压出来的build文件夹里的内容到域名根目录下
@@ -119,7 +119,7 @@ rm -rf build 1.1-17.10.30-release.tar.gz //删除无用的文件
 
 **第四步：**将之前备份的文件压缩包解压，将其中的`database.sql`上传到VPS，然后执行下面的命令即可导入原typecho后台设置及文章数据。
 
-```
+```bash
 mysql -u 用户名 -p 密码 数据库名 < database.sql // 例如：mysql -u root -p 123456 DATA < database.sql
 ```
 

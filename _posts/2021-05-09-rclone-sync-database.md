@@ -12,13 +12,13 @@ categories: "Tech"
 
 登录到服务器终端，执行下方命令：
 
-```
+```bash
 curl https://rclone.org/install.sh | sudo bash
 ```
 
 如果之前没有安装过`curl`，请执行下方命令完成安装：
 
-```
+```bash
 yum -y install curl
 ```
 
@@ -26,13 +26,13 @@ yum -y install curl
 
 安装成功后，输入：
 
-```
+```bash
 rclone config
 ```
 
 弹出下方操作命令，按提示操作即可：
 
-```
+```bash
 2021/05/09 12:48:01 NOTICE: Config file "/root/.config/rclone/rclone.conf" not found - using defaults
 No remotes found - make a new one
 n) New remote
@@ -42,7 +42,7 @@ q) Quit config
 
 输入`n`新建，`name`自定义后，弹出要连接的存储：
 
-```
+```bash
 name> Alibaba
 Type of storage to configure.
 Enter a string value. Press Enter for the default ("").
@@ -135,7 +135,7 @@ Choose a number from below, or type in your own value
 
 以阿里云OSS为例，在终端下输入`4`，然后选择`2`，按下方提示操作：
 
-```
+```bash
 Storage> 4
 ** See help for s3 backend at: https://rclone.org/s3/ **
 
@@ -299,7 +299,7 @@ y/e/d> y
 
 重新在终端输入`rclone config`命令，按照下方操作进入编辑模式，补充阿里云OSS的ID和密钥。
 
-```
+```bash
 Current remotes:
 
 Name                 Type
@@ -402,7 +402,7 @@ y/e/d> y
 
 在备份脚本的后面加上：
 
-```
+```bash
 rclone copy /path/backup Alibaba:BucketName
 ```
 
@@ -410,7 +410,7 @@ rclone copy /path/backup Alibaba:BucketName
 
 如果想要定时自动同步数据到阿里云OSS的话，可以在终端键入`crontab -e`，然后输入：
 
-```
+```bash
 0 18 * * 5 /bin/bash /root/jiaoben/backup.sh
 ```
 

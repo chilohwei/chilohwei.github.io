@@ -47,7 +47,7 @@ categories: "Tech"
 
 #### 博客备份
 
-```
+```bash
 $ git init //git初始化
 $ git add . //git 文件添加
 $ git commit -m "init" //git 提交
@@ -57,7 +57,7 @@ $ git push origin hexo //push到hexo分支
 
 #### 博客恢复
 
-```
+```bash
 （一）配置 ssh 连接 Github
 
 $ cd ~/.ssh 或cd .ssh //检查本机是否有ssh key设置
@@ -79,7 +79,7 @@ $ hexo g -d //测试能否正常编译上传
 
 ### 博主安装的插件：
 
-```
+```bash
  hexo-abbrlink // Hexo 链接优化
  hexo-baidu-url-submit // 百度链接主动提交
  hexo-blog-encrypt // 博客文章加密

@@ -14,7 +14,7 @@ categories: "Tech"
 
 - 打开index.php文件，改为date('n月 j, Y')。
 
-```
+```php
 <date class="post-meta">
     <?php $this->date('n月 j, Y'); ?>
 </date>
@@ -22,7 +22,7 @@ categories: "Tech"
 
 - 打开sidebar.php文件，改为type=month&format=Y年m月。
 
-```
+```php
 <section class="widget">
     <h3 class="widget-title"><?php _e('归档'); ?></h3>
     <ul class="widget-list">
@@ -38,7 +38,7 @@ maupassant模板本身的链接颜色，在阅读时的感官体验不是很好�
 
 - 打开style.css文件，将color改为#C83C23。
 
-```
+```css
 .post-content a, .comment-content a {
     border-bottom:1px solid #ddd;
     color: #C83C23;
@@ -51,14 +51,14 @@ maupassant模板本身的链接颜色，在阅读时的感官体验不是很好�
 
 - 打开footer.php文件，引入highlight.js 。
 
-```
+```php
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
 - 打开header.php，引入css样式文件。可以自行在[highlight.js](https://highlightjs.org/)官网选择。
 
-```
+```php
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/styles/default.min.css">
 ```
 
@@ -68,7 +68,7 @@ maupassant模板本身的链接颜色，在阅读时的感官体验不是很好�
 
 - 打开footer.php文件，在\\<body>标签中加入下面代码。
 
-```
+```php
 <!-- 自动添加空格 -->
 <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script>
@@ -92,7 +92,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 打开post.php文件，在\\</article>标签后添加下面代码。
 
-```
+```php
 <div class="post-nav">
     <div class="post-nav-pre" style="float:left;">
         <?php $this->thePrev('上一篇 : %s', ''); ?>
@@ -105,7 +105,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 如果要样式与我一样，打开style.css添加下面代码。
 
-```
+```css
 /* 文章翻页 */
 .post-nav{
     overflow: hidden;
@@ -129,7 +129,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 打开sidebar.php，在Widget\_Contents\_Post\_Recent后加上：,'pageSize=5'。
 
-```
+```php
 <ul class="widget-list">
     <?php $this->widget('Widget_Contents_Post_Recent','pageSize=5')
     ->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
@@ -142,7 +142,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 打开post.php，在\\</article>标签后，添加版权声明代码。
 
-```
+```php
 <div class=copyright>
     <div class=cp-title>
         <strong>本文标题：</strong><?php $this->title(); ?>
@@ -167,7 +167,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 打开style.css，添加版权声明样式。
 
-```
+```css
 /* 版权声明 */
 .copyright{
     background-color: #f0f0f0;
@@ -190,7 +190,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 打开post.php，添加下面代码在合适位置。
 
-```
+```php
 <div style="padding: 10px 0; margin: 20px auto; width: 100%; font-size:16px; text-align: center;"> 
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}"> <span>打赏</span> </button> 
     <p style="color:#999;font-size:14px;">多寡随意，丰俭由人</p>
@@ -209,7 +209,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 - 打开style.css，添加打赏按钮样式文件。可以按照自己喜好自行修改。
 
-```
+```css
 /* 文章打赏 */
 #QR {
     padding-top: 20px;
@@ -260,7 +260,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 文章中的图片之前容易跟背景色融合，于是这次加上了boder，同时也做了圆角处理，加了二层阴影。代码如下：
 
-```
+```css
 .post-content img, .comment-content img {
     max-width:100%;
     margin-left: auto; 
@@ -274,7 +274,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 原先的 blockquote 样式中，文字过大，且排版在整体阅读时不太好看，于是做了处理：
 
-```
+```css
     margin: 1.5em 0em;
     padding: 0.5em 1.5em;
     /* padding-left: 1.5em; */
