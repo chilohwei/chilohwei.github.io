@@ -7,14 +7,24 @@ hideHomeActive: true
 
 ## About Me
 
-- I'm a front-end engineer hailing from China, with a passion for experimenting with diverse software.
-- I'm the creator of several projects, including [MiaoYan](https://miaoyan.app/), [Pake](https://github.com/tw93/pake), [XRender](https://xrender.fun/), [WeexUi](https://apache.github.io/incubator-weex-ui/), and [cz-emoji-chinese](https://github.com/tw93/cz-emoji-chinese), among others.
-- My personal blog at [tw93.fun](https://tw93.fun/) is where I frequently express my thoughts and share interesting experiences from my life. Additionally, I document life's fascinating occurrences through my [trend weekly](https://weekly.tw93.fun/) column.
-- My skill set encompasses a wide range of areas, including accessibility, interactive games, iOS/macOS, serverless technology, micro front-end development, technical productization, and team management. Feel free to ask me any questions you may have.
+博主姓魏，入职给自己起的英文名叫 Chiloh，这也是本站 Chiloh Wei 命名来源。18 年毕业于广西大学资源环境材料学院，本科专业是矿物资源工程，陕西咸阳人。目前在一家软件公司，从事产品相关工作，对商业、技术也比较感兴趣，所以折腾了这个网站。
+
+**使命**
+- 为“自己”而活
+
+**愿景**
+- 做一个自由且有价值的人。（没有绝对的自由，自我认可的自由就足够）
+
+**价值观**
+- 善良（不作恶、不助恶）
+- 温暖（永远相信美好事物存在）
+- 开放（可以不赞同异样的声音，但保持尊重）
+- 快乐（自己发自心底的喜悦，从而带给身边的人快乐）
+
 
 ## Follow Me
 
+- 微信：Y2hpbG9oLXdlaQ==
+- 邮件：Y2hpbG9od2VpQGdtYWlsLmNvbQ== （注：Base 64解码）
 - [Github](https://github.com/{{site.github}}){:target="\_blank"}
 - [Twitter](https://twitter.com/{{site.twitter}}){:target="\_blank"}
-- [知乎](https://www.zhihu.com/people/{{site.zhihu}}){:target="\_blank"}
-- [V2EX](https://www.v2ex.com/member/{{site.v2ex}}){:target="\_blank"}
