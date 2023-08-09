@@ -5,7 +5,7 @@ github: chilohwei
 twitter: chiloh_cn
 v2ex: Y2hpbG9o
 
-url: https://tw93.fun
+url: https://blog.chiloh.cn
 menu:
   - title: 'Categories'
     url: '/categories.html'
@@ -24,8 +24,8 @@ sass:
   sass_dir: _sass
   style: compressed
 
-permalink:   /:year-:month-:day/:title.html
-assetUrl: //tw93.fun/images/
+permalink:   /:title.html
+assetUrl: //blog.chiloh.cn/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 
 google_analytics: 
