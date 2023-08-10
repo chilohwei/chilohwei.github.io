@@ -17,8 +17,7 @@
         content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.title }}">
-  <link rel="preload" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css"></noscript>
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" async rel="preload" as="font">
 
 
 {% if page.layout == "post" %}
