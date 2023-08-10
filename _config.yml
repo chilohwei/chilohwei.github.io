@@ -38,8 +38,8 @@ post_layout: post
 page_layout: page
 titlecase: true
 
-showBuyCoffee: false
-payImage: 
+showBuyCoffee: true
+payImage: https://chilohdata.s3.bitiful.net/zanshang.JPG?dpr=0.5
 
 include: [".htaccess"]
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","node_modules"]
