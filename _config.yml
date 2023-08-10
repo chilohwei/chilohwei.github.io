@@ -3,7 +3,6 @@ description: "一个尝试理解世界，理解自己的人"
 
 github: chilohwei
 twitter: chiloh_cn
-v2ex: Y2hpbG9o
 
 url: https://blog.chiloh.cn
 menu:
@@ -28,9 +27,9 @@ permalink:   /:title.html
 assetUrl: /images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 
-google_analytics: 
-baidu_verify: 
-google_verify: 
+google_analytics: G-3G9RLF9G44
+baidu_verify: 3fef77c54fe980ae8bb0eef64239f1d1
+google_verify: TVB5DssHJSC_a7BjZgl0fwXa8UII6wnzw-EXUOTaGrg
 
 paginate: 10
 post_ext: md
