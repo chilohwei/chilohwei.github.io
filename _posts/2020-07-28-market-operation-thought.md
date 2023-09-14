@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "运营道与术"
-summary: 在前面的文章：[读书笔记：《运营之光》](https://www.chiloh.cn/archives/read-book-01.html)中，我有分享过自己初入职场时，对于运营的粗浅理解。时至今日，随着工作越来越深入，对于运营则有了些更为深刻的感受。
+summary: 在前面的文章：[读书笔记：《运营之光》](https://blog.chiloh.cn/archives/read-book-01.html)中，我有分享过自己初入职场时，对于运营的粗浅理解。时至今日，随着工作越来越深入，对于运营则有了些更为深刻的感受。
 date: "2020-07-28"
 categories: "Thought"
 ---
 
-在前面的文章：[读书笔记：《运营之光》](https://www.chiloh.cn/archives/read-book-01.html)中，我有分享过自己初入职场时，对于运营的粗浅理解。时至今日，随着工作越来越深入，对于运营则有了些更为深刻的感受。
+在前面的文章：[读书笔记：《运营之光》](https://blog.chiloh.cn/archives/read-book-01.html)中，我有分享过自己初入职场时，对于运营的粗浅理解。时至今日，随着工作越来越深入，对于运营则有了些更为深刻的感受。
 
 ### 一、认知变迁
 
