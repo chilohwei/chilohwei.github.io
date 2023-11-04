@@ -6,9 +6,11 @@ twitter: chiloh_cn
 
 url: https://blog.chiloh.cn
 menu:
-  - title: 'Categories'
+  - title: '周刊'
+    url: 'https://weekly.chiloh.cn'
+  - title: '文章'
     url: '/categories.html'
-  - title: 'About'
+  - title: '关于'
     url: '/about'
   - title: 'RSS'
     url: '/feed.xml'
