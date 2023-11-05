@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: 关于
 permalink: /about/
 hideHomeActive: true
 ---
@@ -21,8 +21,24 @@ hideHomeActive: true
 - 开放（可以不赞同异样的声音，但保持尊重）
 - 快乐（自己发自心底的喜悦，从而带给身边的人快乐）
 
+## My Project
+
+- [Alist](https://alist.chiloh.cn)
+- [ChatWeb](https://chat.chiloh.cn)
+- [Watermark](https://watermark.chiloh.net)
+- [奇洛周刊](https://weekly.chiloh.cn)
+- [Chiloh's Memos](https://memos.chiloh.cn)
+- [微信 Markdown 编辑器](https://md.chiloh.cn)
+
 
 ## Follow Me
 
 - 微信：Y2hpbG9oLXdlaQ==
 - 邮件：Y2hpbG9od2VpQGdtYWlsLmNvbQ== （注：Base 64解码）
+- 公众号：搜索“魏奇洛”，或微信扫码关注
+  
+<div align="center">
+    <img src="https://chilohdata.s3.bitiful.net/qrcode.jpg" alt="魏奇洛的公众号二维码" style="width: 15%; height: auto;"/>
+</div>
+
+- 其他：[Weibo](https://weibo.com/u/7873805545)、[Twitter](https://twitter.com/chiloh_cn)、[Github](https://github.com/chilohwei)
