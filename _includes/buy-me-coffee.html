@@ -1,10 +1,32 @@
 {% if site.showBuyCoffee != false %}
-<div class="coffee">
+<div class="coffee" style="text-align: center; margin-bottom: 30px;">
   <a
     class="buy-me-coffee"
-    href="https://chilohdata.s3.bitiful.net/zanshang.JPG?dpr=0.5"
-    target="_blank"
+    href="#"
+    onclick="togglePaymentCodes(); return false;"
     >喜欢文章 → 赞赏我❤️</a
   >
 </div>
+
+<div id="payment-codes" style="display:none; text-align: center; margin-top: 20px;">
+  <div style="display: inline-block; vertical-align: top; margin: 0 5px; max-width: 45%;">
+    <img src="https://chilohdata.s3.bitiful.net/wechat.png" alt="微信支付" style="width: 100%; height: auto; max-width: 150px;">
+    <p style="margin-top: 5px; color: #555; font-size: 0.8em;">微信支付</p>
+  </div>
+  <div style="display: inline-block; vertical-align: top; margin: 0 5px; max-width: 45%;">
+    <img src="https://chilohdata.s3.bitiful.net/zfb.png" alt="支付宝" style="width: 100%; height: auto; max-width: 150px;">
+    <p style="margin-top: 5px; color: #555; font-size: 0.8em;">支付宝</p>
+  </div>
+</div>
 {% endif %}
+
+<script>
+function togglePaymentCodes() {
+  var paymentCodesDiv = document.getElementById('payment-codes');
+  if (paymentCodesDiv.style.display === 'none') {
+    paymentCodesDiv.style.display = 'block';
+  } else {
+    paymentCodesDiv.style.display = 'none';
+  }
+}
+</script>
