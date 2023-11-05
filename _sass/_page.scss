@@ -626,6 +626,9 @@ iframe {
   @media #{$large} {
     margin-bottom: -20px;
   }
+  .buy-me-coffee:focus {
+    outline: none;
+  }
   .buy-me-coffee {
     @extend .btn;
     margin: 0 auto;
