@@ -12,7 +12,7 @@ categories: "Share"
 
 - [分享讲的 PPT（修改后脱敏版）](https://chilohdata.s3.bitiful.net/blog/how-to-use-chatgpt.pdf) 
 
-### ChatGPT 的实践
+## ChatGPT 的实践
 
 从 ChatGPT 出圈之后，第一时间就关注并参与到了其中，自己也参考 Github 上的开源项目部署了一个网站提供给身边的好友使用：
 
@@ -36,7 +36,7 @@ categories: "Share"
   Your browser does not support the video tag.
 </video>
 
-### ChatGPT 的理解
+## ChatGPT 的理解
 
 虽然对于 ChatGPT 的理解尚且很粗浅，但我还是想姑妄谈一谈。我的理解其实在分享里也有提到，源于我的一个想象：
 

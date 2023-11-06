@@ -8,7 +8,7 @@ categories: "Thought"
 
 自己在关注研究的领域有 2 个，一个是区块链，一个是人工智能。说实话，ChatGPT 的出现比预想中要快很多，也许以后某一天回想起来，今年真的是非常特别的一年。
 
-### 一些流行的产物
+## 一些流行的产物
 
 - [ChatGPT](https://chat.openai.com)
 - [Midjourney](https://www.midjourney.com)
@@ -68,7 +68,7 @@ df = pd.DataFrame(data, columns=['标题', '链接', '发布时间'])
 df.to_csv('typecho.csv', index=False)
 ```
 
-### 一些自己的感受
+## 一些自己的感受
 
 在公司日报里，自己写了下面的感受分享。其实还有一些与产品相关的设想，由于比较敏感就删除掉了。大体的意思是 ok 的，这是近半年来自己的一些体验与想法。
 
