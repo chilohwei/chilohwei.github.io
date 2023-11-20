@@ -37,8 +37,8 @@ hideHomeActive: true
 - 邮件：Y2hpbG9od2VpQGdtYWlsLmNvbQ== （注：Base 64解码）
 - 公众号：搜索“魏奇洛”，或微信扫码关注
   
-<div align="center">
+<ul align="left">
     <img src="https://chilohdata.s3.bitiful.net/qrcode.jpg" alt="魏奇洛的公众号二维码" style="width: 15%; height: auto;"/>
-</div>
+</ul>
 
 - 其他：[Weibo](https://weibo.com/u/7873805545)、[Twitter](https://twitter.com/chiloh_cn)、[Github](https://github.com/chilohwei)
