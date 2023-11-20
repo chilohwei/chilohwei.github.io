@@ -12,7 +12,10 @@ categories: "Share"
 
 很多关系要好的朋友可能都知道，我是比较喜欢大张伟的。当然我更喜欢的是花儿乐队时候的那个“张伟”，喜欢他身上的那股劲儿，喜欢他或者说羡慕他近 40 岁，身上还经常能看见的少年气，喜欢他的“真”。
 
-<iframe src="//player.bilibili.com/player.html?aid=3681218&bvid=BV1ss411X75H&cid=5893269&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+<video width="100%" height="auto" controls="">
+  <source src="https://chilohdata.s3.bitiful.net/videos/大张伟14岁的音乐.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 某种程度上来说，我喜欢的是“自己”。那个过去的自己，在至暗时刻从音乐中汲取能量，滋养自己直至如今的自己。
 
