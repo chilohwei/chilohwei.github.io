@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Python 抓取 App Store 应用评论 2"
+title: "肉眼可见的成长"
 summary: 19年还在做运营的时候，曾经用知乎上的代码抓取过 AppStore 的应用评论。时至如今，GPT出来后，从前的那支箭又射了回来，与之同来的是肉眼可见的成长。
 date: "2023-10-28"
-categories: "Share"
+categories: "Tech"
 ---
 
 这是19年曾发布的一篇文章：[Python 抓取 App Store 应用评论](https://blog.chiloh.cn/python-comments.html)，当时完全不懂Python代码开发，却还是摸索着获取到了一些应用的评论。而最近，再次遇到了当年的需求，肉眼可见地能看到自己的成长。
