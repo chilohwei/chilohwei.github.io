@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "肉眼可见的成长"
+title: "工作成长"
 summary: 19年还在做运营的时候，曾经用知乎上的代码抓取过 AppStore 的应用评论。时至如今，GPT出来后，从前的那支箭又射了回来，与之同来的是肉眼可见的成长。
 date: "2023-10-28"
 categories: "Tech"
