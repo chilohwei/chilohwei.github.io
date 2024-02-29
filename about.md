@@ -24,10 +24,10 @@ hideHomeActive: true
 ## My Project
 
 - [Alist](https://alist.chiloh.cn)
-- [ChatWeb](https://chat.chiloh.cn)
+- [ChatWeb](https://chat.chiloh.com)
 - [Watermark](https://watermark.chiloh.net)
 - [奇洛周刊](https://weekly.chiloh.cn)
-- [Chiloh's Memos](https://memos.chiloh.cn)
+- [Chiloh's Memos](https://memos.chiloh.com)
 - [微信 Markdown 编辑器](https://md.chiloh.cn)
 
 
