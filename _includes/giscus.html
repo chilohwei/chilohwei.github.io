@@ -1,6 +1,7 @@
 {% if page.comments != false %}
 <div class="giscus-container">
-<script src="https://giscus.app/client.js"
+<script 
+        src="https://giscus.app/client.js"
         data-repo="chilohwei/chilohwei.github.io"
         data-repo-id="R_kgDOKFPLSA"
         data-category="General"
@@ -10,10 +11,11 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
+        data-lang="{% if page.lang == 'en-US' %}en{% else %}zh-CN{% endif %}"
         data-theme="https://gw.alipayobjects.com/os/k/9z78d6/comment.css"
         data-lang="zh-CN"
         crossorigin="anonymous"
-        async>
-</script>
+        async
+></script>
 </div>
 {% endif %}

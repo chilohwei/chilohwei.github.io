@@ -104,19 +104,29 @@ iframe {
   h3 > a,
   h4 > a,
   p > a,
+  strong > a,
   li > a {
     @include need-dotted();
   }
 }
 
-.need_dotted {
-  @include need-dotted();
+.social-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 16px;
+  margin-top: -4px;
 }
 
 .github-icon {
-  width: 20px;
-  height: 20px;
-  margin-top: -5px;
+  margin-left: 0;
+}
+
+.time-icon {
+  margin-left: 11px;
+}
+
+.repo-time {
+  @include font-rem(16);
 }
 
 ///sections
@@ -255,11 +265,12 @@ iframe {
 
 // Post Pagination Module
 .pagination {
-  margin: 48px 10px 16px;
+  margin: 36px 10px;
   text-align: center;
-  @include font-rem(16);
+  @include font-rem(18);
   @media #{$medium} {
-    margin: 48px 10px 48px;
+    margin: 48px 10px 78px;
+    @include font-rem(20);
   }
   ul {
     display: inline;
@@ -490,8 +501,23 @@ iframe {
   padding-left: 8px;
   padding-right: 8px;
   @media #{$medium} {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    &:nth-child(2) {
+      padding-right: 14px;
+    }
+    &:nth-child(2) {
+      padding-right: 22px;
+    }
+  }
+
+  @media #{$large} {
+    &:nth-child(2) {
+      padding-right: 26px;
+    }
+    &:nth-child(4) {
+      padding-right: 14px;
+    }
   }
   a {
     vertical-align: middle;
@@ -515,6 +541,30 @@ iframe {
   }
 }
 
+.header-item-title {
+  @media #{$medium} {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.language-switch {
+  letter-spacing: 0.1px;
+  a,
+  a:visited {
+    color: #4e7b56;
+  }
+  span {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji", sans-serif;
+    @include font-rem(13);
+    margin-right: -4px;
+    @media #{$medium} {
+      @include font-rem(14);
+    }
+  }
+}
+
 ///sections
 .logo {
   width: $menu-height;
@@ -529,23 +579,7 @@ iframe {
 
 .header-item {
   height: 100%;
-  &:nth-child(2),
-  &:nth-child(3) {
-    display: none;
-  }
-  &:nth-child(4) {
-    padding-right: 0;
-  }
-  @media #{$large} {
-    display: block;
-    &:nth-child(2),
-    &:nth-child(3) {
-      display: block;
-    }
-    &:nth-child(4) {
-      padding-right: 8px;
-    }
-  }
+  display: block;
 }
 
 .header-item-title {
@@ -565,6 +599,63 @@ iframe {
 
 .header-href {
   display: block;
+}
+
+html[lang="en-US"] {
+  body,
+  .header-href,
+  .hentry,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Source Serif Pro, Georgia, Cambria, "Times New Roman", Times,
+      serif;
+    letter-spacing: 0.2px;
+    @media #{$medium} {
+      letter-spacing: 0.3px;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  .header-item a,
+  .header-item-title a {
+    font-weight: 600;
+  }
+  .language-switch {
+    letter-spacing: 0.2px;
+  }
+  .language-switch span {
+    margin-right: -1px;
+    @media #{$medium} {
+      margin-right: -2px;
+    }
+  }
+  .header-item:nth-child(1),
+  .header-item:nth-child(5) {
+    display: none;
+  }
+  .hentry h1.entry-title {
+    @include font-rem(20);
+    @media #{$medium} {
+      @include font-rem(28);
+    }
+  }
+
+  .header-href .entry-content {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .index-content-time {
@@ -626,9 +717,6 @@ iframe {
   @media #{$large} {
     margin-bottom: -20px;
   }
-  .buy-me-coffee:focus {
-    outline: none;
-  }
   .buy-me-coffee {
     @extend .btn;
     margin: 0 auto;
@@ -670,4 +758,35 @@ iframe {
   width: 0px;
   height: 0px;
   overflow: hidden;
+}
+
+.video {
+  margin-block-end: 1em;
+}
+
+.bg-img {
+  padding: 10px 15px 15px;
+  background: #171f32;
+  margin-top: -2px;
+  @media #{$medium} {
+    padding: 10px 30px 30px;
+  }
+}
+
+video.bg-img {
+  margin-block-start: -1em;
+}
+
+.btn-arrow {
+  @include font-rem(24);
+}
+
+.video-border {
+  padding: 24px;
+  background: url(https://gw.alipayobjects.com/zos/k/0d/UpT4s7.png) no-repeat
+    center;
+}
+
+.entry-content img{
+  cursor: zoom-in;
 }

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 关于
-permalink: /about/
+title: About
+permalink: /about.html
 hideHomeActive: true
 ---
 
@@ -20,15 +20,6 @@ hideHomeActive: true
 - 温暖（永远相信美好事物存在）
 - 开放（可以不赞同异样的声音，但保持尊重）
 - 快乐（自己发自心底的喜悦，从而带给身边的人快乐）
-
-## My Project
-
-- [Alist](https://alist.chiloh.cn)
-- [ChatWeb](https://chat.chiloh.com)
-- [Watermark](https://watermark.chiloh.net)
-- [奇洛周刊](https://weekly.chiloh.cn)
-- [Chiloh's Memos](https://memos.chiloh.com)
-- [微信 Markdown 编辑器](https://md.chiloh.cn)
 
 
 ## Follow Me

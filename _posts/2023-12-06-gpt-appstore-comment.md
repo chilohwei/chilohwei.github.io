@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "工作成长"
+title: "工作上的成长"
 summary: 19年还在做运营的时候，曾经用知乎上的代码抓取过 AppStore 的应用评论。时至如今，GPT出来后，从前的那支箭又射了回来，与之同来的是肉眼可见的成长。
-date: "2023-10-28"
+date: "2023-12-06"
 categories: "Tech"
 ---
 
@@ -18,7 +18,7 @@ categories: "Tech"
 
 ## 代码实现
 
-代码已经开源：[chilohwei/app-comments](https://github.com/chilohwei/app-comments)，之后应该还会再优化完善。[访问Demo网址](https://apps.chiloh.cn)
+代码已经开源：[chilohwei/app-comments](https://github.com/chilohwei/app-comments)，之后应该还会再优化完善。[访问Demo网址](https://apps.chiloh.com)
 
 核心是以下这2个文件：
 

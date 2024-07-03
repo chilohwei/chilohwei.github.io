@@ -1,4 +1,6 @@
 @import url('https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css');
+@import url('https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap');
+
 main {
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
@@ -134,6 +136,7 @@ main .gsc-comment-box-textarea:focus,
 .gsc-reactions-count {
   visibility: hidden;
 }
+
 .gsc-reactions-count:after {
   content: '欢迎一起交流~';
   visibility: visible;
@@ -141,6 +144,14 @@ main .gsc-comment-box-textarea:focus,
   display: inline-block;
   margin-bottom: 1rem;
   margin-left: -4rem;
+}
+
+html[lang="en"] .gsc-reactions-count:after {
+  content: 'Feel free to discuss~';
+}
+
+html[lang="en"] main{
+  font-family: Source Serif Pro, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .gsc-reply-content {

@@ -5,7 +5,7 @@ body {
   color: $text-color;
   letter-spacing: 0.5px;
   @media #{$medium} {
-    letter-spacing: 0.8px;
+    letter-spacing: 0.7px;
   }
 }
 
@@ -30,6 +30,14 @@ h1 {
 table, th, td {
   border: 1px solid #EEE;
   border-collapse: collapse;
+}
+
+.text-table td, .text-table th{
+  padding: 6px 16px;
+}
+
+.text-table, th{
+  text-align: left;
 }
 
 // Links

@@ -1,55 +1,69 @@
+# Site Information
 title: Chiloh Wei
 description: "一个尝试理解世界，理解自己的人"
+url: https://blog.chiloh.com
+repo: chilohwei/chilohwei.github.io
+lang: zh-CN
+timezone: Africa/El_Aaiun
 
+# Social Media and External URLs
 github: chilohwei
+zhihu: 
 twitter: chiloh_cn
-
-url: https://blog.chiloh.cn
+v2ex: 
 menu:
-  - title: '周刊'
-    url: 'https://weekly.chiloh.cn'
-  - title: '文章'
-    url: '/categories.html'
-  - title: '关于'
-    url: '/about'
-  - title: 'RSS'
-    url: '/feed.xml'
+  - title: "Categories"
+    url: "/categories.html"
+  - title: "About"
+    url: "/about.html"
 
-timezone:    Africa/El_Aaiun
-locale:      zh_CN
-lang:      zh-cmn-Hans
-future:      true
-highlighter: rouge
-markdown:    kramdown
-sass:
-  sass_dir: _sass
-  style: compressed
-
-permalink:   /:title.html
-assetUrl: /images/
-defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-
+# SEO and Analytics
 google_analytics: G-3G9RLF9G44
-baidu_verify: 3fef77c54fe980ae8bb0eef64239f1d1
-google_verify: MIYstjLJ1oZ0SWYgeZJyFnMKEG-njSQSbYeKiupXg4o
 
+# Build Settings
 paginate: 10
 post_ext: md
 page_ext: md
 post_layout: post
 page_layout: page
 titlecase: true
+future: true
+highlighter: rouge
+markdown: kramdown
+permalink: /:year-:month-:day/:title.html
+sass:
+  sass_dir: _sass
+  style: compressed
 
-showBuyCoffee: true
-payImage: https://chilohdata.s3.bitiful.net/zanshang.JPG?dpr=0.5
+collections:
+  posts:
+    output: true
+    permalink: /:year-:month-:day/:title.html
+  posts_en:
+    output: true
+    permalink: /en/:year-:month-:day/:title.html
+    sort_by: date
 
 include: [".htaccess"]
-exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE", "package.json","node_modules"]
-gems:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-feed
+exclude:
+  [
+    "Gemfile",
+    "Gemfile.lock",
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "node_modules",
+  ]
 
+# Plugins
 plugins:
   - jekyll-paginate
   - jekyll-pdf-embed
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Custom Site Settings
+showBuyCoffee: true
+payImage: //chilohdata.s3.bitiful.net/zanshang.JPG?dpr=0.5
+assetUrl: //blog.chiloh.com/images/
+defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==

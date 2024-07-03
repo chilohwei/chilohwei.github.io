@@ -1,48 +1,41 @@
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    Chiloh Wei &copy; 2017~{{ site.time | date: '%Y' }}&nbsp; Designed by 
-    <img
-      src="https://cdn.fliggy.com/upic/a1THPC.png"
-      class="github-icon"
-      alt="github"
-    />
-    <a
-      href="https://github.com/tw93/tw93.github.io"
-      rel="nofollow"
-      target="_blank"
-      class="need_dotted"
-    >
-      tw93
+
+    <a href="https://github.com/{{site.github}}" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/gp/02.png" class="social-icon github-icon" alt="github" />
     </a>
-    <a 
-      href="https://beian.miit.gov.cn/" 
-      rel="nofollow"
-      target="_blank"  
-    >
-      &nbsp;陕ICP备2024042680号
+
+    <a href="https://twitter.com/{{site.twitter}}" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/9k/03.png" class="social-icon" alt="Twitter" />
+    </a>
+
+    <a href="{{ site.url }}/feed.xml" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/38/01.png" class="social-icon" alt="RSS" />
+    </a>
+
+    <a href="https://github.com/{{site.repo}}" rel="nofollow" target="_blank">
+      <img src="https://gw.alipayobjects.com/zos/k/j4/06.png" class="social-icon time-icon" alt="github" />
+      <span class="repo-time">2017~{{ site.time | date: '%Y' }}</span>
     </a>
   </footer>
 </div>
 
 <script type="text/javascript" src="{{ site.url }}/js/index.min.js"></script>
-<script
-  type="text/javascript"
-  src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"
-></script>
+<script type="text/javascript" src="https://gw.alipayobjects.com/os/k/h3/heti-addon.min.js"></script>
 
 {% if site.google_analytics %}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3G9RLF9G44"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3G9RLF9G44');
+  function gtag () {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "{{ site.google_analytics }}");
 </script>
 {% endif %} {% if page.url=="/" %}
 <script>
-  function hereDoc(f) {
+  function hereDoc (f) {
     return f
       .toString()
       .replace(/^[^\/]+\/\*!?\s?/, "")
@@ -50,8 +43,6 @@
   }
   var string = hereDoc(function () {
     /*
-
-
     _                               ___                  _____           _       _
    | |                             |_  |                /  ___|         (_)     | |
    | |     ___  __ _ _ __ _ __       | | __ ___   ____ _\ `--.  ___ _ __ _ _ __ | |_
@@ -59,8 +50,7 @@
    | |___|  __/ (_| | |  | | | | /\__/ / (_| |\ V / (_| /\__/ / (__| |  | | |_) | |_
    \_____/\___|\__,_|_|  |_| |_| \____/ \__,_| \_/ \__,_\____/ \___|_|  |_| .__/ \__|
 
-
-  This is Chiloh's blog, which is often used to record and share products, technologies and thoughts, or life.
+   Hi, I'm Tw93, a Frontend Engineer from China, also dabbling a bit in Swift, Rust, Python, and Sketch. I'm the creator of MiaoYan, Pake, Trendy Weekly, XRender, and WeexUi. Believing in long-termism, I am passionate about open source and enjoy experimenting with new ideas.
    */
   });
   console.log(string);
@@ -69,8 +59,13 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var links = document.links;
-    for (var i = 0; i < links.length; i++) {
+    //Optimize letter spacing
+    const heti = new Heti(".heti");
+    heti.autoSpacing();
+
+    // Jump out
+    const links = document.links;
+    for (let i = 0; i < links.length; i++) {
       if (
         links[i].hostname != window.location.hostname ||
         (links[i].href && links[i].href.indexOf("feed.xml") != -1)
@@ -78,32 +73,42 @@
         links[i].target = "_blank";
       }
     }
-    //字距优化
-    const heti = new Heti(".heti");
-    heti.autoSpacing();
 
-    document
-      .getElementById("fullscreenBtn")
-      .addEventListener("click", function () {
-        var elem = document.getElementById("postIframe");
+    // The second image is the cover image, both of which could do with some optimization
+    const images = document.querySelectorAll('.entry-content img');
+    images.forEach((img, index) => {
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+    });
 
-        if (!document.fullscreenElement) {
-          if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-          }
-        } else {
-          if (document.exitFullscreen) {
-            document.exitFullscreen();
-          }
+    // Full screen button
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    fullscreenBtn && fullscreenBtn.addEventListener("click", function () {
+      var elem = document.getElementById("postIframe");
+
+      if (!document.fullscreenElement) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+
+    // Select all the links that need to be preloaded
+    const linksToPrefetch = document.querySelectorAll('.read-more, .header-href, .pagination a, .header-item a');
+    linksToPrefetch.forEach(function (link) {
+      link.addEventListener('mouseover', function () {
+        if (!document.querySelector(`link[rel="prefetch"][href="${link.href}"]`)) {
+          var prefetchLink = document.createElement('link');
+          prefetchLink.rel = 'prefetch';
+          prefetchLink.href = link.href;
+          prefetchLink.as = 'document';
+          document.head.appendChild(prefetchLink);
         }
       });
+    });
   });
 </script>
-
-<!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "62e11a45a56d40ce895bac13e2ce70c9"}'></script>
-<!-- End Cloudflare Web Analytics -->
-
-<!-- Umami Web Analytics -->
-<script defer src="https://tongji.chiloh.com/script.js" data-website-id="dfe4d683-4b23-44ca-bd1d-52d08a15acf2"></script>
-<!-- End Umami Web Analytics -->
