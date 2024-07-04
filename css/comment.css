@@ -151,8 +151,9 @@ html[lang="en"] .gsc-reactions-count:after {
 }
 
 html[lang="en"] main{
-  font-family: "LXGW WenKai Screen R",Calibri,Arial,sans-serif;
-}s
+  font-family: 'LXGW WenKai Screen R', sans-serif;
+  letter-spacing: 0.5px;
+}
 
 .gsc-reply-content {
   padding-top: 0.9rem;
