@@ -25,7 +25,7 @@ hideHomeActive: true
 ## Follow Me
 
 - 微信：Y2hpbG9oLXdlaQ==
-- 邮件：Y2hpbG9od2VpQGdtYWlsLmNvbQ== （注：Base 64解码）
+- 邮件：bWVAY2hpbG9oLmNvbQ==（注：Base 64解码）
 - 公众号：搜索“魏奇洛”，或微信扫码关注
   
 <ul align="left">
