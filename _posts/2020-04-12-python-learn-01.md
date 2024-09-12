@@ -40,7 +40,7 @@ print("hello,\nchiloh wei!") # 换行符： \n
 print("Name:\n\tchiloh wei\n\tchiloh wei 2\n\tchiloh wei 3")
 
 # 删除空白
-text = " https://blog.chiloh.cn/ "
+text = " https://blog.chiloh.com/ "
 website = text.rstrip() # 删除字符串后面空白
 website2 = text.lstrip() # 删除字符串前面空白
 website3 = text.strip() # 删除字符串两端空白

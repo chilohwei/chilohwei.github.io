@@ -125,4 +125,4 @@ mysql -u 用户名 -p 密码 数据库名 < database.sql // 例如：mysql -u ro
 
 到了这一步，基本上就算是恢复成功了，剩下的就是解决其中可能遇到的杂七杂八的问题，如果没问题就不需要做太多处理了。
 
-**补充：**想要将备份好的文件，定期从服务器自动同步到云盘，可以参考：[数据 Rclone 定期同步](https://blog.chiloh.cn//2021-05-09/rclone-sync-database.html)
+**补充：**想要将备份好的文件，定期从服务器自动同步到云盘，可以参考：[数据 Rclone 定期同步](https://blog.chiloh.com//2021-05-09/rclone-sync-database.html)

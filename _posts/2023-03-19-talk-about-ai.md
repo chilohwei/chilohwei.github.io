@@ -34,7 +34,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 # 定义目标网址
-base_url = 'http://blog.chiloh.cn'
+base_url = 'http://blog.chiloh.com'
 page_url = '/page/'
 
 # 发起请求并获取总页数

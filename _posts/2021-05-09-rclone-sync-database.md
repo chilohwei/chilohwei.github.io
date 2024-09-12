@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "数据 Rclone 定期同步"
-summary: 上一篇文章：[Typecho 博客脚本备份与恢复](https://blog.chiloh.cn/archives/typecho-backup.html) 中有提到怎么用脚本定时备份网站数据库。今天来分享下如何使用Rclone将备份的数据，自动同步到Google云盘或者阿里云OSS等S3存储上。
+summary: 上一篇文章：[Typecho 博客脚本备份与恢复](https://blog.chiloh.com/archives/typecho-backup.html) 中有提到怎么用脚本定时备份网站数据库。今天来分享下如何使用Rclone将备份的数据，自动同步到Google云盘或者阿里云OSS等S3存储上。
 date: "2021-05-09"
 categories: "Tech"
 ---
 
-上一篇文章：[Typecho 博客脚本备份与恢复](https://blog.chiloh.cn/2019-07-13/typecho-backup.html) 中有提到怎么用脚本定时备份网站数据库。今天来分享下如何使用Rclone将备份的数据，自动同步到Google云盘或者阿里云OSS等S3存储上。
+上一篇文章：[Typecho 博客脚本备份与恢复](https://blog.chiloh.com/2019-07-13/typecho-backup.html) 中有提到怎么用脚本定时备份网站数据库。今天来分享下如何使用Rclone将备份的数据，自动同步到Google云盘或者阿里云OSS等S3存储上。
 
 ### 一、安装Rclone
 

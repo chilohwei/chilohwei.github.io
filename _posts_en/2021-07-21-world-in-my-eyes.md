@@ -56,6 +56,6 @@ My deepest experiences in this area are:
 - Now, when thinking about problems, I often have structural or cognitive thoughts that draw parallels from other domains.
     
     - For example, from a decentralized structure, I associate it with information equality, and then abstract it further to the transfer of rights to individuals.
-    - For example, from the cyclical transformation of the five elements, I associate it with energy circulation and transformation, leading to [energy, frequency, and channels](https://blog.chiloh.cn/2021-05-18/energy-world.html).
+    - For example, from the cyclical transformation of the five elements, I associate it with energy circulation and transformation, leading to [energy, frequency, and channels](https://blog.chiloh.com/2021-05-18/energy-world.html).
     - For example, from disruptive innovation, I associate it with the limit formula, where C is the boundary of the unknown variable x, and L is the true higher-dimensional world.
         ![20210721145112](https://chilohdata.s3.bitiful.net/blog/20210721145112.png "20210721145112")

@@ -99,7 +99,7 @@ Markdown 采用`|` 和 `-` 创建表格。其中 `-` 用于创建每个列的标
 | --- | --- |
 | `git status` | List all *new or modified* files |
 | `git diff` | Show file differences that **haven't been** staged |
-| `Blog Link` | <https://blog.chiloh.cn> |
+| `Blog Link` | <https://blog.chiloh.com> |
 ```
 
 **效果：**
@@ -108,7 +108,7 @@ Markdown 采用`|` 和 `-` 创建表格。其中 `-` 用于创建每个列的标
 | --- | --- |
 | `git status` | List all _new or modified_ files |
 | `git diff` | Show file differences that **haven't been** staged |
-| `Blog Link` | [https://blog.chiloh.cn](https://blog.chiloh.cn) |
+| `Blog Link` | [https://blog.chiloh.com](https://blog.chiloh.com) |
 
 在标题行中的 `-` 的左侧，右侧或两侧使用 `:` 来调整文本居左，居右或居中。
 

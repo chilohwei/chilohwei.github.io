@@ -16,7 +16,7 @@ categories: "Share"
 
 从 ChatGPT 出圈之后，第一时间就关注并参与到了其中，自己也参考 Github 上的开源项目部署了一个网站提供给身边的好友使用：
 
-- [ChatWeb](https://chat.chiloh.cn)
+- [ChatWeb](https://chat.chiloh.com)
 
 ![Chiloh's ChatWeb Screenshot](https://chilohdata.s3.bitiful.net/blog/chatweb.png)
 
