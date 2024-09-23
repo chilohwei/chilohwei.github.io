@@ -6,7 +6,7 @@ layout: none
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chiloh's Blog</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}feedId:54785483072543744+userId:41393039261997056</description>
+    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
     <image>
       <url>https://chilohdata.s3.bitiful.net/avatar.png</url>
     </image>
