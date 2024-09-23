@@ -21,6 +21,10 @@ layout: none
       <link>{{ site.url }}{{ post.url }}</link>
       <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
     </item>
+    <follow_challenge>
+      <feedId>54785483072543744</feedId>
+      <userId>41393039261997056</userId>
+    </follow_challenge>
     {% endif %}
 		{% endfor %}
   </channel>
