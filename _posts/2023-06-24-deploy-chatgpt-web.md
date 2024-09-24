@@ -30,7 +30,7 @@ categories: "Tech"
 
 > 以下方案默认您可以连接 Github，并且知道如何使用最基本的 Linux 操作指令。如您不清楚，可以网上搜索学习或者咨询作者：
 > 
-> - Email：[chilohwei@gmail.com](mailto:chilohwei@gmail.com)
+> - Email：[me@chiloh.com](mailto:me@chiloh.com)
 
 这个方案适用于有自己服务器的小伙伴，可以直接借助 Docker 和 Nginx Proxy Manager ，采用下面的开源方案来部署：
 

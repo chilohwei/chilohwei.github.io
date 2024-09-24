@@ -16,18 +16,18 @@ categories: "Share"
 
 从 ChatGPT 出圈之后，第一时间就关注并参与到了其中，自己也参考 Github 上的开源项目部署了一个网站提供给身边的好友使用：
 
-- [ChatWeb](https://chat.chiloh.com)
-
 ![Chiloh's ChatWeb Screenshot](https://chilohdata.s3.bitiful.net/blog/chatweb.png)
 
 也亲自参与并实践了许多，比如：
 
-> 案例 1：作为一个不懂代码开发的普通人，想要实现一个功能：在本地浏览器给图片加水印，水印可以调整颜色，透明度和倾斜角度，可以实时预览。借助 ChatGPT 写一个给图片加水印的在线网站：[Watermark](https://watermark.chiloh.net)
+> 案例 1：作为一个不懂代码开发的普通人，想要实现一个功能：在本地浏览器给图片加水印，水印可以调整颜色，透明度和倾斜角度，可以实时预览。借助 ChatGPT 写一个给图片加水印的在线网站：
 
 <video width="100%" height="auto" controls="">
   <source src="https://chilohdata.s3.bitiful.net/weekly/watermark.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+后来随着对AI的熟悉，又更新了一版：[水印宝](https://watermark.chiloh.cn)
 
 > 案例 2：作为一个不懂爬虫代码的普通人，想要实现一个功能：模拟浏览器点击操作，来抓取指定网站的特定链接
 

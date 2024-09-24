@@ -18,7 +18,7 @@ categories: "Tech"
 
 ## 代码实现
 
-代码已经开源：[chilohwei/app-comments](https://github.com/chilohwei/app-comments)，之后应该还会再优化完善。[访问Demo网址](https://apps.chiloh.com)
+代码已经开源：[chilohwei/app-comments](https://github.com/chilohwei/app-comments)，之后应该还会再优化完善。
 
 核心是以下这2个文件：
 
