@@ -1,13 +1,13 @@
 {
-  "name": "tw93",
-  "author": "Tw93<tw93@qq.com>",
-  "homepage": "https://tw93.fun",
+  "name": "chiloh",
+  "author": "Chiloh<me@chiloh.com>",
+  "homepage": "https://blog.chiloh.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tw93/tw93.github.io"
+    "url": "https://github.com/chilohwei/chilohwei.github.io"
   },
   "bugs": {
-    "url": "https://github.com/tw93/tw93.github.io/issues"
+    "url": "https://github.com/chilohwei/chilohwei.github.io/issues"
   },
   "scripts": {
     "prep": "gem install bundler && bundle install",
