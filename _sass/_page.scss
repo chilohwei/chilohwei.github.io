@@ -195,7 +195,7 @@ iframe {
       padding: 20px 30px;
     }
     @media #{$large} {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 30px auto 30px auto;
       padding: 32px 80px 70px;
       > p:first-child {
@@ -215,7 +215,7 @@ iframe {
       padding: 20px 30px;
     }
     @media #{$large} {
-      max-width: 900px;
+      max-width: 1200px;
       padding: 50px 80px;
       margin: 0 auto 30px auto;
     }
@@ -306,7 +306,7 @@ iframe {
     padding: 50px 40px 25px;
   }
   @media #{$large} {
-    max-width: 900px;
+    max-width: 1200px;
     padding: 50px 80px;
     margin: 50px auto 48px;
   }
@@ -369,7 +369,7 @@ iframe {
       margin: 20px;
     }
     @media #{$large} {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 30px auto 0;
     }
   }
@@ -484,7 +484,7 @@ iframe {
     height: 100%;
     padding: 0;
     @media #{$large} {
-      max-width: 950px;
+      max-width: 1250px;
     }
   }
 }

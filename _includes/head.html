@@ -9,6 +9,36 @@
   <!-- Viewport and Theme Color -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#FFFFFF">
+  
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' 
+      https://gw.alipayobjects.com 
+      https://www.googletagmanager.com 
+      https://hm.baidu.com 
+      https://tongji.chiloh.com;
+    style-src 'self' 'unsafe-inline' 
+      https://gw.alipayobjects.com 
+      https://fonts.loli.net;
+    img-src 'self' data: 
+      https://chilohdata.s3.bitiful.net 
+      https://gw.alipayobjects.com 
+      https://gw.alicdn.com 
+      https://cdn.fliggy.com;
+    font-src 'self' 
+      https://gw.alipayobjects.com 
+      https://fonts.loli.net;
+    connect-src 'self' 
+      https://tongji.chiloh.com 
+      https://hm.baidu.com 
+      https://www.google-analytics.com;
+    frame-src 'none';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+  ">
 
   <!-- Open Graph Metadata -->
   <meta property="og:locale" content="{{ site.lang }}">
@@ -36,16 +66,44 @@
   <!-- Canonical URL -->
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove: 'index.html' | strip_slash }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
+  
+  <!-- Hreflang for multilingual support -->
+  {% if page.layout == 'post' %}
+    {% assign post_name = page.path | remove: '_posts/' | remove: '_posts_en/' | remove: '.md' %}
+    {% for post in site.posts %}
+      {% assign other_post_name = post.path | remove: '_posts/' | remove: '.md' %}
+      {% if other_post_name == post_name %}
+        <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}{{ post.url }}" />
+      {% endif %}
+    {% endfor %}
+    {% for post in site.posts_en %}
+      {% assign other_post_name = post.path | remove: '_posts_en/' | remove: '.md' %}
+      {% if other_post_name == post_name %}
+        <link rel="alternate" hreflang="en-US" href="{{ site.url }}{{ post.url }}" />
+      {% endif %}
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ canonical }}" />
+  {% else %}
+    <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}/" />
+    <link rel="alternate" hreflang="en-US" href="{{ site.url }}/en/" />
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
+  {% endif %}
 
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="{{ site.url }}/css/index.css" as="style">
+  <link rel="preload" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" as="style" crossorigin="anonymous">
+  
   <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.url }}/css/index.css">
   <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" as="font" crossorigin="anonymous">
 
   {% if page.lang == 'en-US' %}
- <link href="https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap" as="style">
+  <link href="https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap" rel="stylesheet">
   {% endif %}
 
   {% if page.layout == "post" %}
+  <link rel="preload" href="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" as="script">
   <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>
   {% endif %}
 
@@ -57,6 +115,69 @@
   <meta name="MobileOptimized" content="320">
   <meta http-equiv="cleartype" content="on">
   <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
+    {% if page.layout == 'post' %}
+    "headline": "{{ page.title | xml_escape }}",
+    "description": "{% if page.summary %}{{ page.summary | xml_escape }}{% else %}{{ page.content | strip_html | truncate: 160 | xml_escape }}{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chilohdata.s3.bitiful.net/avatar.png"
+      }
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "url": "{{ site.url }}{{ page.url }}",
+    {% if page.feature %}
+    "image": "{{ page.feature }}",
+    {% else %}
+    "image": "https://chilohdata.s3.bitiful.net/avatar.png",
+    {% endif %}
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    },
+    {% if page.categories %}
+    "articleSection": "{{ page.categories | first }}",
+    {% endif %}
+    "inLanguage": "{{ page.lang | default: site.lang }}"
+    {% else %}
+    "name": "{{ site.title }}",
+    "description": "{{ site.description | xml_escape }}",
+    "url": "{{ site.url }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chilohdata.s3.bitiful.net/avatar.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ site.url }}/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+    {% endif %}
+  }
+  </script>
 
   <!-- Baidu Web Analytics -->
   <script>

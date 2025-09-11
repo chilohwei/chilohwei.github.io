@@ -2,21 +2,24 @@
 {% if page.hideHomeActive %}
 {% assign homeActive = nil %}
 {% endif %}
-<div class="header-menu" id="J_header">
+<!-- Skip to main content link for screen readers -->
+<a href="#main" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+
+<div class="header-menu" id="J_header" role="navigation" aria-label="Main navigation">
   <ul class="header-item-container">
     <li class="header-item-title {{homeActive}}">
       {% if page.url contains '/en/' %}
-      <a href="{{site.url}}/en" class="title"> {{ site.title }}</a>
+      <a href="{{site.url}}/en" class="title" aria-label="Home page"> {{ site.title }}</a>
       {% else %}
-      <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
+      <a href="{{site.url}}/" class="title" aria-label="Home page"> {{ site.title }}</a>
       {% endif %}
     </li>
 
     <!-- 语言切换链接 -->
     {% if page.url contains '/en/' %}
-    <li class="header-item language-switch"><a href="{{ site.url }}/"><span>🇨🇳</span> CN</span></a></li>
+    <li class="header-item language-switch"><a href="{{ site.url }}/" aria-label="Switch to Chinese version"><span role="img" aria-label="China flag">🇨🇳</span> CN</a></li>
     {% else %}
-    <li class="header-item language-switch"><a href="{{ site.url }}/en/"><span>🇬🇧</span> EN</span></a></li>
+    <li class="header-item language-switch"><a href="{{ site.url }}/en/" aria-label="Switch to English version"><span role="img" aria-label="UK flag">🇬🇧</span> EN</a></li>
     {% endif %}
 
     {% for menu in site.menu reversed %}
@@ -29,7 +32,7 @@
     <li class="header-item {{class}}"><a href="{{menu.url}}" target="_blank">{{ menu.title }}</a></li>
     {% else %}
     {% if page.url contains '/en/' %}
-    <li class="header-item {{class}}"><a href="{{site.url}}/en/{{menu.url}}">{{ menu.title }}</a></li>
+    <li class="header-item {{class}}"><a href="{{site.url}}/en{{ menu.url }}">{{ menu.title }}</a></li>
     {% else %}
     <li class="header-item {{class}}"><a href="{{site.url}}{{menu.url}}">{{ menu.title }}</a></li>
     {% endif %}

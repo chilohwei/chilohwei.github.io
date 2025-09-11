@@ -63,6 +63,25 @@ figure.center{
 figure.center img{
   float: none;
 }
+// Skip Link for Accessibility
+// --------------------------------------------------
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $primary;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+  font-size: 14px;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
 // Buttons
 // --------------------------------------------------
 .btn {

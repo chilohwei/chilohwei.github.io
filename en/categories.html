@@ -1,0 +1,53 @@
+---
+layout: home
+title: Categories
+description: "An archive of posts sorted by category."
+comments: false
+hideHomeActive: true
+lang: en-US
+---
+
+{% comment %}
+English version of categories page - uses posts_en collection
+Maintains exact same structure and styling as Chinese version
+{% endcomment %}
+
+{% comment %} Use exact same logic as Chinese version but for English posts {% endcomment %}
+{% capture site_cats_en %}{% for post in site.posts_en %}{% if post.categories %}{{ post.categories | first }}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}{% endcapture %}
+{% assign cats_list_en = site_cats_en | split:',' | sort | uniq %}
+
+<ul class="entry-meta inline-list">
+  {% for item in (0..cats_list_en.size) %}
+  {% unless forloop.last %}
+  {% capture this_word %}{{ cats_list_en[item] | strip_newlines }}{% endcapture %}
+  {% if this_word != "" %}
+  <li>
+    <a href="#{{ this_word }}" class="tag">
+      <span class="term">{{ this_word }}</span>
+      <span class="count">{% assign count = 0 %}{% for post in site.posts_en %}{% if post.categories contains this_word %}{% assign count = count | plus: 1 %}{% endif %}{% endfor %}{{ count }}</span>
+    </a>
+  </li>
+  {% endif %}
+  {% endunless %}
+  {% endfor %}
+</ul>
+
+{% for item in (0..cats_list_en.size) %}{% unless forloop.last %}
+{% capture this_word %}{{ cats_list_en[item] | strip_newlines }}{% endcapture %}
+{% if this_word != "" %}
+<span class="anchor-bookmark" id="{{ this_word }}"></span>
+<article>
+  <h2 class="tag-heading">{{ this_word }}</h2>
+  <ul class="tag-list">
+    {% for post in site.posts_en %}
+    {% if post.categories contains this_word and post.title != null and post.hide != true %}
+    <li class="entry-title">
+      <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+        <span class="tag-time">【{{ post.date | date: "%Y-%m-%d" }}】</span>{{post.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</article>
+{% endif %}
+{% endunless %}
+{% endfor %}

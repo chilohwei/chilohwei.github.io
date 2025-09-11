@@ -13,10 +13,10 @@
     "prep": "gem install bundler && bundle install",
     "dev": "bundle exec jekyll serve --watch --trace",
     "start": "npm run dev",
-    "build": "bundle exec jekyll build",
-    "min": "uglifyjs ./js/index.js -o ./js/index.min.js  --comments all"
+    "build": "JEKYLL_ENV=production bundle exec jekyll build && npm run min",
+    "min": "terser ./js/index.js -o ./js/index.min.js -c -m"
   },
   "devDependencies": {
-    "uglify-js": "^2.7.5"
+    "terser": "^5.15.1"
   }
 }

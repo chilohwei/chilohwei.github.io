@@ -2,30 +2,39 @@
 layout: none
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
-  xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
   <channel>
-    <title>Chiloh's Blog</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <image>
-      <url>https://chilohdata.s3.bitiful.net/avatar.png</url>
-    </image>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.posts limit:10 %}
-    {% if post.hide != true %}
+    <language>{{ site.lang | default: 'zh-CN' }}</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    <image>
+      <url>https://chilohdata.s3.bitiful.net/avatar.png</url>
+      <title>{{ site.title | xml_escape }}</title>
+      <link>{{ site.url }}</link>
+    </image>
+    
+    {% for post in site.posts limit:10 %}
+    {% unless post.hide %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
-      <description>{{ post.content | xml_escape }}</description>
-      <pubDate>{{ post.date | date: "%Y-%m-%d" }}</pubDate>
+      <description>{{ post.content | xml_escape | truncate: 500 }}</description>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       <link>{{ site.url }}{{ post.url }}</link>
       <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+      {% if post.categories %}
+      {% for category in post.categories %}
+      <category>{{ category | xml_escape }}</category>
+      {% endfor %}
+      {% endif %}
+      {% if post.summary %}
+      <summary>{{ post.summary | xml_escape }}</summary>
+      {% endif %}
     </item>
-    <follow_challenge>
-      <feedId>54785483072543744</feedId>
-      <userId>41393039261997056</userId>
-    </follow_challenge>
-    {% endif %}
-		{% endfor %}
+    {% endunless %}
+    {% endfor %}
   </channel>
 </rss>

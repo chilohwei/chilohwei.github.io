@@ -1,0 +1,59 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Run every Monday at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Update Ruby dependencies
+        run: |
+          bundle update
+          bundle outdated || true
+
+      - name: Update Node.js dependencies
+        run: |
+          npm update
+          npm outdated || true
+
+      - name: Test build
+        run: |
+          bundle exec jekyll build
+          npm run min
+        env:
+          JEKYLL_ENV: production
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update dependencies'
+          title: 'chore: update dependencies'
+          body: |
+            This PR updates Ruby and Node.js dependencies.
+            
+            - Updated Ruby gems via `bundle update`
+            - Updated npm packages via `npm update`
+            - Build tested successfully
+            
+            Please review and merge if all checks pass.
+          branch: update-dependencies
+          delete-branch: true

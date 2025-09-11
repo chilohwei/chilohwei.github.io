@@ -1,34 +1,51 @@
 /**
- * Created by Tw93 on 2017/1/31.
+ * Modern JavaScript for blog functionality
+ * Enhanced for better performance and compatibility
  */
-window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (!isPC()) {
+  // Use modern feature detection instead of user agent sniffing
+  if (!hasPointerDevice() || window.innerWidth < 768) {
     return;
   }
-  var beforeScrollTop = document.documentElement.scrollTop;
-  document.addEventListener("scroll", function () {
-    var afterScrollTop = document.documentElement.scrollTop;
-    var delta = afterScrollTop - beforeScrollTop;
-    document.getElementById("J_header").setAttribute('class', (delta > 0 && afterScrollTop > 0) ? 'header-menu header-menu-overflow' : 'header-menu');
+  let beforeScrollTop = document.documentElement.scrollTop;
+  let ticking = false;
+  
+  function updateHeader() {
+    const afterScrollTop = document.documentElement.scrollTop;
+    const delta = afterScrollTop - beforeScrollTop;
+    const header = document.getElementById("J_header");
+    
+    if (header) {
+      header.className = (delta > 0 && afterScrollTop > 0) ? 
+        'header-menu header-menu-overflow' : 
+        'header-menu';
+    }
+    
     beforeScrollTop = afterScrollTop;
-  });
+    ticking = false;
+  }
+  
+  document.addEventListener("scroll", function () {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
 
-  var width = window.innerWidth;
-  var height = 260;
+  const width = window.innerWidth;
+  const height = 260;
 
-  var canvas = document.getElementById('J_firework_canvas');
+  const canvas = document.getElementById('J_firework_canvas');
+  if (!canvas) return;
+  
   canvas.width = width;
   canvas.height = height;
-  var ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-  var points = [];
-
-  var mouse = {
-    x: 0,
-    y: 9999,
-  };
+  const points = [];
+  const mouse = { x: 0, y: 9999 };
 
   function Point(x, y, speed, width, color) {
     this.x = x;
@@ -65,82 +82,100 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function drawFirework() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < 5; i++) {
-      var posX = mouse.x + Math.random() * 10;
-      var posY = mouse.y + Math.random() * 10;
-
+    
+    // Add new particles
+    for (let i = 0; i < 5; i++) {
+      const posX = mouse.x + Math.random() * 10;
+      const posY = mouse.y + Math.random() * 10;
       points.push(new Point(posX, posY, 1 + Math.random() * 2, 5, 'white'));
     }
 
-    for (var i in points) {
-      if (points[i].active) {
-        points[i].draw();
-        points[i].physx();
+    // Update and draw existing particles
+    for (let i = points.length - 1; i >= 0; i--) {
+      const point = points[i];
+      if (point.active) {
+        point.draw();
+        point.physx();
+      } else {
+        points.splice(i, 1);
       }
     }
+    
     requestAnimationFrame(drawFirework);
   }
 
   drawFirework();
 
-  document.onmousemove = function (e) {
+  document.addEventListener('mousemove', (e) => {
     mouse.x = e.pageX;
     mouse.y = e.pageY;
-  }
-  document.onmouseout = function (e) {
+  }, { passive: true });
+  
+  document.addEventListener('mouseleave', () => {
     mouse.x = 0;
     mouse.y = 9999;
+  });
+
+
+  // QR Code generation
+  const qrTextEl = document.getElementById('J_qr_text');
+  const isShowQr = qrTextEl && qrTextEl.offsetParent;
+  
+  if (isShowQr) {
+    loadScript('https://gw.alipayobjects.com/os/k/qa/qrcode.min.js')
+      .then(() => {
+        if (window.QRCode) {
+          const qrContainer = document.getElementById("J_qr_code");
+          if (qrContainer) {
+            new QRCode(qrContainer, {
+              width: 128,
+              height: 128,
+              useSVG: true,
+              text: window.location.href,
+              correctLevel: QRCode.CorrectLevel.L
+            });
+          }
+        }
+      })
+      .catch(console.error);
   }
 
-
-  var qrTextEl = document.getElementById('J_qr_text');
-  var isShowQr = qrTextEl && qrTextEl.offsetParent;
-  isShowQr && loadScript('https://gw.alipayobjects.com/os/k/qa/qrcode.min.js', function () {
-    QRCode && new QRCode(document.getElementById("J_qr_code"), {
-      width: 128,
-      height: 128,
-      useSVG: true,
-      text: window.location.href,
-      correctLevel: QRCode.CorrectLevel.L
-    });
-  });
-
-  var zoomImgs = document.querySelectorAll('.entry-content img');
-  (zoomImgs && zoomImgs.length > 0) && loadScript("https://gw.alipayobjects.com/os/k/x5/intense.min.js", function () {
-    Intense && Intense(zoomImgs);
-  });
+  // Image zoom functionality
+  const zoomImgs = document.querySelectorAll('.entry-content img');
+  if (zoomImgs.length > 0) {
+    loadScript("https://gw.alipayobjects.com/os/k/x5/intense.min.js")
+      .then(() => {
+        if (window.Intense) {
+          Intense(zoomImgs);
+        }
+      })
+      .catch(console.error);
+  }
 }, false);
 
 
-function isPC() {
-  var userAgentInfo = navigator.userAgent;
-  var Agents = ["Android", "iPhone", "Windows Phone", "iPad", "iPod"];
-  var flag = true;
-  for (var v = 0; v < Agents.length; v++) {
-    if (userAgentInfo.indexOf(Agents[v]) > 0) {
-      flag = false;
-      break;
-    }
-  }
-  return flag;
+// Modern feature detection instead of user agent sniffing
+function hasPointerDevice() {
+  return window.matchMedia && window.matchMedia('(pointer: fine)').matches;
 }
 
-function loadScript(url, callback) {
-  var script = document.createElement("script")
-  script.type = "text/javascript";
-  if (script.readyState) {
-    script.onreadystatechange = function () {
-      if (script.readyState == "loaded" ||
-        script.readyState == "complete") {
-        script.onreadystatechange = null;
-        callback();
-      }
-    };
-  } else {
-    script.onload = function () {
-      callback();
-    };
-  }
-  script.src = url;
-  document.body.appendChild(script);
+// Modern script loading with Promise support
+function loadScript(url) {
+  return new Promise((resolve, reject) => {
+    // Check if script already loaded
+    if (document.querySelector(`script[src="${url}"]`)) {
+      resolve();
+      return;
+    }
+    
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = url;
+    
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
+    
+    document.head.appendChild(script);
+  });
 }
