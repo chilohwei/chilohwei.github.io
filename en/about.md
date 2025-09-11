@@ -32,4 +32,4 @@ The blogger's surname is Wei, and the English name he gave himself when he joine
     <img src="https://chilohdata.s3.bitiful.net/qrcode.jpg" alt="QR code for Chiloh Wei's official account" style="width: 15%; height: auto;"/>
 </ul>
 
-- Others: [Weibo](https://weibo.com/u/7873805545), [Twitter](https://twitter.com/chiloh_cn), [Github](https://github.com/chilohwei)
+- Others: [Weibo](https://weibo.com/u/7873805545), [Twitter](https://twitter.com/chiloh_wei), [Github](https://github.com/chilohwei)

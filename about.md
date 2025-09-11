@@ -32,4 +32,4 @@ hideHomeActive: true
     <img src="https://chilohdata.s3.bitiful.net/qrcode.jpg" alt="魏奇洛的公众号二维码" style="width: 15%; height: auto;"/>
 </ul>
 
-- 其他：[Weibo](https://weibo.com/u/7873805545)、[Twitter](https://twitter.com/chiloh_cn)、[Github](https://github.com/chilohwei)
+- 其他：[Weibo](https://weibo.com/u/7873805545)、[Twitter](https://twitter.com/chiloh_wei)、[Github](https://github.com/chilohwei)
