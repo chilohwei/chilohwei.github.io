@@ -9,18 +9,37 @@
     </a>
 </div>
 <div id="payment-codes" style="display:none; text-align: center; margin-top: 20px;">
-    <div style="display: inline-block; vertical-align: top; margin: 0 5px; max-width: 45%;">
-        <img src="https://chilohdata.s3.bitiful.net/wechat.png" alt="微信支付" style="width: 100%; height: auto; max-width: 150px;">
-        <p style="margin-top: 5px; color: #555; font-size: 0.8em;">微信支付</p>
+    <div style="display: inline-block; vertical-align: top; margin: 0 10px; max-width: 30%;">
+        <img src="https://chilohdata.s3.bitiful.net/wechat.png?x-oss-process=image/resize,w_200" 
+             data-original="https://chilohdata.s3.bitiful.net/wechat.png" 
+             alt="微信支付" 
+             class="qr-payment-img" 
+             style="width: 100%; height: auto; max-width: 180px; cursor: zoom-in;">
+        <p style="margin-top: 10px; color: #555; font-size: 0.9em; font-weight: 500;">💚 微信支付</p>
     </div>
-    <div style="display: inline-block; vertical-align: top; margin: 0 5px; max-width: 45%;">
-        <img src="https://chilohdata.s3.bitiful.net/zfb.png" alt="支付宝" style="width: 100%; height: auto; max-width: 150px;">
-        <p style="margin-top: 5px; color: #555; font-size: 0.8em;">支付宝</p>
+    <div style="display: inline-block; vertical-align: top; margin: 0 10px; max-width: 30%;">
+        <img src="https://chilohdata.s3.bitiful.net/zfb.png?x-oss-process=image/resize,w_200" 
+             data-original="https://chilohdata.s3.bitiful.net/zfb.png" 
+             alt="支付宝" 
+             class="qr-payment-img" 
+             style="width: 100%; height: auto; max-width: 180px; cursor: zoom-in;">
+        <p style="margin-top: 10px; color: #555; font-size: 0.9em; font-weight: 500;">💙 支付宝</p>
     </div>
-    <!-- 添加新的div元素 -->
-    <div style="text-align: center; margin-top: 10px;">
-        <span style="color: darkred; font-size: 1em;">联系我：</span>
-        <a href="mailto:me@chiloh.com" style="color: darkred; text-decoration: none;">me@chiloh.com</a>
+</div>
+
+<!-- 优化的二维码大图查看器 -->
+<div id="qr-image-viewer" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.92); z-index: 9999; cursor: zoom-out; backdrop-filter: blur(8px);" onclick="closeQRViewer()">
+    <!-- 居中容器 -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 90vw; max-height: 90vh;">
+        <!-- 二维码图片容器 -->
+        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center;">
+            <img id="qr-viewer-img" src="" alt="二维码" style="display: block; width: auto; height: auto; max-width: min(500px, 70vw); max-height: min(500px, 70vh); object-fit: contain;">
+        </div>
+        <!-- 提示文字 -->
+        <div style="margin-top: 24px; color: white; font-size: 15px; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); line-height: 1.6;">
+            <div style="font-weight: 500; margin-bottom: 8px;">📱 请用手机扫描二维码</div>
+            <div style="font-size: 13px; opacity: 0.85;">点击任意位置或按 ESC 键关闭</div>
+        </div>
     </div>
 </div>
 {% endif %}
@@ -30,8 +49,113 @@ function togglePaymentCodes() {
     var paymentCodesDiv = document.getElementById('payment-codes');
     if (paymentCodesDiv.style.display === 'none') {
         paymentCodesDiv.style.display = 'block';
+        // 添加图片点击事件监听
+        setTimeout(() => {
+            const qrImages = document.querySelectorAll('.qr-payment-img');
+            qrImages.forEach(img => {
+                img.onclick = function(e) {
+                    e.stopPropagation();
+                    showQRViewer(this);
+                };
+            });
+        }, 100);
     } else {
         paymentCodesDiv.style.display = 'none';
     }
 }
+
+function showQRViewer(imgElement) {
+    const viewer = document.getElementById('qr-image-viewer');
+    const viewerImg = document.getElementById('qr-viewer-img');
+    // 使用原始大图地址，如果没有则使用当前图片地址
+    const originalSrc = imgElement.dataset.original || imgElement.src.split('?')[0];
+    // 使用 dpr=0.5 进行 50% 等比缩放，不裁剪
+    // 不指定 w/h，直接使用 dpr 对原图进行缩放
+    const scaledSrc = originalSrc + '?dpr=0.5';
+    viewerImg.src = scaledSrc;
+    viewer.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQRViewer() {
+    const viewer = document.getElementById('qr-image-viewer');
+    viewer.style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+// ESC 键关闭
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeQRViewer();
+    }
+});
 </script>
+
+<style>
+.qr-payment-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+.qr-payment-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#qr-image-viewer {
+    animation: fadeIn 0.25s ease-out;
+}
+
+#qr-image-viewer > div {
+    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    #payment-codes > div {
+        max-width: 45% !important;
+        margin: 0 5px !important;
+    }
+    
+    #qr-viewer-img {
+        max-width: min(400px, 80vw) !important;
+        max-height: 60vh !important;
+    }
+    
+    #qr-image-viewer > div > div {
+        padding: 20px !important;
+    }
+}
+
+/* 小屏幕优化 */
+@media (max-width: 480px) {
+    #qr-viewer-img {
+        max-width: min(300px, 85vw) !important;
+        max-height: 55vh !important;
+    }
+    
+    #qr-image-viewer > div > div {
+        padding: 15px !important;
+    }
+}
+</style>
