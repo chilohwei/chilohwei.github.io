@@ -29,14 +29,21 @@ module Jekyll
     def optimize_image_url(src)
       case src
       when /^https:\/\/(cdn\.fliggy\.com|gw\.alipayobjects\.com)/
-        # Alibaba Cloud OSS optimization
-        "#{src}?x-oss-process=image/resize,w_1200/format,webp/quality,q_85"
+        # Alibaba Cloud OSS optimization with AVIF support
+        # AVIF provides better compression than WebP
+        "#{src}?x-oss-process=image/resize,w_1200/format,avif/quality,q_80"
       when /^https:\/\/chilohdata\.s3\.bitiful\.net/
-        # S3-compatible storage optimization (add WebP if supported)
-        src # Keep original for now, could add CloudFront transformations
+        # S3-compatible storage optimization
+        # BitiFul supports image processing parameters
+        if src.include?('?')
+          src # Already has parameters, keep as is
+        else
+          "#{src}?x-oss-process=image/resize,w_1200/format,webp/quality,q_85"
+        end
       when /^https:\/\/(images\.unsplash\.com|cdn\.pixabay\.com)/
         # Third-party image services
-        "#{src}&w=1200&q=85&fm=webp&fit=max"
+        # Try AVIF first, fallback to WebP in browser
+        "#{src}&w=1200&q=85&fm=avif&fit=max"
       else
         src # Return original if no optimization available
       end

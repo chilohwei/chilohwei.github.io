@@ -17,7 +17,6 @@
     "min": "terser ./js/index.js -o ./js/index.min.js -c -m"
   },
   "devDependencies": {
-    "terser": "^5.15.1",
-    "uglify-js": "^3.19.3"
+    "terser": "^5.15.1"
   }
 }

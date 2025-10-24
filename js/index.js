@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const points = [];
   const mouse = { x: 0, y: 9999 };
+  let animationFrameId = null;
 
   function Point(x, y, speed, width, color) {
     this.x = x;
@@ -101,10 +102,34 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     
-    requestAnimationFrame(drawFirework);
+    animationFrameId = requestAnimationFrame(drawFirework);
   }
 
-  drawFirework();
+  // Optimize: pause animation when page is hidden
+  function startAnimation() {
+    if (!animationFrameId) {
+      drawFirework();
+    }
+  }
+
+  function stopAnimation() {
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+  }
+
+  // Start animation
+  startAnimation();
+
+  // Pause animation when page is not visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAnimation();
+    } else {
+      startAnimation();
+    }
+  });
 
   document.addEventListener('mousemove', (e) => {
     mouse.x = e.pageX;

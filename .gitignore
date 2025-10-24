@@ -8,3 +8,9 @@ node_modules
 _config.gh-pages.yml
 .jekyll-cache
 .vscode
+.jekyll-metadata
+.specstory/
+.cursorindexingignore
+*.log
+.bundle/
+vendor/

@@ -60,8 +60,14 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     //Optimize letter spacing
-    const heti = new Heti(".heti");
-    heti.autoSpacing();
+    if (typeof Heti !== 'undefined') {
+      try {
+        const heti = new Heti(".heti");
+        heti.autoSpacing();
+      } catch (error) {
+        console.warn('Heti spacing failed:', error);
+      }
+    }
 
     // Jump out
     const links = document.links;
@@ -74,12 +80,8 @@
       }
     }
 
-    // The second image is the cover image, both of which could do with some optimization
-    const images = document.querySelectorAll('.entry-content img');
-    images.forEach((img, index) => {
-      img.setAttribute('loading', 'lazy');
-      img.setAttribute('decoding', 'async');
-    });
+    // Image lazy loading is already handled by cdn_image_filter.rb plugin
+    // No need to set attributes again here
 
     // Full screen button
     const fullscreenBtn = document.getElementById("fullscreenBtn");

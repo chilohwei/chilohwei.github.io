@@ -1,78 +1,49 @@
 {% if site.showBuyCoffee != false %}
-<div class="coffee" style="text-align: center; margin-bottom: 30px;">
-    <a class="buy-me-coffee" href="#" onclick="togglePaymentCodes(); return false;">
-        {% if page.lang == 'en-US' %}
-        Like the article❤️
+<div class="coffee">
+    <button class="buy-me-coffee" 
+            type="button"
+            onclick="showQRViewer(); return false;"
+            aria-label="{% if page.lang == 'en-US' or page.url contains '/en/' %}Show payment information{% else %}显示支付二维码{% endif %}">
+        {% if page.lang == 'en-US' or page.url contains '/en/' %}
+        Buy me coffee ☕
         {% else %}
         喜欢文章 → 赞赏我❤️
         {% endif %}
-    </a>
-</div>
-<div id="payment-codes" style="display:none; text-align: center; margin-top: 20px;">
-    <div style="display: inline-block; vertical-align: top; margin: 0 10px; max-width: 30%;">
-        <img src="https://chilohdata.s3.bitiful.net/wechat.png?x-oss-process=image/resize,w_200" 
-             data-original="https://chilohdata.s3.bitiful.net/wechat.png" 
-             alt="微信支付" 
-             class="qr-payment-img" 
-             style="width: 100%; height: auto; max-width: 180px; cursor: zoom-in;">
-        <p style="margin-top: 10px; color: #555; font-size: 0.9em; font-weight: 500;">💚 微信支付</p>
-    </div>
-    <div style="display: inline-block; vertical-align: top; margin: 0 10px; max-width: 30%;">
-        <img src="https://chilohdata.s3.bitiful.net/zfb.png?x-oss-process=image/resize,w_200" 
-             data-original="https://chilohdata.s3.bitiful.net/zfb.png" 
-             alt="支付宝" 
-             class="qr-payment-img" 
-             style="width: 100%; height: auto; max-width: 180px; cursor: zoom-in;">
-        <p style="margin-top: 10px; color: #555; font-size: 0.9em; font-weight: 500;">💙 支付宝</p>
-    </div>
+    </button>
 </div>
 
 <!-- 优化的二维码大图查看器 -->
-<div id="qr-image-viewer" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.92); z-index: 9999; cursor: zoom-out; backdrop-filter: blur(8px);" onclick="closeQRViewer()">
-    <!-- 居中容器 -->
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 90vw; max-height: 90vh;">
-        <!-- 二维码图片容器 -->
-        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center;">
-            <img id="qr-viewer-img" src="" alt="二维码" style="display: block; width: auto; height: auto; max-width: min(500px, 70vw); max-height: min(500px, 70vh); object-fit: contain;">
+<div id="qr-image-viewer" onclick="closeQRViewer()">
+    <div>
+        <div class="qr-viewer-container">
+            <!-- 微信和支付宝二维码 - 中英文 -->
+            <div class="qr-code-item">
+                <img src="https://chilohdata.s3.bitiful.net/wechat.png?dpr=0.5" 
+                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}WeChat Pay QR code{% else %}微信支付二维码{% endif %}">
+                <p class="qr-code-label">💚 {% if page.lang == 'en-US' or page.url contains '/en/' %}WeChat{% else %}微信支付{% endif %}</p>
+            </div>
+            <div class="qr-code-item">
+                <img src="https://chilohdata.s3.bitiful.net/zfb.png?dpr=0.5" 
+                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}Alipay QR code{% else %}支付宝二维码{% endif %}">
+                <p class="qr-code-label">💙 {% if page.lang == 'en-US' or page.url contains '/en/' %}Alipay{% else %}支付宝{% endif %}</p>
+            </div>
         </div>
-        <!-- 提示文字 -->
-        <div style="margin-top: 24px; color: white; font-size: 15px; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); line-height: 1.6;">
-            <div style="font-weight: 500; margin-bottom: 8px;">📱 请用手机扫描二维码</div>
-            <div style="font-size: 13px; opacity: 0.85;">点击任意位置或按 ESC 键关闭</div>
+        <div class="qr-viewer-hint">
+            {% if page.lang == 'en-US' or page.url contains '/en/' %}
+            <div class="qr-viewer-hint-title">💖 Thank you for your support</div>
+            <div class="qr-viewer-hint-subtitle">Click anywhere or press ESC to close</div>
+            {% else %}
+            <div class="qr-viewer-hint-title">📱 请用手机扫描二维码</div>
+            <div class="qr-viewer-hint-subtitle">点击任意位置或按 ESC 键关闭</div>
+            {% endif %}
         </div>
     </div>
 </div>
 {% endif %}
 
 <script>
-function togglePaymentCodes() {
-    var paymentCodesDiv = document.getElementById('payment-codes');
-    if (paymentCodesDiv.style.display === 'none') {
-        paymentCodesDiv.style.display = 'block';
-        // 添加图片点击事件监听
-        setTimeout(() => {
-            const qrImages = document.querySelectorAll('.qr-payment-img');
-            qrImages.forEach(img => {
-                img.onclick = function(e) {
-                    e.stopPropagation();
-                    showQRViewer(this);
-                };
-            });
-        }, 100);
-    } else {
-        paymentCodesDiv.style.display = 'none';
-    }
-}
-
-function showQRViewer(imgElement) {
+function showQRViewer() {
     const viewer = document.getElementById('qr-image-viewer');
-    const viewerImg = document.getElementById('qr-viewer-img');
-    // 使用原始大图地址，如果没有则使用当前图片地址
-    const originalSrc = imgElement.dataset.original || imgElement.src.split('?')[0];
-    // 使用 dpr=0.5 进行 50% 等比缩放，不裁剪
-    // 不指定 w/h，直接使用 dpr 对原图进行缩放
-    const scaledSrc = originalSrc + '?dpr=0.5';
-    viewerImg.src = scaledSrc;
     viewer.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -90,72 +61,3 @@ document.addEventListener('keydown', function(e) {
     }
 });
 </script>
-
-<style>
-.qr-payment-img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 8px;
-}
-
-.qr-payment-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-#qr-image-viewer {
-    animation: fadeIn 0.25s ease-out;
-}
-
-#qr-image-viewer > div {
-    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: translate(-50%, -50%) scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
-}
-
-/* 移动端优化 */
-@media (max-width: 768px) {
-    #payment-codes > div {
-        max-width: 45% !important;
-        margin: 0 5px !important;
-    }
-    
-    #qr-viewer-img {
-        max-width: min(400px, 80vw) !important;
-        max-height: 60vh !important;
-    }
-    
-    #qr-image-viewer > div > div {
-        padding: 20px !important;
-    }
-}
-
-/* 小屏幕优化 */
-@media (max-width: 480px) {
-    #qr-viewer-img {
-        max-width: min(300px, 85vw) !important;
-        max-height: 55vh !important;
-    }
-    
-    #qr-image-viewer > div > div {
-        padding: 15px !important;
-    }
-}
-</style>

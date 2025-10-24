@@ -49,10 +49,21 @@ exclude:
   [
     "Gemfile",
     "Gemfile.lock",
+    "Gemfile.lock.backup",
     "README.md",
     "LICENSE",
     "package.json",
+    "package-lock.json",
+    "pnpm-lock.yaml",
     "node_modules",
+    "vendor",
+    ".bundle",
+    ".jekyll-metadata",
+    ".jekyll-cache",
+    ".sass-cache",
+    ".specstory",
+    ".cursorindexingignore",
+    "lighthouserc.js",
   ]
 
 # Plugins
