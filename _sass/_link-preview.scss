@@ -1,0 +1,189 @@
+// Link Preview Card Styles
+// A beautiful card design for external links
+
+.link-preview {
+  display: block;
+  margin: 1.5em 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    border-color: #d0d7de;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  .link-preview-content {
+    display: flex;
+    align-items: stretch;
+    min-height: 120px;
+  }
+
+  .link-preview-text {
+    flex: 1;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .link-preview-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.4;
+    margin: 0 0 8px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link-preview-description {
+    font-size: 13px;
+    color: #656d76;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link-preview-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8b949e;
+  }
+
+  .link-preview-favicon {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .link-preview-domain {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .link-preview-image {
+    width: 200px;
+    min-width: 200px;
+    background-color: #f6f8fa;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-left: 1px solid #e1e4e8;
+  }
+
+  // GitHub style for repo links
+  &.link-preview-github {
+    .link-preview-title {
+      color: #0969da;
+    }
+
+    &:hover .link-preview-title {
+      text-decoration: underline;
+    }
+  }
+
+  // Compact style without image
+  &.link-preview-compact {
+    .link-preview-content {
+      min-height: auto;
+    }
+
+    .link-preview-text {
+      padding: 14px 18px;
+    }
+
+    .link-preview-title {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .link-preview-description {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 600px) {
+  .link-preview {
+    .link-preview-content {
+      flex-direction: column-reverse;
+    }
+
+    .link-preview-image {
+      width: 100%;
+      min-width: 100%;
+      height: 160px;
+      border-left: none;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .link-preview-text {
+      padding: 14px 16px;
+    }
+
+    .link-preview-title {
+      font-size: 15px;
+    }
+  }
+}
+
+// Dark mode support (if needed in future)
+@media (prefers-color-scheme: dark) {
+  .link-preview {
+    background: #161b22;
+    border-color: #30363d;
+
+    &:hover {
+      border-color: #484f58;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .link-preview-title {
+      color: #e6edf3;
+    }
+
+    .link-preview-description {
+      color: #8b949e;
+    }
+
+    .link-preview-meta {
+      color: #7d8590;
+    }
+
+    .link-preview-image {
+      background-color: #21262d;
+      border-left-color: #30363d;
+    }
+
+    &.link-preview-github .link-preview-title {
+      color: #58a6ff;
+    }
+  }
+}
+

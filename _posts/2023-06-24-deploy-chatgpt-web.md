@@ -10,9 +10,9 @@ categories: "Tech"
 
 ## 一、Vercel 部署
 
-> 以下方案默认您可以连接 Github 和 Vercel ，如您无法正常访问上面网站，可能无法按教程部署。
+> 以下方案默认您可以连接 Github 和 Vercel，如您无法正常访问上面网站，可能无法按教程部署。
 
-这个方案适用于没有自己服务器的小伙伴，可以直接借助 Vercel ，采用下面的开源方案来一键部署：
+这个方案适用于没有自己服务器的小伙伴，可以直接借助 Vercel，采用下面的开源方案来一键部署：
 
 [GitHub - ourongxing/chatgpt-vercel: Elegant and Powerfull. Powered by OpenAI and Vercel.](https://github.com/ourongxing/chatgpt-vercel)
 
@@ -32,7 +32,7 @@ categories: "Tech"
 > 
 > - Email：[me@chiloh.com](mailto:me@chiloh.com)
 
-这个方案适用于有自己服务器的小伙伴，可以直接借助 Docker 和 Nginx Proxy Manager ，采用下面的开源方案来部署：
+这个方案适用于有自己服务器的小伙伴，可以直接借助 Docker 和 Nginx Proxy Manager，采用下面的开源方案来部署：
 
 [GitHub - Kerwin1202/chatgpt-web: 用 Express 和 Vue3 搭建的 ChatGPT 演示网页](https://github.com/Kerwin1202/chatgpt-web)
 
@@ -93,7 +93,7 @@ services:
       - ./letsencrypt:/etc/letsencrypt  #冒号左边可以改路径，现在是表示把数据存放在在当前文件夹下的 letsencrypt 文件夹中
 ```
 
-在服务器防火墙里放行上述端口，运行并访问 Nginx Proxy Manager ：
+在服务器防火墙里放行上述端口，运行并访问 Nginx Proxy Manager：
 
 ```bash
 docker-compose up -d 
@@ -203,7 +203,7 @@ docker-compose up -d
 
 **2.4 配置反向代理**
 
-访问 `http://ip:81` 进入 Nginx Proxy Manager 管理后台，点击 `Add Proxy Host` ，然后按照下图指示来填写：
+访问 `http://ip:81` 进入 Nginx Proxy Manager 管理后台，点击 `Add Proxy Host`，然后按照下图指示来填写：
 
 ![NPM Host](https://chilohdata.s3.bitiful.net/blog/npm-host.png "NPM Host")
 

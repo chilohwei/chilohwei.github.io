@@ -6,13 +6,13 @@ date: "2021-01-10"
 categories: "Tech"
 ---
 
-每次切换一个博客模板的时候，总觉得有许多地方看起来不尽人意。这次的maupassant模板也不例外，于是发挥自己半吊子的代码水平，在原模板基础上做了一些修改优化。这里记录一下部分修改的方法，以供有相同需要的朋友参考。
+每次切换一个博客模板的时候，总觉得有许多地方看起来不尽人意。这次的 maupassant 模板也不例外，于是发挥自己半吊子的代码水平，在原模板基础上做了一些修改优化。这里记录一下部分修改的方法，以供有相同需要的朋友参考。
 
 ### 1\. 文章日期修改
 
 主要修改了首页标题下日期，以及边栏归档日期的显示。修改方法如下：
 
-- 打开index.php文件，改为date('n月 j, Y')。
+- 打开 index.php 文件，改为 date('n 月 j, Y')。
 
 ```php
 <date class="post-meta">
@@ -20,7 +20,7 @@ categories: "Tech"
 </date>
 ```
 
-- 打开sidebar.php文件，改为type=month&format=Y年m月。
+- 打开 sidebar.php 文件，改为 type=month&format=Y 年 m 月。
 
 ```php
 <section class="widget">
@@ -34,9 +34,9 @@ categories: "Tech"
 
 ### 2\. 链接颜色修改
 
-maupassant模板本身的链接颜色，在阅读时的感官体验不是很好，于是自己做了修改。修改方法如下：
+maupassant 模板本身的链接颜色，在阅读时的感官体验不是很好，于是自己做了修改。修改方法如下：
 
-- 打开style.css文件，将color改为#C83C23。
+- 打开 style.css 文件，将 color 改为#C83C23。
 
 ```css
 .post-content a, .comment-content a {
@@ -47,16 +47,16 @@ maupassant模板本身的链接颜色，在阅读时的感官体验不是很好�
 
 ### 3\. 代码高亮修改
 
-对于模板自带的代码高亮不是很满意，自己基于highlight.js做了修改。修改方法如下;
+对于模板自带的代码高亮不是很满意，自己基于 highlight.js 做了修改。修改方法如下;
 
-- 打开footer.php文件，引入highlight.js 。
+- 打开 footer.php 文件，引入 highlight.js。
 
 ```php
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 ```
 
-- 打开header.php，引入css样式文件。可以自行在[highlight.js](https://highlightjs.org/)官网选择。
+- 打开 header.php，引入 css 样式文件。可以自行在[highlight.js](https://highlightjs.org/)官网选择。
 
 ```php
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/styles/default.min.css">
@@ -66,7 +66,7 @@ maupassant模板本身的链接颜色，在阅读时的感官体验不是很好�
 
 比较习惯中西文之间有空格的排版方式，于是参考网上做了修改。修改方法如下：
 
-- 打开footer.php文件，在\\<body>标签中加入下面代码。
+- 打开 footer.php 文件，在\\<body>标签中加入下面代码。
 
 ```php
 <!-- 自动添加空格 -->
@@ -88,9 +88,9 @@ maupassant模板本身的链接颜色，在阅读时的感官体验不是很好�
 
 ### 5\. 文章页添加翻页
 
-maupassant模板的文章页，默认没有上一篇、下一篇这样的文章翻页功能。添加方法如下：
+maupassant 模板的文章页，默认没有上一篇、下一篇这样的文章翻页功能。添加方法如下：
 
-- 打开post.php文件，在\\</article>标签后添加下面代码。
+- 打开 post.php 文件，在\\</article>标签后添加下面代码。
 
 ```php
 <div class="post-nav">
@@ -103,7 +103,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 </div>
 ```
 
-- 如果要样式与我一样，打开style.css添加下面代码。
+- 如果要样式与我一样，打开 style.css 添加下面代码。
 
 ```css
 /* 文章翻页 */
@@ -125,9 +125,9 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 ### 6\. 边栏最新文章
 
-边栏默认最新文章调用10篇，有些太多了，自己调整为5篇。修改方法如下：
+边栏默认最新文章调用 10 篇，有些太多了，自己调整为 5 篇。修改方法如下：
 
-- 打开sidebar.php，在Widget\_Contents\_Post\_Recent后加上：,'pageSize=5'。
+- 打开 sidebar.php，在 Widget\_Contents\_Post\_Recent 后加上：,'pageSize=5'。
 
 ```php
 <ul class="widget-list">
@@ -140,7 +140,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 阅读文章的时候，总觉得结尾需要分明一些，于是添加了版权声明来区分。优化方法如下：
 
-- 打开post.php，在\\</article>标签后，添加版权声明代码。
+- 打开 post.php，在\\</article>标签后，添加版权声明代码。
 
 ```php
 <div class=copyright>
@@ -165,7 +165,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 </div>
 ```
 
-- 打开style.css，添加版权声明样式。
+- 打开 style.css，添加版权声明样式。
 
 ```css
 /* 版权声明 */
@@ -188,7 +188,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 其实比较犹豫要不要加这个功能，自觉自己的文章还达不到有人赞赏的水平。不过为了版面好看，还是先加上去了，也许某个大佬会支持也说不定的哈哈。添加方法如下：
 
-- 打开post.php，添加下面代码在合适位置。
+- 打开 post.php，添加下面代码在合适位置。
 
 ```php
 <div style="padding: 10px 0; margin: 20px auto; width: 100%; font-size:16px; text-align: center;"> 
@@ -207,7 +207,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 </div>
 ```
 
-- 打开style.css，添加打赏按钮样式文件。可以按照自己喜好自行修改。
+- 打开 style.css，添加打赏按钮样式文件。可以按照自己喜好自行修改。
 
 ```css
 /* 文章打赏 */
@@ -258,7 +258,7 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 ### 9\. 图片 & 引用样式优化
 
-文章中的图片之前容易跟背景色融合，于是这次加上了boder，同时也做了圆角处理，加了二层阴影。代码如下：
+文章中的图片之前容易跟背景色融合，于是这次加上了 boder，同时也做了圆角处理，加了二层阴影。代码如下：
 
 ```css
 .post-content img, .comment-content img {
@@ -286,6 +286,6 @@ maupassant模板的文章页，默认没有上一篇、下一篇这样的文章�
 
 ### 10\. 简单总结一下
 
-上面就是基于maupassant模板，这边做的一些简单优化了。所有修改后的效果，都可以在网站里直接看到。有不清楚的地方，可以在评论里相互交流，或者通过下方邮箱联系我。
+上面就是基于 maupassant 模板，这边做的一些简单优化了。所有修改后的效果，都可以在网站里直接看到。有不清楚的地方，可以在评论里相互交流，或者通过下方邮箱联系我。
 
 - **邮件：** Y2hpbG9od2VpQGdtYWlsLmNvbQ==（注：Base 64 解码）

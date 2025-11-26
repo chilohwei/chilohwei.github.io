@@ -27,7 +27,7 @@ categories: "Share"
   Your browser does not support the video tag.
 </video>
 
-后来随着对AI的熟悉，又更新了一版：[水印宝](https://watermark.chiloh.cn)
+后来随着对 AI 的熟悉，又更新了一版：[水印宝](https://watermark.chiloh.cn)
 
 > 案例 2：作为一个不懂爬虫代码的普通人，想要实现一个功能：模拟浏览器点击操作，来抓取指定网站的特定链接
 
@@ -61,7 +61,7 @@ ChatGPT 就像是一艘时光穿梭机，它可以载着我们跨越时空，鉴
 
 **也许，**
 
-**会有一个something**
+**会有一个 something**
 
 **逆流而上，连接本体与载体**
 

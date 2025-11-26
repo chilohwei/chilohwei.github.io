@@ -1,59 +1,101 @@
-<!doctype html>
-<html lang="{{ page.lang | default: site.lang }}">
-{% include head.html %}
+---
+layout: base
+body_id: post
+---
+
 <style>
+  /* Back to top button */
   .top-link {
-      visibility: hidden;
-      position: fixed;
-      bottom: 60px;
-      right: 30px;
-      z-index: 99;
-      background: #D3D3D3;
-      width: 42px;
-      height: 42px;
-      padding: 12px;
-      border-radius: 64px;
-      transition: visibility .5s, opacity .8s linear;
-      visibility: visible;
-      opacity: 1;
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    z-index: 99;
+    background: #D3D3D3;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  .top-link.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .top-link:hover {
+    transform: translateY(-2px);
+    background: #c0c0c0;
   }
   .top-link:focus {
-  outline: none;
+    outline: none;
   }
-  .top-link, .top-link svg {
-    filter: drop-shadow(0 0 0 var(--theme));
+  .top-link svg {
+    width: 14px;
+    height: 14px;
+    display: block;
   }
 </style>
 
-<body id="post">
-  {% include header.html %}
-  <div id="main" role="main">
-    <article class="hentry" itemscope itemtype="https://schema.org/BlogPosting">
-      <div class="entry-content">
-        <h1 class="post-title entry-title" itemprop="headline">{{ page.title }}</h1>
-        <h4 class="page-info">
-          {% if page.categories %}
-          <span>Categories: {{page.categories}}</span>
-          {% endif %}
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time>
-          <div class="qr-text" id="J_qr_text">
-            <div id="J_qr_code" class="qr-code" aria-hidden="true"></div>
-          </div>
-        </h4>
-        {{ content | cdn_image_filter }}
-        {% include buy-me-coffee.html %}
+<article class="hentry" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="entry-content heti">
+    <h1 class="post-title entry-title" itemprop="headline">{{ page.title }}</h1>
+    <h4 class="page-info">
+      {% if page.categories %}
+      <span>Categories: {{page.categories}}</span>
+      {% endif %}
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y-%m-%d" }}</time>
+      <div class="qr-text" id="J_qr_text">
+        <div id="J_qr_code" class="qr-code" aria-label="QR code for this page" role="img"></div>
       </div>
-      <!--{% include giscus.html %}-->
-      {% include read-more.html %}
-    </article>
+    </h4>
+    {{ content | cdn_image_filter }}
+    {% include buy-me-coffee.html %}
   </div>
-  {% include footer.html %}
+  <!--{% include giscus.html %}-->
+  {% include read-more.html %}
+</article>
 
-  <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g" style="visibility: visible; opacity: 1;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z"></path>
-    </svg>
-  </a>
-</body>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+    <path d="M12 6H0l6-6z"></path>
+  </svg>
+</a>
 
-</html>
+<script>
+(function() {
+  // Back to top button visibility
+  var topLink = document.getElementById('top-link');
+  var scrollThreshold = 300;
+  
+  if (!topLink) return;
+  
+  function updateTopLink() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > scrollThreshold) {
+      topLink.classList.add('visible');
+    } else {
+      topLink.classList.remove('visible');
+    }
+  }
+  
+  // Throttle scroll events for performance
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateTopLink();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+  
+  // Initial call
+  updateTopLink();
+})();
+</script>

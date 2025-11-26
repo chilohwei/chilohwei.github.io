@@ -48,7 +48,7 @@ From yet another angle, perhaps a completely different answer could be obtained.
 
 The wall of the unknown, as I understand it, is equivalent to one's cognitive boundary. From this perspective, I can barely claim to have crossed the wall of the unknown.
 
-The wall of the unknown, for me, is my worldview, and it is also the boundary of my cognition, which is constantly growing...
+The wall of the unknown, for me, is my worldview, and it is also the boundary of my cognition, which is constantly growing......
 
 My deepest experiences in this area are:
 

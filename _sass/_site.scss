@@ -1,14 +1,10 @@
+@use "globals" as *;
+
 // Selection
 // --------------------------------------------------
-::-moz-selection {
-	background-color: lighten($base-color, 65%);
-	color: $base-color;
-	text-shadow: none;
-}
 ::selection {
-	background-color: lighten($base-color, 65%);
-	color: $base-color;
-	text-shadow: none;
+  background-color: rgba(36, 41, 47, 0.15);
+  color: inherit;
 }
 
 // Global Classes
@@ -46,11 +42,24 @@
 	li {
 		list-style-type: none;
 		display: inline;
+    margin-right: 10px;
 	}
 }
 
 // Global Transition
 // ---------------------------------------------------
+// Reduced from "all" to specific properties for better performance
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a {
-	@include transition(all .2s ease);
+	transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+// Smooth scrolling for in-page anchors
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }

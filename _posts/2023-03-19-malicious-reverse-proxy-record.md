@@ -22,7 +22,7 @@ categories: "Tech"
 
 ## 开始处理这个问题
 
-首先，日志排查了下自己的服务器上是否有恶意代码或者入侵的记录，没有发现。因此基本确定就是对方将自己的域名解析到了我的服务器IP上。最终的处理方案如下：
+首先，日志排查了下自己的服务器上是否有恶意代码或者入侵的记录，没有发现。因此基本确定就是对方将自己的域名解析到了我的服务器 IP 上。最终的处理方案如下：
 
 ```bash
 ## Only allow GET and HEAD request methods
@@ -52,4 +52,4 @@ mv index.html [新的主页文件名称]
 
 ## 一些题外话
 
-服务器安全自己其实一直挺重视的，常规的端口更改与放行，包括禁止 root 登录，设置一个新用户等等操作每次都会做。这里也推荐一个脚本：[xiaoyunjie/Shell\_Script](https://github.com/xiaoyunjie/Shell_Script) ，使用起来挺方便的。
+服务器安全自己其实一直挺重视的，常规的端口更改与放行，包括禁止 root 登录，设置一个新用户等等操作每次都会做。这里也推荐一个脚本：[xiaoyunjie/Shell\_Script](https://github.com/xiaoyunjie/Shell_Script)，使用起来挺方便的。

@@ -14,7 +14,7 @@ categories: "Tech"
 
 **问题（一）：域名解析到 Dnspod 后访问不到或跳转到域名商那里**
 
-- 原因：博主在 Namesilo 购买的域名，域名管理默认自带了4个 DNS 解析记录。
+- 原因：博主在 Namesilo 购买的域名，域名管理默认自带了 4 个 DNS 解析记录。
 
 解决办法：删除掉自带的 DNS 解析记录，在 Dnspod 处设置一或两个 A 记录（可以在`Github`查看或自行`ping username.github.io`）指向 IP，一个`CNAME`记录指向`username.github.io`域名。
 
@@ -29,7 +29,7 @@ categories: "Tech"
 
 ![](https://chilohdata.s3.bitiful.net/blog/valine-cdn-url.jpg "valine-cdn-url.jpg")
 
-### SEO问题：
+### SEO 问题：
 
 **问题（一）：站点无法通过百度站长平台验证**
 
@@ -41,7 +41,7 @@ categories: "Tech"
 
 > 原因：站点配置文件中 Permalink 默认为：`posts:/:year/:month/:day/:title/`
 > 
-> 解决办法：使用`npm hexo-abbrlink --save`安装插件，按插件文档配置好站点文件，会利用算法将博客文章链接优化为不带中文的3层链接形式。
+> 解决办法：使用`npm hexo-abbrlink --save`安装插件，按插件文档配置好站点文件，会利用算法将博客文章链接优化为不带中文的 3 层链接形式。
 
 ### 博客备份和恢复
 

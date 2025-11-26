@@ -6,11 +6,11 @@ date: "2019-07-13"
 categories: "Tech"
 ---
 
-由于项目组最近在做ASO优化，需要我和另一位运营同事搜集大量应用评论。常规方法是借助第三方ASO优化平台的评论导出功能，不过此功能可导出的数据不多。网上搜索后学习到了Python抓取App Store任意应用评论的方法。
+由于项目组最近在做 ASO 优化，需要我和另一位运营同事搜集大量应用评论。常规方法是借助第三方 ASO 优化平台的评论导出功能，不过此功能可导出的数据不多。网上搜索后学习到了 Python 抓取 App Store 任意应用评论的方法。
 
 ### 常规应用评论获取方法
 
-以[七麦数据ASO平台](https://www.qimai.cn/)为例，搜索想要获取的APP应用，比如微信，然后在微信的七麦详情页选择「评分评论」，最后查看「评论详情」并点击「导出数据」按钮，就可以导出应用评论数据。
+以[七麦数据ASO平台](https://www.qimai.cn/)为例，搜索想要获取的 APP 应用，比如微信，然后在微信的七麦详情页选择「评分评论」，最后查看「评论详情」并点击「导出数据」按钮，就可以导出应用评论数据。
 
 ![七麦应用数据.png](https://chilohdata.s3.bitiful.net/blog/qmaso.png "七麦应用数据.png")
 
@@ -19,15 +19,15 @@ categories: "Tech"
 - **优点：**可以按日期、星级、关键词筛选评论，且相对更符合机刷要求；
 - **缺点：** 无法直接导出评论数据，需要人工对评论数据进行文本处理；
 
-### Python获取App Store任意应用评论
+### Python 获取 App Store 任意应用评论
 
-在排除上述常规方法后，便考虑有无方法可以直接抓取到App Store 下竞品的评论数据，一番搜索后，发现知乎上有一段Python脚本可以利用苹果官方API抓取500条评论数据。
+在排除上述常规方法后，便考虑有无方法可以直接抓取到 App Store 下竞品的评论数据，一番搜索后，发现知乎上有一段 Python 脚本可以利用苹果官方 API 抓取 500 条评论数据。
 
 原帖地址：[如何获取itunes一款app的所有评论内容？爬虫？苹果提供的api?](https://www.zhihu.com/question/23945309/answer/141943202)
 
-按照此方法进行了尝试，成功抓取到App Store下任意ID产品的评论数据并以excel表格形式导出。使用方法如下：
+按照此方法进行了尝试，成功抓取到 App Store 下任意 ID 产品的评论数据并以 excel 表格形式导出。使用方法如下：
 
-**第一步：** 安装Python 3环境，可通过下载安装 [Anaconda（清华大学源）](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)实现。
+**第一步：** 安装 Python 3 环境，可通过下载安装 [Anaconda（清华大学源）](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)实现。
 
 **第二步：** 利用`pip`命令安装`XlsxWriter`模块，代码如下：
 
@@ -35,9 +35,9 @@ categories: "Tech"
 pip install XlsxWriter
 ```
 
-**第三步：** 百度搜索：appstore + app 名，从官网进入，查看地址栏获取应用ID。
+**第三步：** 百度搜索：appstore + app 名，从官网进入，查看地址栏获取应用 ID。
 
-**第四步：** 保存下面Python脚本为`*.py`格式，例如`comments.py`。
+**第四步：** 保存下面 Python 脚本为`*.py`格式，例如`comments.py`。
 
 ```python
 import urllib.request
@@ -98,14 +98,14 @@ else:
 workbook.close()
 ```
 
-**第五步：**如想在`e:\`盘根目录保存最后生成的应用评论表格，便可以在该目录下的DOS窗口下运行此脚本。
+**第五步：**如想在`e:\`盘根目录保存最后生成的应用评论表格，便可以在该目录下的 DOS 窗口下运行此脚本。
 
 ```bash
 cd e:\
 python comments.py
 ```
 
-然后按照提示输入应用ID就可以自动抓取该ID对应的应用在App Store里的评论，如下图。
+然后按照提示输入应用 ID 就可以自动抓取该 ID 对应的应用在 App Store 里的评论，如下图。
 
 ![python获取评论.png](https://chilohdata.s3.bitiful.net/blog/python-comments.png "python获取评论.png")
 

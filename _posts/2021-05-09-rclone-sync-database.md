@@ -6,9 +6,9 @@ date: "2021-05-09"
 categories: "Tech"
 ---
 
-上一篇文章：[Typecho 博客脚本备份与恢复](https://blog.chiloh.com/2019-07-13/typecho-backup.html) 中有提到怎么用脚本定时备份网站数据库。今天来分享下如何使用Rclone将备份的数据，自动同步到Google云盘或者阿里云OSS等S3存储上。
+上一篇文章：[Typecho 博客脚本备份与恢复](https://blog.chiloh.com/2019-07-13/typecho-backup.html) 中有提到怎么用脚本定时备份网站数据库。今天来分享下如何使用 Rclone 将备份的数据，自动同步到 Google 云盘或者阿里云 OSS 等 S3 存储上。
 
-### 一、安装Rclone
+### 一、安装 Rclone
 
 登录到服务器终端，执行下方命令：
 
@@ -22,7 +22,7 @@ curl https://rclone.org/install.sh | sudo bash
 yum -y install curl
 ```
 
-### 二、配置Rclone
+### 二、配置 Rclone
 
 安装成功后，输入：
 
@@ -133,7 +133,7 @@ Choose a number from below, or type in your own value
    \ "seafile"
 ```
 
-以阿里云OSS为例，在终端下输入`4`，然后选择`2`，按下方提示操作：
+以阿里云 OSS 为例，在终端下输入`4`，然后选择`2`，按下方提示操作：
 
 ```bash
 Storage> 4
@@ -285,19 +285,19 @@ d) Delete this remote
 y/e/d> y
 ```
 
-可以看到需要输入阿里云OSS的ID和密钥，可以先回车跳过，在阿里云配置好后再来编辑这部分；然后按照提示选择阿里云OSS的节点位置和读写权限，可参考上述选择（以香港节点、公共读写权限为例），若是其他节点，选择对应序号即可。
+可以看到需要输入阿里云 OSS 的 ID 和密钥，可以先回车跳过，在阿里云配置好后再来编辑这部分；然后按照提示选择阿里云 OSS 的节点位置和读写权限，可参考上述选择（以香港节点、公共读写权限为例），若是其他节点，选择对应序号即可。
 
-### 三、阿里云API配置
+### 三、阿里云 API 配置
 
 登录阿里云网页，点击右上角头像，进入**访问控制**，创建一个新用户，点选**编程访问**，并添加`AliyunOSSFullAccess`权限。
 
 ![创建用户](https://chilohdata.s3.bitiful.net/blog/aliyun-oss-accesskey.png "创建用户")
 
-之后就可以获得阿里云OSS服务的ID和密钥了。
+之后就可以获得阿里云 OSS 服务的 ID 和密钥了。
 
-### 四、继续配置Rclone
+### 四、继续配置 Rclone
 
-重新在终端输入`rclone config`命令，按照下方操作进入编辑模式，补充阿里云OSS的ID和密钥。
+重新在终端输入`rclone config`命令，按照下方操作进入编辑模式，补充阿里云 OSS 的 ID 和密钥。
 
 ```bash
 Current remotes:
@@ -396,7 +396,7 @@ d) Delete this remote
 y/e/d> y
 ```
 
-到这里Rclone连接阿里云OSS的配置就全部完成了，想要连接Google Drive等其他存储，也是类似的道理。
+到这里 Rclone 连接阿里云 OSS 的配置就全部完成了，想要连接 Google Drive 等其他存储，也是类似的道理。
 
 ### 五、脚本修改
 
@@ -406,12 +406,12 @@ y/e/d> y
 rclone copy /path/backup Alibaba:BucketName
 ```
 
-其中`/path/backup`代表数据备份的目录，`Alibaba:BucketName`中的`Alibaba`是`rclone`操作过程中，新建的`remote`名称，后面的`BucketName`则是你阿里云OSS的存储桶名称。
+其中`/path/backup`代表数据备份的目录，`Alibaba:BucketName`中的`Alibaba`是`rclone`操作过程中，新建的`remote`名称，后面的`BucketName`则是你阿里云 OSS 的存储桶名称。
 
-如果想要定时自动同步数据到阿里云OSS的话，可以在终端键入`crontab -e`，然后输入：
+如果想要定时自动同步数据到阿里云 OSS 的话，可以在终端键入`crontab -e`，然后输入：
 
 ```bash
 0 18 * * 5 /bin/bash /root/jiaoben/backup.sh
 ```
 
-其中：`0 18 * * 5`代表每隔7天的下午6点钟执行一次后面的命令；`root bash`代表以root身份执行bash命令；`/path/backup.sh`代表备份脚本存放的位置；`/path/wwwroot/domain.com`代表网站的根目录。
+其中：`0 18 * * 5`代表每隔 7 天的下午 6 点钟执行一次后面的命令；`root bash`代表以 root 身份执行 bash 命令；`/path/backup.sh`代表备份脚本存放的位置；`/path/wwwroot/domain.com`代表网站的根目录。

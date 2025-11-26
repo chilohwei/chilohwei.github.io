@@ -21,7 +21,7 @@
     style-src 'self' 'unsafe-inline' 
       https://gw.alipayobjects.com 
       https://fonts.loli.net;
-    img-src 'self' data: 
+    img-src 'self' data: https: 
       https://chilohdata.s3.bitiful.net 
       https://gw.alipayobjects.com 
       https://gw.alicdn.com 
@@ -32,7 +32,9 @@
     connect-src 'self' 
       https://tongji.chiloh.com 
       https://hm.baidu.com 
-      https://www.google-analytics.com;
+      https://www.google-analytics.com
+      https://api.microlink.io;
+    media-src 'self' https:;
     frame-src 'none';
     object-src 'none';
     base-uri 'self';
@@ -89,6 +91,31 @@
     <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
   {% endif %}
 
+  <!-- Critical CSS (inlined for faster first paint) -->
+  <style>
+    /* Critical above-the-fold styles */
+    :root {
+      --color-bg: #e8e8e8;
+      --color-text: rgba(36, 41, 47, 0.9);
+      --color-header: #15141a;
+      --color-white: #fff;
+      --color-link: rgba(36, 41, 47, 0.8);
+      --menu-height: 60px;
+      --font-base: "LXGW WenKai Screen R", Calibri, Arial, sans-serif;
+    }
+    *,*:after,*:before{box-sizing:border-box}
+    html{font-size:100%;scroll-behavior:smooth}
+    body{margin:0;padding:0;width:100%;background-color:var(--color-bg);font-family:var(--font-base);color:var(--color-text);letter-spacing:.5px;line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;overflow-x:hidden}
+    .header-menu{position:absolute;top:0;left:0;width:100%;z-index:20;overflow:hidden;background-color:var(--color-white);height:var(--menu-height);box-shadow:0 0 0 0,0 6px 12px rgba(0,0,0,.1);padding:0 8px}
+    @media only screen and (min-width:48em){.header-menu{position:fixed;padding:0;transition:.3s height ease-out}}
+    .header-menu ul{margin:0 auto;list-style-type:none;height:100%;padding:0}
+    .header-item,.header-item-title{float:right;padding-left:8px;padding-right:8px;height:100%;display:block}
+    .header-item-title{float:left}
+    .header-item a,.header-item-title a{vertical-align:middle;display:table-cell;height:var(--menu-height);font-size:16px;box-sizing:border-box;font-weight:700;text-decoration:none;color:var(--color-link)}
+    .entry-header{position:relative;overflow:hidden;width:100%;height:260px;background:var(--color-header);display:none}
+    @media only screen and (min-width:48em){.entry-header{display:block}}
+  </style>
+
   <!-- Preload Critical Resources -->
   <link rel="preload" href="{{ site.url }}/css/index.css" as="style">
   <link rel="preload" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" as="style" crossorigin="anonymous">
@@ -96,7 +123,15 @@
   <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.url }}/css/index.css">
   <link rel="stylesheet" href="{{ site.url }}/css/buy-me-coffee.css">
-  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" as="font" crossorigin="anonymous">
+  <!-- Font with font-display: swap for better loading -->
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" crossorigin="anonymous">
+  <style>
+    /* Ensure font-display: swap for custom fonts */
+    @font-face {
+      font-family: 'LXGW WenKai Screen R';
+      font-display: swap;
+    }
+  </style>
 
   {% if page.lang == 'en-US' %}
   <link rel="preload" href="https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap" as="style">

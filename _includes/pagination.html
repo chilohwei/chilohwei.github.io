@@ -1,13 +1,13 @@
 {% if paginator.total_pages > 1 %}
-<div class="pagination">
-  <ul class="inline-list">
-    {% comment %} Link for previous page {% endcomment %}
+<nav class="pagination" aria-label="Page navigation">
+  <ul class="pagination-list">
+    {% comment %} Previous page arrow - only show if not first page {% endcomment %}
     {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-    <li><a href="{{ site.url }}/" class="btn-arrow">&lt;</a></li>
-    {% else %}
-    <li><a href="{{ site.url }}/page{{ paginator.previous_page }}/" class="btn-arrow">&lt;</a></li>
-    {% endif %}
+      {% if paginator.previous_page == 1 %}
+    <li><a href="{{ site.url }}/" class="pagination-arrow" aria-label="Previous page">&lt;</a></li>
+      {% else %}
+    <li><a href="{{ site.url }}/page{{ paginator.previous_page }}/" class="pagination-arrow" aria-label="Previous page">&lt;</a></li>
+      {% endif %}
     {% endif %}
 
     {% comment %} First page {% endcomment %}
@@ -20,8 +20,7 @@
     {% assign page_start = 2 %}
     {% if paginator.page > 5 %}
     {% assign page_start = paginator.page | minus: 2 %}
-    {% comment %} Ellipsis for truncated links {% endcomment %}
-    <li>…</li>
+    <li><span class="ellipsis">…</span></li>
     {% endif %}
 
     {% assign page_end = paginator.total_pages | minus: 1 %}
@@ -38,9 +37,8 @@
     {% endif %}
     {% endfor %}
 
-    {% comment %} Ellipsis for truncated links {% endcomment %}
     {% if pages_to_end > 4 %}
-    <li>…</li>
+    <li><span class="ellipsis">…</span></li>
     {% endif %}
 
     {% if paginator.page == paginator.total_pages %}
@@ -49,10 +47,10 @@
     <li><a href="{{ site.url }}/page{{ paginator.total_pages }}/">{{ paginator.total_pages }}</a></li>
     {% endif %}
 
-    {% comment %} Link for next page {% endcomment %}
+    {% comment %} Next page arrow - only show if not last page {% endcomment %}
     {% if paginator.next_page %}
-    <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="btn-arrow">&gt;</a></li>
+    <li><a href="{{ site.url }}/page{{ paginator.next_page }}/" class="pagination-arrow" aria-label="Next page">&gt;</a></li>
     {% endif %}
   </ul>
-</div>
+</nav>
 {% endif %}

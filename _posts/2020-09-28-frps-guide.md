@@ -6,15 +6,15 @@ date: "2020-09-28"
 categories: "Tech"
 ---
 
-一直想在公司或者出差时，能够随时远程访问家里电脑，互传文件。在综合考量了许多方法之后，基于正在使用的 [阿里云 ECS 服务器](https://www.aliyun.com/activity/daily/bestoffer?userCode=4rw8hc7d) 有分配公网 IP 地址，最终选择了 Frp 内网穿透服务。目前已基本实现随时随地访问家里Windows电脑的需求。
+一直想在公司或者出差时，能够随时远程访问家里电脑，互传文件。在综合考量了许多方法之后，基于正在使用的 [阿里云 ECS 服务器](https://www.aliyun.com/activity/daily/bestoffer?userCode=4rw8hc7d) 有分配公网 IP 地址，最终选择了 Frp 内网穿透服务。目前已基本实现随时随地访问家里 Windows 电脑的需求。
 
 ### 一、服务端配置
 
-以 CentOS 服务器为例，Frps服务端配置教程如下：
+以 CentOS 服务器为例，Frps 服务端配置教程如下：
 
 #### 1\. 安装 Go 环境
 
-Frp是基于Go语言的，因此参考此教程：[https://golang.org/doc/install#requirements](https://golang.org/doc/install#requirements)，首先在 Linux 上 安装 Go 语言并配置环境。
+Frp 是基于 Go 语言的，因此参考此教程：[https://golang.org/doc/install#requirements](https://golang.org/doc/install#requirements)，首先在 Linux 上 安装 Go 语言并配置环境。
 
 #### 2\. 安装 Frps 并启动
 
@@ -192,11 +192,11 @@ restart: frps restart
 
 客户端配置方法与服务端类似，步骤如下：
 
-#### 1\. 安装 Frp c并启动
+#### 1\. 安装 Frp c 并启动
 
 - 在该页面：[https://github.com/fatedier/frp/releases](https://github.com/fatedier/frp/releases)下载最新版的 Windows 版本 Frp 压缩包。
-- 解压 frpc.ini 、 frpc.exe 到Windows某个目录下，比如 D:\\frp
-- 参考下方代码，编辑客户端配置文件 frpc.ini 。
+- 解压 frpc.ini、 frpc.exe 到 Windows 某个目录下，比如 D:\\frp
+- 参考下方代码，编辑客户端配置文件 frpc.ini。
 
 ```
 [common]
@@ -220,10 +220,10 @@ remote_port = 6000
 
 #### 2\. 配置 Frp c 自启动
 
-配置好服务端后，最好设置下自启动，这样子windows电脑开启的时候，服务就会在后台运行。具体步骤如下：
+配置好服务端后，最好设置下自启动，这样子 windows 电脑开启的时候，服务就会在后台运行。具体步骤如下：
 
-- 下载[winsw](https://github.com/kohsuke/winsw/releases)，并重命名为winsw.exe
-- 新建一个winsw.xml格式文件，写入下面的内容：
+- 下载[winsw](https://github.com/kohsuke/winsw/releases)，并重命名为 winsw.exe
+- 新建一个 winsw.xml 格式文件，写入下面的内容：
 
 ```xml
 <service>
@@ -276,7 +276,7 @@ winsw stop
 winsw uninstall
 ```
 
-- 双击运行注册.bat文件，即可注册好服务。之后就可以使用ip+remote\_port的形式访问内网的windows电脑了。
+- 双击运行注册.bat 文件，即可注册好服务。之后就可以使用 ip+remote\_port 的形式访问内网的 windows 电脑了。
 
 ![Frp远程桌面连接](https://chilohdata.s3.bitiful.net/blog/frp-rdp.jpg "Frp远程桌面连接")
 

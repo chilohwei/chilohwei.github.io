@@ -6,7 +6,7 @@ date: "2023-12-06"
 categories: "Tech"
 ---
 
-这是19年曾发布的一篇文章：[Python 抓取 App Store 应用评论](https://blog.chiloh.com/python-comments.html)，当时完全不懂Python代码开发，却还是摸索着获取到了一些应用的评论。而最近，再次遇到了当年的需求，肉眼可见地能看到自己的成长。
+这是 19 年曾发布的一篇文章：[Python 抓取 App Store 应用评论](https://blog.chiloh.com/python-comments.html)，当时完全不懂 Python 代码开发，却还是摸索着获取到了一些应用的评论。而最近，再次遇到了当年的需求，肉眼可见地能看到自己的成长。
 
 录了一个视频，分享下自己的感受：
 
@@ -20,7 +20,7 @@ categories: "Tech"
 
 代码已经开源：[chilohwei/app-comments](https://github.com/chilohwei/app-comments)，之后应该还会再优化完善。
 
-核心是以下这2个文件：
+核心是以下这 2 个文件：
 
 **app.py**
 ```python
@@ -203,4 +203,4 @@ services:
       - "8000:8000"
 ```
 
-新的时代已来到，**尽情拥抱AI吧！！**
+新的时代已来到，**尽情拥抱 AI 吧！！**

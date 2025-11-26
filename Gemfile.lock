@@ -164,6 +164,7 @@ DEPENDENCIES
   jekyll-pdf-embed
   jekyll-sitemap
   logger
+  webrick
 
 BUNDLED WITH
    2.6.9

@@ -10,11 +10,11 @@ categories: "Tech"
 
 ### 猜想验证
 
-#### 步骤（一）使用传统 hexo g 和 hexo d方法部署
+#### 步骤（一）使用传统 hexo g 和 hexo d 方法部署
 
 部署完成后发现文章发表时间与更新时间出现了变化，发表时间为 Tracis CI 自动部署建立好后的时间，而更新时间则为此次作变化后传统部署后的时间，因此确定问题出现在 Travis CI 自动部署上。
 
-#### 步骤（二）检查Travis CI自动部署文件
+#### 步骤（二）检查 Travis CI 自动部署文件
 
 打开 Travis CI 自动部署文件 `.travis.yml` 查看：
 
@@ -55,7 +55,7 @@ env:
    - GH_REF: github.com/chilohwei/chilohwei.github.io.git
 ```
 
-发现其执行完 hexo generate 后不是直接执行 hexo deploy ，而是切换到 hexo 分支 public 目录下将更新的文件强制提交到 master 分支，故可能无法区分发表时间和更新时间。
+发现其执行完 hexo generate 后不是直接执行 hexo deploy，而是切换到 hexo 分支 public 目录下将更新的文件强制提交到 master 分支，故可能无法区分发表时间和更新时间。
 
 #### 步骤（三）解决方法
 

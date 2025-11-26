@@ -9,8 +9,18 @@
   box-sizing: border-box;
 }
 
-// Display in IE6-9 and FF3
-// -------------------------
+// Respect user's motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 article,
 aside,
 details,
@@ -24,18 +34,12 @@ section {
   display: block;
 }
 
-// Display block in IE6-9 and FF3
-// -------------------------
 audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
 }
 
-// Prevents modern browsers from displaying 'audio' without controls
-// -------------------------
 audio:not([controls]) {
   display: none;
 }
@@ -44,11 +48,36 @@ audio:not([controls]) {
 // -------------------------
 html {
   font-size: 100%;
-  text-size-adjust: 100%;
 }
 // Focus states
+// Modern focus-visible support - only show focus ring for keyboard navigation
 a:focus {
-  @include tab-focus();
+  outline: none;
+}
+
+a:focus-visible {
+  box-shadow: 0 0 0 2px currentColor;
+  outline: none;
+}
+
+// Fallback for browsers without focus-visible support
+a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0 2px currentColor;
+  outline: none;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 // Hover & Active
 a:hover,
@@ -82,14 +111,11 @@ blockquote {
 // -------------------------
 img,
 video {
-  /* Responsive images (ensure images don't scale beyond their parents) */
-  max-width: 100%; /* Part 1: Set a maxium relative to the parent */
-  width: auto\9; /* IE7-8 need help adjusting responsive images */
-  height: auto; /* Part 2: Scale the height according to the width, otherwise you get stretching */
-
+  max-width: 100%;
+  height: auto;
   vertical-align: middle;
   border: 0;
-  -ms-interpolation-mode: bicubic;
+  border-radius: 6px;
 }
 
 // Full width tables
@@ -117,31 +143,52 @@ textarea {
 }
 button,
 input {
-  *overflow: visible; // Inner spacing ie IE6/7
-  line-height: normal; // FF3/4 have !important on line-height in UA stylesheet
+  line-height: normal;
 }
 button,
-html input[type="button"], // Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls.
+input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  cursor: pointer; // Improves usability and consistency of cursor style between image-type `input` and others.
+  cursor: pointer;
+  user-select: none;
 }
 label,
 select,
 button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'],
-input[type='radio'],
-input[type='checkbox'] {
-  cursor: pointer; // Improves usability and consistency of cursor style between image-type `input` and others.
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
 }
-input[type='search'] {
-  // Appearance in Safari/Chrome
-  @include box-sizing(content-box);
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  box-sizing: border-box;
+  font-size: 16px; // Prevent iOS zoom on focus
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 textarea {
-  overflow: auto; // Remove vertical scrollbar in IE6-9
-  vertical-align: top; // Readability and alignment cross-browser
+  overflow: auto;
+  vertical-align: top;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+
+// Only disable user-select for button-like links
+a.btn,
+button,
+[role="button"] {
+  -webkit-user-select: none;
+  user-select: none;
 }

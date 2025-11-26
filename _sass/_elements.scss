@@ -1,30 +1,37 @@
+@use "globals" as *;
+
 hr {
-    display: block;
-    margin: 1em 0;
-    padding: 0;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #fff;
+  display: block;
+  margin: 1em 0;
+  padding: 0;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
 }
 
-// Figures and images
-// --------------------------------------------------
 figure {
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  @include clearfix();
   img {
     margin-bottom: 10px;
   }
   a {
     img {
-      @include translate(0, 0);
-      transition-duration: 0.25s;
-      &:hover {
-        @include translate(0, -5px);
-        @include box-shadow(0 0 10px fade($base-color, 20));
+      transform: translate(0, 0);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      @media (hover: hover) {
+        &:hover {
+          transform: translate(0, -5px);
+          box-shadow: 0 0 10px rgba($base-color, 0.2);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        &:hover {
+          transform: none;
+        }
       }
     }
   }
@@ -56,51 +63,47 @@ figure {
 svg:not(:root) {
   overflow: hidden;
 }
-figure.center{
+figure.center {
   text-align: center;
 }
 
-figure.center img{
+figure.center img {
   float: none;
 }
-// Skip Link for Accessibility
-// --------------------------------------------------
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: $primary;
-  color: white;
-  padding: 8px;
-  text-decoration: none;
-  z-index: 1000;
-  border-radius: 4px;
-  font-size: 14px;
-  
-  &:focus {
-    top: 6px;
-  }
-}
-
 // Buttons
 // --------------------------------------------------
 .btn {
   display: inline-block;
   margin-bottom: 20px;
-  padding: 8px 20px;
-  @include font-rem(14);
+  padding: 0 20px;
+  height: 40px;
+  line-height: 38px; // height - border (2px)
+  font-size: 14px;
   background-color: $primary;
   color: $white;
   border-width: 2px !important;
   border-style: solid !important;
   border-color: $primary;
-  @include rounded(3px);
+  border-radius: 3px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: background-color 150ms ease, color 150ms ease, transform 100ms ease;
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $primary;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $primary;
+    }
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 .btn-inverse {
@@ -110,9 +113,11 @@ figure.center img{
   &:visited {
     color: $primary;
   }
-  &:hover {
-    background-color: $primary;
-    color: $white;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
   }
 }
 .btn-success {
@@ -122,9 +127,11 @@ figure.center img{
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $success;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $success;
+    }
   }
 }
 .btn-warning {
@@ -134,9 +141,11 @@ figure.center img{
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $warning;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $warning;
+    }
   }
 }
 .btn-danger {
@@ -146,9 +155,11 @@ figure.center img{
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $danger;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $danger;
+    }
   }
 }
 .btn-info {
@@ -158,16 +169,16 @@ figure.center img{
   &:visited {
     color: $white;
   }
-  &:hover {
-    background-color: $white;
-    color: $info;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $white;
+      color: $info;
+    }
   }
 }
 
-// Well
-// --------------------------------------------------
 .well {
   padding: 20px;
   border: 1px solid $comp-color;
-  @include rounded(4px);
+  border-radius: 4px;
 }

@@ -1,47 +1,52 @@
+// ==========================================================================
+// CSS Custom Properties (for runtime theming) + SCSS Variables (for compilation)
+// ==========================================================================
+
 // Typography
 // --------------------------------------------------
-
-$base-font: 'LXGW WenKai Screen R', Calibri, Arial, sans-serif;
+$base-font: "LXGW WenKai Screen R", Calibri, Arial, sans-serif;
 $heading-font: $base-font;
-$caption-font: $base-font;
 $code-font: $base-font;
-$alt-font: serif;
 
-$doc-font-size: 15;
-$doc-line-height: 27.2;
-
-// set-up the body font-size / line-height
+// set-up the body font-size
 body {
-  font-size: 0px + $doc-font-size;
-  font-display: swap;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
 }
 
-// Colors
+// Colors - Using CSS custom properties for consistency
 // --------------------------------------------------
-$base-color: #24292F;
-$header-color: #15141A;
-$header-active: #15141A;
-$menu-top: white;
+$base-color: #24292f;
+$header-color: #15141a;
+$header-active: #15141a;
+$menu-top: #fff;
 $menu-height: 60px;
-$menu-overflow: #24292F;
 $body-color: #e8e8e8;
-$text-color: rgba(#24292F, 0.9);
-$comp-color: complement(#24292F);
-$border-color: lighten(#24292F, 60);
+$text-color: rgba($base-color, 0.9);
+$comp-color: #d0d6db;
+$border-color: #c9ced4;
 $white: #fff;
 $black: #000;
-$link-color: rgba(#24292F, 0.8);
+$link-color: rgba($base-color, 0.8);
 
-$primary: #24292F;
+// Semantic colors
+$primary: $base-color;
 $success: #5cb85c;
 $warning: #dd8338;
-$danger: #C64537;
+$danger: #c64537;
 $info: #308cbc;
+
+// Shadows (unified)
+$shadow-sm: 0 1px 3px rgba($black, 0.08);
+$shadow-md: 0 4px 12px rgba($black, 0.1);
+$shadow-lg: 0 6px 12px rgba($black, 0.1);
+
+// Border radius (unified)
+$radius-sm: 3px;
+$radius-md: 6px;
+$radius-lg: 8px;
 
 // Screen Size
 // --------------------------------------------------
-
-$small: "only screen and (min-width: 30em)";
 $medium: "only screen and (min-width: 48em)";
 $large: "only screen and (min-width: 62.5em)";
