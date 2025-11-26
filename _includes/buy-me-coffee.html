@@ -13,24 +13,24 @@
 </div>
 
 <!-- 优化的二维码大图查看器 -->
-<div id="qr-image-viewer" onclick="closeQRViewer()">
+<div id="qr-image-viewer" onclick="handleQRViewerClick(event)">
     <div>
         <div class="qr-viewer-container">
-            <!-- 微信和支付宝二维码 - 中英文 -->
+            <!-- 微信和支付宝二维码 -->
             <div class="qr-code-item">
-                <img src="https://chilohdata.s3.bitiful.net/wechat.png?dpr=0.5" 
-                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}WeChat Pay QR code{% else %}微信支付二维码{% endif %}">
-                <p class="qr-code-label">💚 {% if page.lang == 'en-US' or page.url contains '/en/' %}WeChat{% else %}微信支付{% endif %}</p>
+                <img src="https://chilohdata.s3.bitiful.net/wechat.png" 
+                     class="no-lightense"
+                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}WeChat Pay{% else %}微信支付{% endif %}">
             </div>
             <div class="qr-code-item">
-                <img src="https://chilohdata.s3.bitiful.net/zfb.png?dpr=0.5" 
-                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}Alipay QR code{% else %}支付宝二维码{% endif %}">
-                <p class="qr-code-label">💙 {% if page.lang == 'en-US' or page.url contains '/en/' %}Alipay{% else %}支付宝{% endif %}</p>
+                <img src="https://chilohdata.s3.bitiful.net/zfb.png" 
+                     class="no-lightense"
+                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}Alipay{% else %}支付宝{% endif %}">
             </div>
         </div>
         <div class="qr-viewer-hint">
             {% if page.lang == 'en-US' or page.url contains '/en/' %}
-            <div class="qr-viewer-hint-title">💖 Thank you for your support</div>
+            <div class="qr-viewer-hint-title">📱 Scan QR code with your phone</div>
             <div class="qr-viewer-hint-subtitle">Click anywhere or press ESC to close</div>
             {% else %}
             <div class="qr-viewer-hint-title">📱 请用手机扫描二维码</div>
@@ -43,15 +43,23 @@
 
 <script>
 function showQRViewer() {
-    const viewer = document.getElementById('qr-image-viewer');
+    var viewer = document.getElementById('qr-image-viewer');
     viewer.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
 function closeQRViewer() {
-    const viewer = document.getElementById('qr-image-viewer');
+    var viewer = document.getElementById('qr-image-viewer');
     viewer.style.display = 'none';
     document.body.style.overflow = '';
+}
+
+function handleQRViewerClick(event) {
+    // 如果点击的是二维码区域，不关闭
+    if (event.target.closest('.qr-code-item')) {
+        return;
+    }
+    closeQRViewer();
 }
 
 // ESC 键关闭

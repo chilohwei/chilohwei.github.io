@@ -2,26 +2,36 @@
 
 .coffee {
     text-align: center;
-    margin-bottom: 30px;
+    margin: 40px 0 30px;
 }
 
 .buy-me-coffee {
-    background: none;
+    display: inline-block;
+    background: #24292f;
     border: none;
     cursor: pointer;
     font: inherit;
-    color: inherit;
-    padding: 0;
-    text-decoration: underline;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .buy-me-coffee:hover {
-    opacity: 0.8;
+    background: #15141a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.buy-me-coffee:active {
+    transform: translateY(0);
 }
 
 .buy-me-coffee:focus {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(36, 41, 47, 0.3);
 }
 
 /* QR Code Viewer Modal */
@@ -68,7 +78,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
 }
 
 .qr-code-item img {
@@ -79,14 +88,6 @@
     max-height: min(300px, 40vh);
     object-fit: contain;
     border-radius: 8px;
-}
-
-.qr-code-label {
-    margin: 0;
-    color: #555;
-    font-size: 1.1em;
-    font-weight: 500;
-    text-align: center;
 }
 
 .qr-viewer-hint {
@@ -141,10 +142,6 @@
         max-width: min(250px, 60vw);
         max-height: min(250px, 30vh);
     }
-    
-    .qr-code-label {
-        font-size: 1em;
-    }
 }
 
 /* Small Screen Optimization */
@@ -158,9 +155,4 @@
         max-width: min(200px, 70vw);
         max-height: min(200px, 25vh);
     }
-    
-    .qr-code-label {
-        font-size: 0.95em;
-    }
 }
-
