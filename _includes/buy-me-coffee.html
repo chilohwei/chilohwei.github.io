@@ -1,71 +1,15 @@
 {% if site.showBuyCoffee != false %}
 <div class="coffee">
-    <button class="buy-me-coffee" 
-            type="button"
-            onclick="showQRViewer(); return false;"
-            aria-label="{% if page.lang == 'en-US' or page.url contains '/en/' %}Show payment information{% else %}显示支付二维码{% endif %}">
+    <a class="buy-me-coffee" 
+       href="https://donate.chiloh.com" 
+       target="_blank"
+       style="text-decoration: none;"
+       aria-label="{% if page.lang == 'en-US' or page.url contains '/en/' %}Show payment information{% else %}显示支付二维码{% endif %}">
         {% if page.lang == 'en-US' or page.url contains '/en/' %}
         Buy me coffee ☕
         {% else %}
         喜欢文章 → 赞赏我❤️
         {% endif %}
-    </button>
-</div>
-
-<!-- 优化的二维码大图查看器 -->
-<div id="qr-image-viewer" onclick="handleQRViewerClick(event)">
-    <div>
-        <div class="qr-viewer-container">
-            <!-- 微信和支付宝二维码 -->
-            <div class="qr-code-item">
-                <img src="https://chilohdata.s3.bitiful.net/wechat.png" 
-                     class="no-lightense"
-                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}WeChat Pay{% else %}微信支付{% endif %}">
-            </div>
-            <div class="qr-code-item">
-                <img src="https://chilohdata.s3.bitiful.net/zfb.png" 
-                     class="no-lightense"
-                     alt="{% if page.lang == 'en-US' or page.url contains '/en/' %}Alipay{% else %}支付宝{% endif %}">
-            </div>
-        </div>
-        <div class="qr-viewer-hint">
-            {% if page.lang == 'en-US' or page.url contains '/en/' %}
-            <div class="qr-viewer-hint-title">📱 Scan QR code with your phone</div>
-            <div class="qr-viewer-hint-subtitle">Click anywhere or press ESC to close</div>
-            {% else %}
-            <div class="qr-viewer-hint-title">📱 请用手机扫描二维码</div>
-            <div class="qr-viewer-hint-subtitle">点击任意位置或按 ESC 键关闭</div>
-            {% endif %}
-        </div>
-    </div>
+    </a>
 </div>
 {% endif %}
-
-<script>
-function showQRViewer() {
-    var viewer = document.getElementById('qr-image-viewer');
-    viewer.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeQRViewer() {
-    var viewer = document.getElementById('qr-image-viewer');
-    viewer.style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-function handleQRViewerClick(event) {
-    // 如果点击的是二维码区域，不关闭
-    if (event.target.closest('.qr-code-item')) {
-        return;
-    }
-    closeQRViewer();
-}
-
-// ESC 键关闭
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeQRViewer();
-    }
-});
-</script>
