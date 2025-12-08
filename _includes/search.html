@@ -1,0 +1,53 @@
+{% assign search_placeholder = "搜索文章..." %}
+{% assign search_empty = "输入关键词搜索..." %}
+{% assign search_no_results = "未找到相关文章" %}
+{% assign search_loading = "加载中..." %}
+{% assign search_tips_search = "搜索" %}
+{% assign search_tips_close = "关闭" %}
+{% assign search_tips_navigate = "导航" %}
+{% assign search_tips_select = "选择" %}
+
+{% if page.url contains '/en/' or page.lang == 'en-US' %}
+  {% assign search_placeholder = "Search articles..." %}
+  {% assign search_empty = "Type to search articles..." %}
+  {% assign search_no_results = "No results found" %}
+  {% assign search_loading = "Loading..." %}
+  {% assign search_tips_search = "to search" %}
+  {% assign search_tips_close = "to close" %}
+  {% assign search_tips_navigate = "to navigate" %}
+  {% assign search_tips_select = "to select" %}
+{% endif %}
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-labelledby="search-title" 
+     data-search-source="{{ site.baseurl }}/search.json"
+     data-i18n-empty="{{ search_empty }}"
+     data-i18n-no-results="{{ search_no_results }}"
+     data-i18n-loading="{{ search_loading }}">
+  <div class="search-container">
+    <div class="search-header">
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="{{ search_placeholder }}"
+        aria-label="{{ search_placeholder }}"
+        autocomplete="off"
+      >
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-footer">
+      <div class="search-tips">
+        <kbd>/</kbd> {{ search_tips_search }}
+        <kbd>ESC</kbd> {{ search_tips_close }}
+        <kbd>↑↓</kbd> {{ search_tips_navigate }}
+        <kbd>Enter</kbd> {{ search_tips_select }}
+      </div>
+    </div>
+  </div>
+</div>

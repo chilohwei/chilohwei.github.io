@@ -642,10 +642,6 @@ html[lang="en-US"] {
   .header-item-title a {
     font-weight: 600;
   }
-  .header-item:nth-child(1),
-  .header-item:nth-child(5) {
-    display: none;
-  }
   .hentry h1.entry-title {
     font-size: 20px;
     @media #{$medium} {

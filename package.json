@@ -11,7 +11,7 @@
   },
   "scripts": {
     "prep": "gem install bundler && bundle install",
-    "dev": "bundle exec jekyll serve --watch --trace",
+    "dev": "bundle exec jekyll serve --watch --trace --config _config.yml,_config_dev.yml",
     "start": "npm run dev",
     "build": "JEKYLL_ENV=production bundle exec jekyll build && npm run min",
     "min": "terser ./js/index.js -o ./js/index.min.js -c -m"
