@@ -17,14 +17,14 @@
     border-radius: 6px;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-decoration: none; /* Ensure no underline for <a> tag */
+    text-decoration: none;
 }
 
 .buy-me-coffee:hover {
     background: #15141a;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: #fff; /* Ensure text color remains white on hover */
+    color: #fff;
 }
 
 .buy-me-coffee:active {

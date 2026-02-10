@@ -3,43 +3,6 @@ layout: base
 body_id: post
 ---
 
-<style>
-  /* Back to top button */
-  .top-link {
-    position: fixed;
-    bottom: 60px;
-    right: 30px;
-    z-index: 99;
-    background: #D3D3D3;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  .top-link.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  .top-link:hover {
-    transform: translateY(-2px);
-    background: #c0c0c0;
-  }
-  .top-link:focus {
-    outline: none;
-  }
-  .top-link svg {
-    width: 14px;
-    height: 14px;
-    display: block;
-  }
-</style>
-
 <article class="hentry" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="entry-content heti">
     <h1 class="post-title entry-title" itemprop="headline">{{ page.title }}</h1>
@@ -55,7 +18,6 @@ body_id: post
     {{ content | cdn_image_filter }}
     {% include buy-me-coffee.html %}
   </div>
-  <!--{% include giscus.html %}-->
   {% include read-more.html %}
 </article>
 

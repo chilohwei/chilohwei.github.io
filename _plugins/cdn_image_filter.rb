@@ -1,11 +1,11 @@
-# Enhanced image optimization filter for multiple CDN providers
-# Supports WebP format, lazy loading, and responsive images
+# Enhanced media optimization filter for multiple CDN providers
+# Supports WebP format, lazy loading, responsive images, and video optimization
 # Usage: {{ content | cdn_image_filter }}
 module Jekyll
   module CDNImageFilter
     def cdn_image_filter(input)
-      # Enhanced regex to capture more image attributes
-      input.gsub(/<img([^>]*?)src="([^"]+)"([^>]*?)>/i) do |match|
+      # Optimize images
+      output = input.gsub(/<img([^>]*?)src="([^"]+)"([^>]*?)>/i) do |match|
         pre_attrs = $1
         src = $2
         post_attrs = $3
@@ -21,6 +21,13 @@ module Jekyll
         
         # Construct optimized img tag
         "<img#{enhanced_attrs}src=\"#{optimized_src}\">"
+      end
+
+      # Optimize videos: add preload="metadata" to avoid downloading full file on page load
+      output.gsub(/<video([^>]*)>/i) do |match|
+        attrs = $1
+        next match if attrs.include?('preload')
+        "<video#{attrs} preload=\"metadata\">"
       end
     end
 

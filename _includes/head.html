@@ -15,11 +15,13 @@
     default-src 'self';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' 
       https://gw.alipayobjects.com 
+      https://cdn.jsdelivr.net
       https://www.googletagmanager.com 
       https://hm.baidu.com 
       https://tongji.chiloh.com;
     style-src 'self' 'unsafe-inline' 
       https://gw.alipayobjects.com 
+      https://cdn.jsdelivr.net
       https://fonts.loli.net;
     img-src 'self' data: https: 
       https://chilohdata.s3.bitiful.net 
@@ -92,8 +94,9 @@
     <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
   {% endif %}
 
-  <!-- Preconnect to font CDN origins (eliminates DNS+TLS overhead) -->
+  <!-- Preconnect to CDN origins (eliminates DNS+TLS overhead) -->
   <link rel="preconnect" href="https://gw.alipayobjects.com" crossorigin>
+  <link rel="preconnect" href="https://chilohdata.s3.bitiful.net" crossorigin>
   {% if page.lang == 'en-US' %}
   <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
   <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
@@ -138,21 +141,18 @@
   <!-- Preload Critical Resources -->
   <link rel="preload" href="{{ site.baseurl }}/css/index.css" as="style">
   <link rel="preload" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" as="style" crossorigin="anonymous">
+  {% if page.feature %}
+  <link rel="preload" href="{{ page.feature }}" as="image">
+  {% endif %}
   
   <!-- Styles and Scripts -->
   <link rel="stylesheet" href="{{ site.baseurl }}/css/index.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/buy-me-coffee.css">
   <!-- Font stylesheet -->
   <link rel="stylesheet" href="https://gw.alipayobjects.com/os/k/font/lxgwwenkaiscreenr.css" crossorigin="anonymous">
 
   {% if page.lang == 'en-US' %}
   <link rel="preload" href="https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap" as="style">
   <link href="https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap" rel="stylesheet">
-  {% endif %}
-
-  {% if page.layout == "post" %}
-  <link rel="preload" href="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" as="script">
-  <script src="//gw.alipayobjects.com/os/k/tw93/lazysizes.min.js" async></script>
   {% endif %}
 
   <!-- Favicon -->
@@ -227,15 +227,5 @@
   }
   </script>
 
-  <!-- Baidu Web Analytics -->
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?5215f90c7272de316a5a210d7f288d56";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>    
 
 </head>

@@ -65,6 +65,7 @@ exclude:
     ".cursor",
     ".cursorindexingignore",
     "lighthouserc.js",
+    "js/ppt",
   ]
 
 # Plugins

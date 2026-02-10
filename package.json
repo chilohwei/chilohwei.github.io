@@ -14,7 +14,7 @@
     "dev": "bundle exec jekyll serve --watch --trace --config _config.yml,_config_dev.yml",
     "start": "npm run dev",
     "build": "JEKYLL_ENV=production bundle exec jekyll build && npm run min",
-    "min": "terser ./js/index.js -o ./js/index.min.js -c -m"
+    "min": "terser ./js/index.js -o ./js/index.min.js -c -m && terser ./js/search.js -o ./js/search.min.js -c -m && terser ./js/main.js -o ./js/main.min.js -c -m"
   },
   "devDependencies": {
     "terser": "^5.15.1"
