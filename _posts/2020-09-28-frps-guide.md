@@ -278,7 +278,7 @@ winsw uninstall
 
 - 双击运行注册.bat 文件，即可注册好服务。之后就可以使用 ip+remote\_port 的形式访问内网的 windows 电脑了。
 
-![Frp远程桌面连接](https://chilohdata.s3.bitiful.net/blog/frp-rdp.jpg "Frp远程桌面连接")
+![Frp远程桌面连接](https://bitcdn.chiloh.cn/blog/frp-rdp.jpg!style=article "Frp远程桌面连接")
 
 ### 三、总体感受
 

@@ -22,7 +22,7 @@ categories: "Tech"
 
 <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
 <video width="100%" height="100%" style="position:absolute" controls>
-  <source src="https://chilohdata.s3.bitiful.net/blog/chatgpt-vercel.mp4" type="video/mp4">
+  <source src="https://bitcdn.chiloh.cn/blog/chatgpt-vercel.mp4" type="video/mp4">
 </video>
 </div>
 
@@ -205,7 +205,7 @@ docker-compose up -d
 
 访问 `http://ip:81` 进入 Nginx Proxy Manager 管理后台，点击 `Add Proxy Host`，然后按照下图指示来填写：
 
-![NPM Host](https://chilohdata.s3.bitiful.net/blog/npm-host.png "NPM Host")
+![NPM Host](https://bitcdn.chiloh.cn/blog/npm-host.png!style=article "NPM Host")
 
 其中 IP 部分，可以在服务器上运行下面命令找到：
 
@@ -217,8 +217,8 @@ Port 填写 `docker-compose.yml` 中定义好的端口，默认是 3002。
 
 然后参考下图指示申请 SSL 证书，最后点击保存即可。（注意：这一块儿要申请后，再进来点一次）
 
-![NPM SSL](https://chilohdata.s3.bitiful.net/blog/npm-ssl.png "NPM SSL")
+![NPM SSL](https://bitcdn.chiloh.cn/blog/npm-ssl.png!style=article "NPM SSL")
 
 最后，就可以使用你自己的域名访问网站了。部署后的效果如图：
 
-![ChatGPT Web](https://chilohdata.s3.bitiful.net/blog/chatweb.png "ChatGPT Web")
+![ChatGPT Web](https://bitcdn.chiloh.cn/blog/chatweb.png!style=article "ChatGPT Web")

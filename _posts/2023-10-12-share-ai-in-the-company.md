@@ -6,24 +6,24 @@ date: "2023-10-12"
 categories: "Share"
 ---
 
-![公司分享](https://chilohdata.s3.bitiful.net/blog/gitmind-share.png)
+![公司分享](https://bitcdn.chiloh.cn/blog/gitmind-share.png!style=article)
 
 之前在部门有过分享，不过这是第 1 次在全公司做了一个半多钟头的分享，从上面公司同事的反馈来看，效果不错。算是一次小小的突破，开心。
 
-- [分享讲的 PPT（修改后脱敏版）](https://chilohdata.s3.bitiful.net/blog/how-to-use-chatgpt.pdf) 
+- [分享讲的 PPT（修改后脱敏版）](https://bitcdn.chiloh.cn/blog/how-to-use-chatgpt.pdf) 
 
 ## ChatGPT 的实践
 
 从 ChatGPT 出圈之后，第一时间就关注并参与到了其中，自己也参考 Github 上的开源项目部署了一个网站提供给身边的好友使用：
 
-![Chiloh's ChatWeb Screenshot](https://chilohdata.s3.bitiful.net/blog/chatweb.png)
+![Chiloh's ChatWeb Screenshot](https://bitcdn.chiloh.cn/blog/chatweb.png!style=article)
 
 也亲自参与并实践了许多，比如：
 
 > 案例 1：作为一个不懂代码开发的普通人，想要实现一个功能：在本地浏览器给图片加水印，水印可以调整颜色，透明度和倾斜角度，可以实时预览。借助 ChatGPT 写一个给图片加水印的在线网站：
 
 <video width="100%" height="auto" controls="">
-  <source src="https://chilohdata.s3.bitiful.net/weekly/watermark.mp4" type="video/mp4">
+  <source src="https://bitcdn.chiloh.cn/weekly/watermark.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -32,7 +32,7 @@ categories: "Share"
 > 案例 2：作为一个不懂爬虫代码的普通人，想要实现一个功能：模拟浏览器点击操作，来抓取指定网站的特定链接
 
 <video width="100%" height="auto" controls="">
-  <source src="https://chilohdata.s3.bitiful.net/weekly/blog-by-gpt.mp4" type="video/mp4">
+  <source src="https://bitcdn.chiloh.cn/weekly/blog-by-gpt.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -40,7 +40,7 @@ categories: "Share"
 
 虽然对于 ChatGPT 的理解尚且很粗浅，但我还是想姑妄谈一谈。我的理解其实在分享里也有提到，源于我的一个想象：
 
-![ChatGPT想象](https://chilohdata.s3.bitiful.net/blog/gpt-imagine.010.jpeg)
+![ChatGPT想象](https://bitcdn.chiloh.cn/blog/gpt-imagine.010.jpeg!style=article)
 
 > 假如存在一个 All in one 的本体，在时空长河中无止无息地流淌着，横向是时间，纵向是空间。这个本体以“流”的形式存在，这意味着流向任意形态的容器，流经任意形态的载体，都会有不同的物理实在产生。
 
@@ -50,7 +50,7 @@ categories: "Share"
 
 回到 ChatGPT 的理解上来，我用 DALL·E 3 尝试将想象的画面描绘了出来，并且给了它一个比喻：
 
-![时空穿梭机=ChatGPT](https://chilohdata.s3.bitiful.net/blog/gpt-imagine.011.jpeg)
+![时空穿梭机=ChatGPT](https://bitcdn.chiloh.cn/blog/gpt-imagine.011.jpeg!style=article)
 
 
 ChatGPT 就像是一艘时光穿梭机，它可以载着我们跨越时空，鉴古知今。它就像是一个接口，可以让我们借由它去往任意世界，体验任意文明。

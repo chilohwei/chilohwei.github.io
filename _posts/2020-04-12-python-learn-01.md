@@ -51,7 +51,7 @@ print(website3)
 
 **呈现：**
 
-![Python字符串输出结果](https://chilohdata.s3.bitiful.net/blog/python200412.png "Python字符串输出结果")
+![Python字符串输出结果](https://bitcdn.chiloh.cn/blog/python200412.png!style=article "Python字符串输出结果")
 
 ### 二、课后练习题
 

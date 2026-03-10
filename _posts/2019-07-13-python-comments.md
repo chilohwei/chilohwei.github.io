@@ -12,7 +12,7 @@ categories: "Tech"
 
 以[七麦数据ASO平台](https://www.qimai.cn/)为例，搜索想要获取的 APP 应用，比如微信，然后在微信的七麦详情页选择「评分评论」，最后查看「评论详情」并点击「导出数据」按钮，就可以导出应用评论数据。
 
-![七麦应用数据.png](https://chilohdata.s3.bitiful.net/blog/qmaso.png "七麦应用数据.png")
+![七麦应用数据.png](https://bitcdn.chiloh.cn/blog/qmaso.png!style=article "七麦应用数据.png")
 
 该方法的优缺点如下：
 
@@ -107,7 +107,7 @@ python comments.py
 
 然后按照提示输入应用 ID 就可以自动抓取该 ID 对应的应用在 App Store 里的评论，如下图。
 
-![python获取评论.png](https://chilohdata.s3.bitiful.net/blog/python-comments.png "python获取评论.png")
+![python获取评论.png](https://bitcdn.chiloh.cn/blog/python-comments.png!style=article "python获取评论.png")
 
 ### 参考资料
 

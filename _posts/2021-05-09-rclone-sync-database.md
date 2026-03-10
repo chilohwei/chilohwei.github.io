@@ -291,7 +291,7 @@ y/e/d> y
 
 登录阿里云网页，点击右上角头像，进入**访问控制**，创建一个新用户，点选**编程访问**，并添加`AliyunOSSFullAccess`权限。
 
-![创建用户](https://chilohdata.s3.bitiful.net/blog/aliyun-oss-accesskey.png "创建用户")
+![创建用户](https://bitcdn.chiloh.cn/blog/aliyun-oss-accesskey.png!style=article "创建用户")
 
 之后就可以获得阿里云 OSS 服务的 ID 和密钥了。
 

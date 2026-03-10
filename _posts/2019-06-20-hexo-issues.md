@@ -27,7 +27,7 @@ categories: "Tech"
 > 解决办法：替换 `\themes\next\layout\_third-party\comments\valine.swig` 中的默认 CDN 地址为最新的 `Valine.min.js` 地址。  
 > 最新 Valine.min.js 获取地址：[https://www.jsdelivr.com/package/npm/valine](https://www.jsdelivr.com/package/npm/valine)，获取方法如下图：
 
-![](https://chilohdata.s3.bitiful.net/blog/valine-cdn-url.jpg "valine-cdn-url.jpg")
+![](https://bitcdn.chiloh.cn/blog/valine-cdn-url.jpg!style=article "valine-cdn-url.jpg")
 
 ### SEO 问题：
 

@@ -13,7 +13,7 @@ The company's product department often asks open-ended questions during training
 > When it comes to implementing a principle, "think it through, allocate resources, and deploy," what is the relationship between these three aspects? Share your understanding.
 
 Before answering this question, I'd like to share my underlying logic: objects + relationships, which is also my worldview. In my cognition, **the world is a complex network system composed of objects and relationships**. For example, I am an object, and a duck can also be considered an object. If we delve deeper, there must be some kind of relational path between the objects of "me" and "duck."
-![20210721143943](https://chilohdata.s3.bitiful.net/blog/20210721143943.png "20210721143943")
+![20210721143943](https://bitcdn.chiloh.cn/blog/20210721143943.png!style=article "20210721143943")
 
 - Moving up from an object leads to a "class"; the object "me" belongs to the class "human," while the object "duck" belongs to the class "animal."
 - Moving down from an object leads to "values"; for instance, the object "me" has many attribute values: gender, age, preferences, and so on.
@@ -29,7 +29,7 @@ The demand side is an object, the supply side is an object, and the two objects 
 - Think it through: Identify what resources are needed (the demand for achieving the goal).
 - Allocate resources: Provide the necessary resources (the supply for achieving the goal).
 - Deploy: How to circulate the resources (the path between demand and supply).
-    ![20210721144056](https://chilohdata.s3.bitiful.net/blog/20210721144056.png "20210721144056")
+    ![20210721144056](https://bitcdn.chiloh.cn/blog/20210721144056.png!style=article "20210721144056")
 
 From a different perspective, cognitively thinking about this question reveals a model similar to the "Golden Circle Rule":
 
@@ -38,7 +38,7 @@ Why is an object, how is an object, and what is also an object; the three are mu
 - Think it through: Why it needs to be done (clear project strategy and alignment).
 - Allocate resources: How to implement it (availability of human and material resources).
 - Deploy: What to do to implement it (alignment of resources and strategy).
-    ![20210721144114](https://chilohdata.s3.bitiful.net/blog/20210721144114.png "20210721144114")
+    ![20210721144114](https://bitcdn.chiloh.cn/blog/20210721144114.png!style=article "20210721144114")
 
 From yet another angle, perhaps a completely different answer could be obtained. "**There is no fixed law, but then one knows that non-law is also law.**"
 
@@ -58,4 +58,4 @@ My deepest experiences in this area are:
     - For example, from a decentralized structure, I associate it with information equality, and then abstract it further to the transfer of rights to individuals.
     - For example, from the cyclical transformation of the five elements, I associate it with energy circulation and transformation, leading to [energy, frequency, and channels](https://blog.chiloh.com/2021-05-18/energy-world.html).
     - For example, from disruptive innovation, I associate it with the limit formula, where C is the boundary of the unknown variable x, and L is the true higher-dimensional world.
-        ![20210721145112](https://chilohdata.s3.bitiful.net/blog/20210721145112.png "20210721145112")
+        ![20210721145112](https://bitcdn.chiloh.cn/blog/20210721145112.png!style=article "20210721145112")

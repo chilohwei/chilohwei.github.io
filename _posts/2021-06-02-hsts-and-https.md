@@ -30,7 +30,7 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 然后再去检测的时候，就会发现，评分变成 A+了：
 
-![HSTS](https://chilohdata.s3.bitiful.net/blog/hsts-ssl-a+.png "HSTS")
+![HSTS](https://bitcdn.chiloh.cn/blog/hsts-ssl-a+.png!style=article "HSTS")
 
 ### 开启全站 HTTPS
 
@@ -60,4 +60,4 @@ UPDATE `typecho_contents` SET `text` = REPLACE(`text`,'http://domain.com','https
 
 6、最后 F12 打开 Chrome 浏览器，就可以看到`This page is secure (valid HTTPS)`的提示了。
 
-![HTTPS](https://chilohdata.s3.bitiful.net/blog/typecho-https.jpg "HTTPS")
+![HTTPS](https://bitcdn.chiloh.cn/blog/typecho-https.jpg!style=article "HTTPS")

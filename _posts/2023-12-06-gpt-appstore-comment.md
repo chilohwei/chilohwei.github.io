@@ -11,7 +11,7 @@ categories: "Tech"
 录了一个视频，分享下自己的感受：
 
 <video width="100%" height="auto" controls="">
-  <source src="https://chilohdata.s3.bitiful.net/blog/app-comment.mp4" type="video/mp4">
+  <source src="https://bitcdn.chiloh.cn/blog/app-comment.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -115,7 +115,7 @@ if __name__ == '__main__':
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="https://chilohdata.s3.bitiful.net/avatar.png">
+<link rel="shortcut icon" href="https://bitcdn.chiloh.cn/avatar.png">
 <title>AppStore应用评论获取</title>
 <style>
     body {

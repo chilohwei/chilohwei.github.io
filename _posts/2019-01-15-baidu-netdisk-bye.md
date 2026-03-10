@@ -22,7 +22,7 @@ categories: "Life"
 
 下面是当时下载速度截图：
 
-![百度网盘下载速度图](https://chilohdata.s3.bitiful.net/blog/bdwp-download-velocity.jpg "百度网盘下载速度图")
+![百度网盘下载速度图](https://bitcdn.chiloh.cn/blog/bdwp-download-velocity.jpg!style=article "百度网盘下载速度图")
 
 当时我就关掉了客户端，打开浏览器找到了百度帐号客服反馈与建议页面，简要地说明了我的问题。虽然没想有多大的作用，但不可否认的是心里尚存着一丝对大厂 的期待。终于今天早上我收到了邮件回复：
 

@@ -13,7 +13,7 @@ categories: "Share"
 很多关系要好的朋友可能都知道，我是比较喜欢大张伟的。当然我更喜欢的是花儿乐队时候的那个“张伟”，喜欢他身上的那股劲儿，喜欢他或者说羡慕他近 40 岁，身上还经常能看见的少年气，喜欢他的“真”。
 
 <video width="100%" height="auto" controls="">
-  <source src="https://chilohdata.s3.bitiful.net/videos/大张伟14岁的音乐.mp4" type="video/mp4">
+  <source src="https://bitcdn.chiloh.cn/videos/大张伟14岁的音乐.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -35,13 +35,13 @@ categories: "Share"
 放一个自己虽然第一次听，但非常喜欢的歌曲的现场吧：
 
 <video width="100%" height="auto" controls="">
-  <source src="https://chilohdata.s3.bitiful.net/videos/林俊杰 -转动.mp4" type="video/mp4">
+  <source src="https://bitcdn.chiloh.cn/videos/林俊杰 -转动.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 最后分享下，跟朋友一起去看演唱会的感受：
 
-![演唱会感受](https://chilohdata.s3.bitiful.net/blog/concert.png)
+![演唱会感受](https://bitcdn.chiloh.cn/blog/concert.png!style=article)
 
 
 **一切都是最好的安排！**

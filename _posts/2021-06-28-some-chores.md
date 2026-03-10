@@ -16,25 +16,25 @@ categories: "Life"
 
 **第二天早起后，去爬山，路上的一些风景。那天走了 17340 步，徒步爬山的感觉很棒，以后要多出去了。**
 
-![景区门口的树](https://chilohdata.s3.bitiful.net/blog/IMG_0038.JPEG "景区门口的树")
+![景区门口的树](https://bitcdn.chiloh.cn/blog/IMG_0038.JPEG!style=article "景区门口的树")
 
-![景区口进去的路](https://chilohdata.s3.bitiful.net/blog/IMG_0044.JPEG "景区口进去的路")
+![景区口进去的路](https://bitcdn.chiloh.cn/blog/IMG_0044.JPEG!style=article "景区口进去的路")
 
 **途径一棵绑着小铃铛的树，在风中作响的声音很美，随心记录了下来。（请忽略人声）**
 
 **景区里的其他风景，瀑布在阳光下映照出的彩虹很漂亮，可惜拍照技术不太好，就不放上来了。**
 
-![景区地图](https://chilohdata.s3.bitiful.net/blog/IMG_0069.JPEG "景区地图")
+![景区地图](https://bitcdn.chiloh.cn/blog/IMG_0069.JPEG!style=article "景区地图")
 
-![山间葱色](https://chilohdata.s3.bitiful.net/blog/IMG_0071.JPEG "山间葱色")
+![山间葱色](https://bitcdn.chiloh.cn/blog/IMG_0071.JPEG!style=article "山间葱色")
 
-![索道与蓝天](https://chilohdata.s3.bitiful.net/blog/IMG_0076.JPEG "索道与蓝天")
+![索道与蓝天](https://bitcdn.chiloh.cn/blog/IMG_0076.JPEG!style=article "索道与蓝天")
 
-![树间的天空](https://chilohdata.s3.bitiful.net/blog/IMG_0088.JPEG "树间的天空")
+![树间的天空](https://bitcdn.chiloh.cn/blog/IMG_0088.JPEG!style=article "树间的天空")
 
-![山腰处的天色](https://chilohdata.s3.bitiful.net/blog/IMG_0090.JPEG "山腰处的天色")
+![山腰处的天色](https://bitcdn.chiloh.cn/blog/IMG_0090.JPEG!style=article "山腰处的天色")
 
-![仰头看山与天](https://chilohdata.s3.bitiful.net/blog/IMG_0091.JPEG "仰头看山与天")
+![仰头看山与天](https://bitcdn.chiloh.cn/blog/IMG_0091.JPEG!style=article "仰头看山与天")
 
 ### 堂哥婚礼
 

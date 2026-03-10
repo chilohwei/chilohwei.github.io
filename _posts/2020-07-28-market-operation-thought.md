@@ -14,19 +14,19 @@ categories: "Thought"
 
 **所谓运营，就是通过拉新、促活、留存、转化等手段将产品的价值展示给用户，从而激发用户贡献价值，并反馈给产品本身，产品利用用户反馈的价值再生产更大的价值，从而形成一个完整的闭环价值流通体系。**
 
-![](https://chilohdata.s3.bitiful.net/blog/market-op01.jpg "market-op01.jpg")
+![](https://bitcdn.chiloh.cn/blog/market-op01.jpg!style=article "market-op01.jpg")
 
 时至今日，对于“运营”的认知则有了不一样的感受：
 
 **所谓运营，实质是在做“关系的干预”。**
 
-![](https://chilohdata.s3.bitiful.net/blog/market-op02.jpg "market-op02.jpg")
+![](https://bitcdn.chiloh.cn/blog/market-op02.jpg!style=article "market-op02.jpg")
 
 ### 二、工作尝试
 
 - 关键词分析：**选词（多渠道）+ 筛词（有标准）+ 定词（有梯度）**
 
-![](https://chilohdata.s3.bitiful.net/blog/market-op03.jpg "market-op03.jpg")
+![](https://bitcdn.chiloh.cn/blog/market-op03.jpg!style=article "market-op03.jpg")
 
 - TDK 怎么写：**标题充分覆盖关键词 + 描述中核心关键词与场景词**
 - 内容建设策略 + 搜索引擎优化
@@ -35,7 +35,7 @@ categories: "Thought"
 
 ### 三、一些补充
 
-![](https://chilohdata.s3.bitiful.net/blog/market-op04.jpg "market-op04.jpg")  
-![](https://chilohdata.s3.bitiful.net/blog/market-op05.jpg "market-op07.jpg")  
-![](https://chilohdata.s3.bitiful.net/blog/market-op06.jpg "market-op06.jpg")  
-![](https://chilohdata.s3.bitiful.net/blog/market-op07.jpg "market-op07.jpg")
+![](https://bitcdn.chiloh.cn/blog/market-op04.jpg!style=article "market-op04.jpg")  
+![](https://bitcdn.chiloh.cn/blog/market-op05.jpg!style=article "market-op07.jpg")  
+![](https://bitcdn.chiloh.cn/blog/market-op06.jpg!style=article "market-op06.jpg")  
+![](https://bitcdn.chiloh.cn/blog/market-op07.jpg!style=article "market-op07.jpg")
