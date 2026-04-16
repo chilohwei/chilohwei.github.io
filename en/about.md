@@ -26,10 +26,6 @@ The blogger's surname is Wei, and the English name he gave himself when he joine
 
 - WeChat: Y2hpbG9oLXdlaQ==
 - Email: Y2hpbG9od2VpQGdtYWlsLmNvbQ== (Note: Base 64 decode)
-- Official Account: Search "魏奇洛" or scan the QR code to follow
-  
-<ul align="left">
-    <img src="https://chilohdata.s3.bitiful.net/qrcode.jpg" alt="QR code for Chiloh Wei's official account" style="width: 15%; height: auto;"/>
-</ul>
+- Official account: search “魏奇洛” on WeChat
 
 - Others: [Weibo](https://weibo.com/u/7873805545), [Twitter](https://twitter.com/chiloh_wei), [Github](https://github.com/chilohwei)
