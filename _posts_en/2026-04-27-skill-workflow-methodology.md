@@ -1,422 +1,313 @@
 ---
 layout: post
-title: "Skill Workflow: Don't Write a Longer Prompt—Design a Working System"
-summary: After shipping a content-oriented, delivery-heavy Agent workflow end to end, one thing is clear—high-quality Skill Workflows are not longer prompts but deliverable systems: models judge and express; scripts and state handle determinism, recovery, and audit. Gates and docs must match real needs; overbuilding slows you down and burns tokens on long references and check chains.
+title: "Understanding Skill Workflow: Not a Prompt, but a Delivery System"
+summary: A Skill Workflow is not a longer prompt. It turns a one-off output into a recoverable, verifiable, previewable, approvable delivery process. The model handles understanding, judgment, and expression; scripts handle deterministic work; state files handle recovery; evidence, preview, and approval gates move the result from “looks good” to “ready to ship.”
 date: "2026-04-27"
 categories: "Thought"
 ---
 
-> This piece makes one claim: **a high-quality Skill Workflow is not a longer prompt—it is a working system.** Models handle understanding and creation; scripts handle validation, state, and pre-ship checks; state machines make flows resumable and auditable.
->
-> Whether results are good rarely comes down to “whether the AI can write.” It comes down to **whether the system can deliver.** A **working system** is also **not** “run every possible check”—the depth of gates and references has to match real risk and real pace, or you become your own bottleneck.
+## TL;DR
 
-While turning a long-chain workflow—**content strategy → writing → preview → multi-platform publishing**—into something real, my read on `Skill Workflow` got clearer.
+After building a delivery-oriented content workflow, my understanding of `Skill Workflow` became much clearer:
 
-At first it is tempting to treat it as “write a more detailed prompt.”
+**Do not treat it as a longer prompt. Treat it as a small working system.**
 
-Stuff role, tone, steps, caveats, and output format into one `SKILL.md` and hope the Agent follows it every time.
+A stable workflow needs to answer five questions:
 
-After you run a serious multi-stage flow once, that path hits a wall fast.
+| Question | Solved By |
+|---|---|
+| When should it start? | Clear trigger conditions |
+| What should happen next? | State machine and one next action |
+| Which judgments are trustworthy? | Evidence ledger and source references |
+| Can the user judge the output? | Readable preview |
+| Which actions must not be automatic? | Approval gates and safe delivery |
 
-In real work the problem is never only “generate some copy.”
+Models are good at understanding, tradeoffs, and expression. They are not good at owning every deterministic step. Validation, state, format conversion, preview generation, pre-ship checks, and external writes should usually be handled by scripts and gates.
 
-The real questions are:
+![Skill Workflow Loop](https://chilohdata.s3.bitiful.net/blog/blog/skill-workflow-loop.svg)
 
-- Is the user’s goal clear?
-- Is the data trustworthy enough?
-- Where can the model decide?
-- Where must scripts verify?
-- Can outputs be previewed?
-- Do publish, overwrite, and write actions have approval?
-- Can you resume after interruption?
-- Can you trace what went wrong?
+This is not about writing a magical prompt. It is about designing a workflow that can actually deliver.
 
-Longer prompts do not fix these—only system design does.
+## First, Define the Thing
 
-## I. From writing content to driving the process
+I used to think of a `Skill` as a prompt enhancement pack.
 
-Take a **content + multi-platform delivery** workflow: on the surface it is content production.
+Write the role, tone, steps, caveats, and output format into `SKILL.md`, then hope the Agent follows it every time.
 
-What it really has to solve is not “have AI write one article.”
+That works for atomic tasks: summarize an article, rewrite a paragraph, generate a template.
 
-Any large model can write an article.
+It breaks down once the task becomes multi-stage delivery.
 
-What is hard is:
+For example, a content workflow may look like “ask AI to write an article,” but the real chain is closer to:
 
 ```text
-Decide if the topic is worth writing
-  -> Gather real data
-  -> Shape content strategy
-  -> Write and refine
-  -> Prepare images and media list
-  -> Render HTML preview
-  -> Wait for user approval
-  -> Build WordPress / Shopify draft bundles
-  -> Pre-publish validation
+Decide whether the topic is worth writing
+  -> Collect evidence and context
+  -> Shape the content strategy
+  -> Write and revise
+  -> Render a preview
+  -> Wait for approval
+  -> Build the platform draft
+  -> Run pre-publish checks
 ```
 
-In that chain, writing is only one step.
+Writing is only one step.
 
-Often it is not even the hardest step.
+The harder part is: how does the system know where it is, what the next step is, what is missing, and when it must stop to ask the user?
 
-Harder is: **how the system knows what it should do now, what it must not do, and when it must stop and wait for the user.**
+Here is the distinction I now use:
 
-That is the main takeaway this round:
+| Type | Essence | Good For | Common Mistake |
+|---|---|---|---|
+| Prompt | One output constraint | Generation, rewriting, summarization | Getting longer until nobody can reason about it |
+| Skill | On-demand method pack | Giving the Agent a way to work | Stuffing encyclopedias and scripts into the entry file |
+| Workflow | A business process that can move forward | Multi-stage, recoverable, deliverable work | No state, no evidence, no approval |
 
-**Do not treat the Agent as “a model that writes.” Design it as “an OS that moves a business process forward.”**
+In one sentence: **a prompt solves one output; a workflow solves one responsibility.**
 
-Once you flip that lens, the design questions change.
+## A Workflow Has Five Layers
 
-You stop asking only “how to write a better prompt” and start asking:
+I no longer start by writing `SKILL.md`.
 
-- What does this workflow ultimately deliver?
-- Who uses it?
-- Which steps need real data?
-- Which actions have external side effects?
-- Which outputs must be previewable?
-- Which decisions must be recorded?
-- What should the user see when something fails?
+I start by separating layers.
 
-That is where workflow design starts.
+![Skill Workflow Layers](https://chilohdata.s3.bitiful.net/blog/blog/skill-workflow-layers.svg)
 
-## II. Seven traits of a high-standard workflow
+| Layer | Owns | Should Not Own |
+|---|---|---|
+| Entry | Task recognition, required inputs, first step | All domain knowledge |
+| Knowledge | Methods, templates, examples, judgment frames | Permanent context pollution |
+| Execution | Scripts, checks, conversion, preview rendering | Vibe-based deterministic decisions |
+| State | Progress, evidence, decisions, changes | Chat memory as the source of truth |
+| Delivery | Preview, approval, publish, rollback | Hidden external side effects |
 
-A plain Skill usually solves one atomic task.
+Not every workflow needs all five layers on day one.
 
-PDF handling, summaries, calling an API, format conversion.
+An internal draft or one-off utility may only need a `SKILL.md`.
 
-A high-standard `Skill Workflow` spans stages, tools, and decisions.
+But once the task touches client delivery, external platforms, multi-person work, or long-lived state, chat context is not enough.
 
-I use seven traits as a checklist:
+## Models vs Scripts
 
-**First, invocable.**  
-Natural-language goals should route to it reliably—not exotic commands users must memorize.
+The most important design decision is what the model should do and what it should not do.
 
-**Second, executable.**  
-Users should not need deep internals; the Agent advances most steps on its own.
+My current split:
 
-**Third, verifiable.**  
-Critical stages need more than “looks fine”—scripts, files, state, tests, or previews that make trust explicit.
+| Task | Better for Model | Better for Script |
+|---|---|---|
+| Understand user goals | Yes | No |
+| Judge priority | Yes | No |
+| Generate structure and language | Yes | No |
+| Check whether files exist | No | Yes |
+| Validate required fields | No | Yes |
+| Render previews | Partly | Yes |
+| Judge evidence sufficiency | Partly | Partly |
+| Publish, overwrite, external writes | No | Yes, with approval |
 
-**Fourth, resumable.**  
-After interruption, continue from state on disk—not from chat memory.
+The problem with models is not that they are dumb.
 
-**Fifth, previewable.**  
-Anything that affects the user’s judgment should be visible.
+The problem is that they are too good at explaining.
 
-**Sixth, auditable.**  
-Data provenance, approvals, automated edits, and publish actions should leave a trail.
+Missing fields become “probably not required yet.” Thin evidence becomes “based on available information.” No preview becomes “the structure is ready.”
 
-**Seventh, deliverable.**  
-It cannot end at “here is some advice.” It should reach a draft bundle, a platform draft, a client artifact, or at least a local artifact you can inspect.
+A delivery system cannot rely on that elasticity.
 
-Together, these traits push `Skill Workflow` toward a lightweight product system—not prompt stacking.
-
-They are also an **upper bound**, not a mandate for v1. Weekly blurbs, internal drafts, or “someone will skim it” work do not need the full stack—**end-to-end evidence + layered doctor runs + every reference doc**. Over-gating slows the main line; the Agent keeps loading long docs and chaining checks; context swells; **a lot of tokens go to keeping the machinery running, not to delivery quality.**
-
-Before you design, pick the priority: do you fear **unreliability** more, or **too slow / too expensive (including model cost)**? Lock down the worst risk first; add gates after incidents and feedback—not on day one from a textbook outline.
-
-## III. Models judge; scripts enforce determinism
-
-The important split is roles: what the model does vs what scripts do.
-
-Models are strong at:
-
-- Parsing natural-language goals.
-- Judging context and priority.
-- Structuring content, writing, explaining.
-- Choosing among reasonable options.
-- Explaining state in human terms.
-
-Models should not own everything.
-
-Anything stable, repeatable, testable—anything you cannot leave to vibe—belongs in scripts.
-
-For example:
-
-- Initialize workspaces.
-- Decide the next step.
-- Check configuration.
-- Validate evidence.
-- Render previews.
-- Build platform payloads.
-- Run pre-publish checks.
-- Lint replies so internal detail does not leak.
-
-A good script behaves like a small API.
-
-No interactive prompts; clear flags; `--help`; stable JSON or stable text; failures that name the blocker and how to recover.
-
-It might tell the Agent:
+A script response like this is far more useful:
 
 ```json
 {
   "status": "blocked",
   "stage": "data_readiness",
-  "summary": "External data source credentials are missing or invalid.",
-  "one_next_action": "Add the required API credentials to the workflow secrets file on disk (do not paste into chat).",
+  "summary": "Required production sources are missing.",
+  "next_action": "Add brand materials or allow downgrade to draft.",
   "safe_to_continue": false
 }
 ```
 
-That looks like engineering trivia; it directly shapes UX.
+It tells the Agent: do not pretend this is done.
 
-Many Agent replies are not invented—they are assembled from those stable states.
+## State Prevents Forgetting
 
-**The more stable the scripts, the less room for the Agent to improvise badly.**
+Complex workflows cross many turns.
 
-Balance matters too: **each extra check is another read/write/wait cycle.** Pin scripts to **irreversible actions** and **places that have actually failed before**, rather than a full diagnostic every time—that is the same line of reasoning as the **upper-bound checklist** in the previous section.
+Today the user adds materials. Tomorrow they change direction. The day after tomorrow they ask you to continue. If state only lives in chat, the Agent will eventually guess wrong.
 
-## IV. State machines as memory for complex flows
+So state should be written down.
 
-Complex workflows cannot live on chat memory alone.
-
-When stages multiply and edits loop, persisted state earns its keep; when approvals, external writes, or multi-person work appear, logs and decision records belong earlier—not to look “professional,” but for **resumability and traceability**.
-
-In projects like this, a workspace for one business object (brand, client, etc.) might look like:
+A lightweight workspace is already useful:
 
 ```text
-outputs/[entity-slug]/
-  profile.yaml
+outputs/[task-id]/
   workflow-state.yaml
   evidence-ledger.yaml
   decision-log.yaml
   change-log.yaml
-  credentials-status.json
-  data/
-  content-assets/
+  preview/
+  artifacts/
 ```
 
-They solve concrete problems:
+| File | Stores | Why It Matters |
+|---|---|---|
+| `workflow-state.yaml` | Current stage, blocker, next action | Resume after interruption |
+| `evidence-ledger.yaml` | Sources, dates, confidence | Trace key claims |
+| `decision-log.yaml` | User approvals and choices | Avoid asking again or changing silently |
+| `change-log.yaml` | What changed and why | Review and rollback |
+| `preview/` | User-readable output | Approval based on what is visible |
 
-- After interruption, the system knows where to continue.
-- The Agent cannot skip prerequisite gates.
-- Approvals and rejections are recorded.
-- Conclusions trace back to data.
-- Multiple brands or projects stay isolated.
+This is not engineering theater.
 
-Often the Agent fails not because it is “dumb” but because the flow never gave it a reliable source of state.
+It keeps the Agent from re-guessing the whole process from a long conversation.
 
-If it can only guess from context, it will guess wrong.
+## Three Hard Gates: Evidence, Preview, Approval
 
-State files turn the workflow from a **temporary chat process** into a **durable process on disk**.
+I now check a workflow by looking for these gates first.
 
-## V. Evidence, preview, approval: three hard gates
+### 1. Evidence Gate
 
-Content, reports, analysis, GTM, legal work—all share one failure mode:
+Key conclusions must trace back to sources.
 
-**Do not pass “a guess” off as “validated.”**
+| Scenario | Evidence Might Be |
+|---|---|
+| Content strategy | Search volume, competitor pages, user reviews, brand materials |
+| Financial analysis | Raw ledgers, account mapping, exchange-rate source |
+| Support diagnosis | Tickets, product version, reproduction steps |
+| Product requirements | User feedback, business goals, constraints |
 
-This section assumes **external delivery, compliance, or accountability**: when consequences exist outside the chat, evidence cannot be hand-wavy; scratch notes and experiments can still use the proportionality from section II. On that basis, a serious workflow earns an evidence gate.
+Insufficient evidence should downgrade the output to a draft, direction, or hypothesis.
 
-No evidence → no final call.
+Do not disguise guessing as validation.
 
-Thin evidence → downgrade to diagnosis, direction, or draft.
+### 2. Preview Gate
 
-Solid evidence → production.
+The user should approve a readable preview, not Markdown, JSON, or a chat summary.
 
-Examples of evidence: search volume and peers for content; ledgers and FX sources for finance; tickets and repro steps for support.
+For content, reports, webpages, and CMS drafts, preview is not decoration. It is the decision interface.
 
-Different domains, same rule:
+### 3. Approval Gate
 
-**Key conclusions must trace to sources.**
+Publishing, overwriting, deleting, scheduling, or writing to external systems must require explicit confirmation.
 
-Beyond evidence: preview gates.
+Generating a payload does not mean it can be written.
 
-Markdown, YAML, or JSON can be source files; what users approve should be a **readable preview**.
+Opening a preview does not mean the user approved publishing.
 
-For content, reports, web, CMS drafts, preview is not decoration—it is the decision surface.
+The stronger the Agent, the clearer the brakes need to be.
 
-Then approval gates.
+## UX Is a Control Protocol
 
-Publish, overwrite, delete, schedule, writes to external systems—each needs explicit confirmation.
+I used to think UX meant “write friendlier replies.”
 
-Opening a preview is not approving a publish.
+Now I think of it as the workflow control protocol.
 
-Building a payload is not permission to write upstream.
+Users do not care how many scripts or state files exist internally.
 
-That line must stay crisp.
+They care about four things:
 
-The stronger the Agent, the clearer the brakes.
+| User Question | Good Response |
+|---|---|
+| Where are we? | Name the current stage, not every internal detail |
+| Why are we blocked? | Explain impact before internals |
+| Can I trust this? | Show evidence state and risks |
+| What do I do next? | Give one clear next action |
 
-## VI. UX is not polish—it is a control protocol
+A good workflow reply should:
 
-I used to treat UX as friendly wording.
+- Answer direct questions directly.
+- Serve one scene per reply.
+- Explain failure impact before recovery.
+- Stop when user judgment is required.
+- Prefer one next step over a menu of options.
 
-Now I treat it as part of the workflow’s control protocol.
+This is not copywriting polish. It is a permission boundary.
 
-Users do not care about `workflow_start.mjs`, `workflow_next.mjs`, or `evidence-ledger.yaml`.
+## Five Patterns I Reuse
 
-They care:
+| Pattern | Solves |
+|---|---|
+| One-next-action arbiter | Tells the Agent exactly what to do now |
+| Evidence ledger | Keeps claims tied to source, date, confidence |
+| Preview as gate | User approves visible output, not chat summaries |
+| Self-healing config | Create templates and ask only for fields needed now |
+| Safe publish adapter | Build payload → validate → preview → confirm → write |
 
-- Where am I blocked?
-- What did the Agent do?
-- Can I trust this?
-- What is the single next step?
+These are patterns, not a full-stack mandate.
 
-So a good workflow reply does not dump internal complexity on the user.
+The more you turn on, the longer the references, the more fragmented the path, and the higher the token cost.
 
-A few simple rules:
+My rule is: **add the module that controls the real risk.**
 
-**Direct question → direct answer.**  
-If they ask where the config file is, give the path—not an eight-step tour.
+## Nine Questions Before Designing
 
-**One reply, one scenario.**  
-Install, diagnose, produce, approve, ship—do not mash them together.
-
-**One reply, one next step.**  
-People rarely need more options; they need to know what to do now.
-
-**On failure: impact first, then recovery.**  
-No wall of stack trace; no blaming the user first.
-
-**Approval gates mean stop.**  
-When judgment belongs to the user, do not decide for them.
-
-That is not copywriting—it is system boundary.
-
-Without engineering UX, an Agent easily oversteps while “looking helpful.”
-
-## VII. Five patterns worth reusing
-
-Abstracted one level up, these travel across industries.
-
-**Single-next-step arbiter.** Scripts derive state into **one** action so each turn does not drown the user in options.
-
-**Evidence ledger.** Conclusions tie to source, time, raw material, and confidence—strategy, research, reports alike.
-
-**Preview as gate.** Markdown/YAML can be sources; approval UI is the preview—users approve the preview, not the chat summary.
-
-**Config self-heal.** Missing config → scaffold templates; missing fields → only the group needed for this goal; secrets stay local, never in chat.
-
-**Safe publish adapter.** External writes split into: build payload → validate → preview → dry-run or draft → explicit approval → write. Same idea for CMS, email, DBs.
-
-This is a **pattern library**, not a mandatory checklist. **The more you enable, the longer references get and the more paths fragment—slower and more tokens by default.** Trim to scenario; do not deploy the whole catalog every time.
-
-## VIII. If you were building a workflow from scratch
-
-I would not start with `SKILL.md`.
-
-I would answer nine questions first:
+If I were designing a Skill Workflow from scratch today, I would ask:
 
 1. What does this workflow ultimately deliver?
 2. Who uses it?
-3. Where do users get stuck?
+3. Where do users most often get stuck?
 4. Which steps can the model judge?
-5. Which steps must be deterministic in scripts?
-6. Which intermediate artifacts must hit disk?
-7. Which data is required for “real” production?
-8. Which actions have side effects and need approval?
-9. After interrupt, failure, or edits—how does the system recover?
+5. Which steps must be scripted?
+6. Which intermediate artifacts must be persisted?
+7. What data is required for production?
+8. Which actions have external side effects and require approval?
+9. How does the system recover after interruption, failure, or revision?
 
-Only then unpack structure.
-
-A mature-ish layout might look like:
+Only after that would I shape the directory:
 
 ```text
 your-skill-workflow/
   SKILL.md
   references/
     operating-principles.md
-    user-experience.md
-    configuration.md
-    data-sources.md
     workflow-stages.md
     preview-and-approval.md
-    publishing-or-delivery.md
   scripts/
     workflow_start.mjs
     workflow_next.mjs
-    state_init.mjs
-    data_readiness.mjs
     validate_evidence.mjs
     render_preview.mjs
-    artifact_manifest.mjs
     delivery_validate.mjs
-    workflow_doctor.mjs
-    response_lint.mjs
   assets/
     templates/
 ```
 
-Not every workflow needs the full tree.
+The point is not a pretty directory.
 
-Atomic tasks might need only `SKILL.md`.
+The point is clear responsibility:
 
-Multi-stage flows should at least have `references/operating-principles.md` and state scripts.
+- `SKILL.md` is entry and navigation.
+- `references/` holds detailed rules and examples.
+- `scripts/` owns deterministic actions.
+- `assets/` holds templates and reusable materials.
+- State files record progress, evidence, decisions, and changes.
 
-Anything touching external platforms needs dry-run, payload validation, and approval gates.
+Do not put everything into one giant `SKILL.md`.
 
-Non-technical users need guided setup and runtime self-checks.
+That is not memory. That is context pollution.
 
-Delivery or customer-facing work often adds doctor, tests, and review loops—but **keep doctor disciplined** (same logic as the **upper bound** in section II and the **pattern library** in section VII): good for package shape, fatal misconfig, and hard gates before external writes; if validation fragments into tiny steps, users wait on checkmarks while the Agent keeps swallowing `references` and diagnostic output—tokens burn on the process itself. Prefer light checks or fold steps together.
+## Finally
 
-What matters is not a pretty tree but clear layers whose depth matches risk.
+`MCP` lets the Agent touch the real world.
 
-`SKILL.md` is the entry and signpost.
+`Skills` teach it a way of working.
 
-`references/` holds the detailed rules.
+`CLI` lets it execute, verify, revise, and execute again.
 
-`scripts/` holds deterministic actions.
+`Skill Workflow` organizes those pieces into a deliverable business process.
 
-`assets/` holds templates and reusable material.
-
-Do not cram everything into one giant `SKILL.md`—that is context pollution, not leverage.
-
-The flip side still bites: chat-only memory, shipping a so-called final without data, treating preview as approval—you are leaving determinism to luck. Put it in scripts, state, and gates—not only in prose.
-
-## IX. From prompt to workflow: a dividing line for productizing AI
-
-Zoom out and this lines up with how I think about **`MCP -> Skills -> CLI`**.
-
-`MCP` solves access.
-
-`Skills` solve competence.
-
-`CLI` solves the loop.
-
-`Skill Workflow` wires those into a **deliverable business process**.
-
-It is not mainly about making AI more eloquent.
-
-It is about making AI know:
+It helps AI know:
 
 - Which stage it is in.
-- Which capability to invoke.
-- When to continue.
-- When to stop.
-- What to trust.
-- What needs approval.
+- Which information is trustworthy.
+- Which actions can continue.
+- Which actions must stop.
+- How the result becomes visible.
+- How external side effects are confirmed.
 
-From that angle, moats in AI products may not be models alone.
+A prompt solves one output.
 
-Models matter.
+A workflow solves one responsibility.
 
-What may matter as much is the working system around them:
+Once AI starts carrying responsibilities, the real design question is no longer “how do we make it answer better?”
 
-```text
-Clear trigger entry
-  -> Progressively loaded knowledge
-  -> Explicit state machine
-  -> Deterministic scripts
-  -> Auditable evidence
-  -> Previewable artifacts
-  -> User approval gates
-  -> Safe delivery and review
-```
+It is:
 
-That chain is a **map**, not a mandate to build everything at once: **add modules as risks show up**—iterative beats big-bang.
-
-It is less flashy than raw model capability.
-
-It is what lets AI move from **answering questions** to **carrying responsibility**.
-
-Prompts optimize one output.
-
-Workflows optimize an ongoing duty.
-
-When AI starts owning duties, the design question stops being only “how to make it answer better.”
-
-It becomes:
-
-**How to help it get the real-world job right.**
+**How do we help it do the work correctly in the real world?**
