@@ -7,9 +7,9 @@
   <ul class="header-item-container">
     <li class="header-item-title {{homeActive}}">
       {% if page.url contains '/en/' %}
-      <a href="{{site.url}}/en" class="title" aria-label="Home page"> {{ site.title }}</a>
+      <a href="{{site.url}}/en" class="title"> {{ site.title }}</a>
       {% else %}
-      <a href="{{site.url}}/" class="title" aria-label="Home page"> {{ site.title }}</a>
+      <a href="{{site.url}}/" class="title"> {{ site.title }}</a>
       {% endif %}
     </li>
 

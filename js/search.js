@@ -74,6 +74,7 @@
   function openSearch() {
     searchModal.classList.add('active');
     searchModal.setAttribute('aria-hidden', 'false');
+    searchModal.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
 
     // Show empty state
@@ -92,6 +93,7 @@
   function closeSearch() {
     searchModal.classList.remove('active');
     searchModal.setAttribute('aria-hidden', 'true');
+    searchModal.setAttribute('inert', '');
     document.body.style.overflow = '';
     searchInput.value = '';
     searchResults.innerHTML = '';
@@ -270,4 +272,3 @@
     init();
   }
 })();
-
