@@ -12,10 +12,7 @@ categories: "Share"
 
 很多关系要好的朋友可能都知道，我是比较喜欢大张伟的。当然我更喜欢的是花儿乐队时候的那个“张伟”，喜欢他身上的那股劲儿，喜欢他或者说羡慕他近 40 岁，身上还经常能看见的少年气，喜欢他的“真”。
 
-<video width="100%" height="auto" controls="">
-  <source src="https://bitcdn.chiloh.cn/videos/大张伟14岁的音乐.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[大张伟 14 岁时写的《静止》](https://www.bilibili.com/video/BV1ss411X75H/)
 
 某种程度上来说，我喜欢的是“自己”。那个过去的自己，在至暗时刻从音乐中汲取能量，滋养自己直至如今的自己。
 
@@ -35,13 +32,13 @@ categories: "Share"
 放一个自己虽然第一次听，但非常喜欢的歌曲的现场吧：
 
 <video width="100%" height="auto" controls="">
-  <source src="https://bitcdn.chiloh.cn/videos/林俊杰 -转动.mp4" type="video/mp4">
+  <source src="https://files.chiloh.net/videos/林俊杰%20-%E8%BD%AC%E5%8A%A8.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 最后分享下，跟朋友一起去看演唱会的感受：
 
-![演唱会感受](https://bitcdn.chiloh.cn/blog/concert.png!style=article)
+![演唱会感受](https://files.chiloh.net/blog/concert.png)
 
 
 **一切都是最好的安排！**

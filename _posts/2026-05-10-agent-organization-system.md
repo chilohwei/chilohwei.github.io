@@ -28,7 +28,7 @@ categories: "Thought"
 | `Memory` | 组织知识库 | 保存项目事实、共享方法、角色经验 |
 | `Tools / MCP` | 动作能力 | 在权限和审计约束下接触外部世界 |
 
-![Agent Organization Map](https://chilohdata.s3.bitiful.net/blog/blog/agent-organization-map.svg)
+![Agent Organization Map](https://files.chiloh.net/blog/agent-organization-map.svg)
 
 这篇不是讲“怎么堆更多 Agent”，而是讲我会怎样理解一个可长期运行的 Agent 团队。
 
@@ -160,7 +160,7 @@ Agent 一旦长期运行，记忆一定会变成核心问题。但记忆不是�
 
 多 Agent 系统真正难的地方，往往不是 Agent 不够聪明，而是边界太软。
 
-![Agent Boundaries](https://chilohdata.s3.bitiful.net/blog/blog/agent-boundaries.svg)
+![Agent Boundaries](https://files.chiloh.net/blog/agent-boundaries.svg)
 
 ### 1. 上下文边界
 

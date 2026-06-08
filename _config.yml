@@ -77,6 +77,6 @@ plugins:
 
 # Custom Site Settings
 showBuyCoffee: true
-payImage: //chilohdata.s3.bitiful.net/zanshang.JPG?dpr=0.5
+payImage: https://files.chiloh.net/zanshang.JPG
 assetUrl: //blog.chiloh.com/images/
 defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==

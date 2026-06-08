@@ -24,7 +24,7 @@
       https://cdn.jsdelivr.net
       https://fonts.loli.net;
     img-src 'self' data: https: 
-      https://chilohdata.s3.bitiful.net 
+      https://files.chiloh.net
       https://gw.alipayobjects.com 
       https://gw.alicdn.com 
       https://cdn.fliggy.com;
@@ -54,7 +54,7 @@
   {% if page.feature %}
   <meta property="og:image" content="{{ page.feature }}">
   {% else %}
-  <meta property="og:image" content="https://chilohdata.s3.bitiful.net/avatar.png">
+  <meta property="og:image" content="https://files.chiloh.net/avatar.png">
   {% endif %}
 
   <!-- Twitter Metadata -->
@@ -96,7 +96,7 @@
 
   <!-- Preconnect to CDN origins (eliminates DNS+TLS overhead) -->
   <link rel="preconnect" href="https://gw.alipayobjects.com" crossorigin>
-  <link rel="preconnect" href="https://chilohdata.s3.bitiful.net" crossorigin>
+  <link rel="preconnect" href="https://files.chiloh.net" crossorigin>
   {% if page.lang == 'en-US' %}
   <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
   <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
@@ -156,7 +156,7 @@
   {% endif %}
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="https://chilohdata.s3.bitiful.net/avatar.png">
+  <link rel="shortcut icon" type="image/png" href="https://files.chiloh.net/avatar.png">
 
   <!-- Additional Meta Tags -->
   <meta name="HandheldFriendly" content="True">
@@ -182,7 +182,7 @@
       "name": "{{ site.title }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://chilohdata.s3.bitiful.net/avatar.png"
+        "url": "https://files.chiloh.net/avatar.png"
       }
     },
     "datePublished": "{{ page.date | date_to_xmlschema }}",
@@ -191,7 +191,7 @@
     {% if page.feature %}
     "image": "{{ page.feature }}",
     {% else %}
-    "image": "https://chilohdata.s3.bitiful.net/avatar.png",
+    "image": "https://files.chiloh.net/avatar.png",
     {% endif %}
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -215,7 +215,7 @@
       "name": "{{ site.title }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://chilohdata.s3.bitiful.net/avatar.png"
+        "url": "https://files.chiloh.net/avatar.png"
       }
     },
     "potentialAction": {

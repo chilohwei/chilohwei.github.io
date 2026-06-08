@@ -196,11 +196,11 @@ maupassant 模板的文章页，默认没有上一篇、下一篇这样的文章
     <p style="color:#999;font-size:14px;">多寡随意，丰俭由人</p>
     <div id="QR" style="display: none;"> 
         <div id="wechat" style="display: inline-block"> 
-        <a class="fancybox" rel="group"><img id="wechat_qr" src="https://chilohdata.oss-cn-hongkong.aliyuncs.com/imgs/wechatpay.png" alt="WeChat Pay" /></a> 
+        <a class="fancybox" rel="group"><img id="wechat_qr" src="https://files.chiloh.net/zanshang.JPG" alt="WeChat Pay" /></a>
         <p> 微信打赏 </p> 
         </div> 
         <div id="alipay" style="display: inline-block"> 
-        <a class="fancybox" rel="group"><img id="alipay_qr" src="https://chilohdata.oss-cn-hongkong.aliyuncs.com/imgs/alipay.png" alt="Alipay" /></a> 
+        <a class="fancybox" rel="group"><img id="alipay_qr" src="https://files.chiloh.net/zanshang.JPG" alt="Alipay" /></a>
         <p> 支付宝打赏 </p> 
         </div> 
     </div> 

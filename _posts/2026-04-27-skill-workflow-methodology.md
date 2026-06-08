@@ -20,7 +20,7 @@ categories: "Thought"
 
 模型很适合做理解、取舍、表达，但不适合承担所有确定性工作。凡是涉及校验、状态、格式转换、发布前检查、外部写入，最好交给脚本和门禁。
 
-![Skill Workflow Loop](https://chilohdata.s3.bitiful.net/blog/blog/skill-workflow-loop.svg)
+![Skill Workflow Loop](https://files.chiloh.net/blog/skill-workflow-loop.svg)
 
 这篇不是讲“怎么写一个很厉害的 prompt”，而是讲我现在会怎样设计一个能交付的 Skill Workflow。
 
@@ -53,7 +53,7 @@ categories: "Thought"
 
 我现在不太会一上来写 `SKILL.md`。我会先拆层。
 
-![Skill Workflow Layers](https://chilohdata.s3.bitiful.net/blog/blog/skill-workflow-layers.svg)
+![Skill Workflow Layers](https://files.chiloh.net/blog/skill-workflow-layers.svg)
 
 | 层 | 负责什么 | 不应该负责什么 |
 |---|---|---|

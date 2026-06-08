@@ -1,4 +1,4 @@
-# Enhanced media optimization filter for multiple CDN providers
+# Enhanced media optimization filter for selected media providers
 # Supports WebP format, lazy loading, responsive images, and video optimization
 # Usage: {{ content | cdn_image_filter }}
 module Jekyll
@@ -13,7 +13,7 @@ module Jekyll
         # Skip if already optimized or is SVG/GIF
         next match if src.include?('x-oss-process') || src.match?(/\.(gif|svg)$/i)
         
-        # Determine optimization based on CDN provider
+        # Determine optimization based on media provider
         optimized_src = optimize_image_url(src)
         
         # Add responsive and performance attributes
@@ -39,14 +39,9 @@ module Jekyll
         # Alibaba Cloud OSS optimization with AVIF support
         # AVIF provides better compression than WebP
         "#{src}?x-oss-process=image/resize,w_1200/format,avif/quality,q_80"
-      when /^https:\/\/chilohdata\.s3\.bitiful\.net/
-        # S3-compatible storage optimization
-        # BitiFul supports image processing parameters
-        if src.include?('?')
-          src # Already has parameters, keep as is
-        else
-          "#{src}?x-oss-process=image/resize,w_1200/format,webp/quality,q_85"
-        end
+      when /^https:\/\/files\.chiloh\.net/
+        # R2 custom domain. Keep object URLs stable; transformations are handled upstream.
+        src
       when /^https:\/\/(images\.unsplash\.com|cdn\.pixabay\.com)/
         # Third-party image services
         # Try AVIF first, fallback to WebP in browser

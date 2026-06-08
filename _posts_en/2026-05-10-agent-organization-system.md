@@ -32,7 +32,7 @@ I now split a multi-agent system into six core objects:
 | `Memory` | Organizational knowledge base | Stores project facts, shared methods, role lessons |
 | `Tools / MCP` | Action capability | Touches the outside world under permissions and audit |
 
-![Agent Organization Map](https://chilohdata.s3.bitiful.net/blog/blog/agent-organization-map.svg)
+![Agent Organization Map](https://files.chiloh.net/blog/agent-organization-map.svg)
 
 This is not about stacking more Agents. It is about making an Agent team that can run for a long time.
 
@@ -248,7 +248,7 @@ It helps them know:
 
 The hard part is often not intelligence. It is soft boundaries.
 
-![Agent Boundaries](https://chilohdata.s3.bitiful.net/blog/blog/agent-boundaries.svg)
+![Agent Boundaries](https://files.chiloh.net/blog/agent-boundaries.svg)
 
 ### 1. Context Boundary
 

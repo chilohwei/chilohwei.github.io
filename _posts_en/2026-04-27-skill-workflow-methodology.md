@@ -24,7 +24,7 @@ A stable workflow needs to answer five questions:
 
 Models are good at understanding, tradeoffs, and expression. They are not good at owning every deterministic step. Validation, state, format conversion, preview generation, pre-ship checks, and external writes should usually be handled by scripts and gates.
 
-![Skill Workflow Loop](https://chilohdata.s3.bitiful.net/blog/blog/skill-workflow-loop.svg)
+![Skill Workflow Loop](https://files.chiloh.net/blog/skill-workflow-loop.svg)
 
 This is not about writing a magical prompt. It is about designing a workflow that can actually deliver.
 
@@ -71,7 +71,7 @@ I no longer start by writing `SKILL.md`.
 
 I start by separating layers.
 
-![Skill Workflow Layers](https://chilohdata.s3.bitiful.net/blog/blog/skill-workflow-layers.svg)
+![Skill Workflow Layers](https://files.chiloh.net/blog/skill-workflow-layers.svg)
 
 | Layer | Owns | Should Not Own |
 |---|---|---|
