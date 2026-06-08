@@ -26,7 +26,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'
+          ruby-version: '3.4'
           bundler-cache: true
 
       - name: Setup Node.js
@@ -42,10 +42,12 @@ jobs:
 
       - name: Build with Jekyll
         run: |
-          bundle exec jekyll build
-          npm run min
+          npm run build
         env:
           JEKYLL_ENV: production
+
+      - name: Check media assets
+        run: npm run check:assets
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

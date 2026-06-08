@@ -21,7 +21,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'
+          ruby-version: '3.4'
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -40,8 +40,8 @@ jobs:
 
       - name: Test build
         run: |
-          bundle exec jekyll build
-          npm run min
+          npm run build
+          npm run check:assets
         env:
           JEKYLL_ENV: production
 

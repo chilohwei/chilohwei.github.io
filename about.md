@@ -29,7 +29,7 @@ hideHomeActive: true
 - 公众号：搜索“魏奇洛”，或微信扫码关注
 
 <ul align="left">
-    <img src="https://files.chiloh.net/gzh_qrcode.jpg" alt="魏奇洛的公众号二维码" style="width: 15%; height: auto;"/>
+    <img src="https://files.chiloh.net/gzh-qr.png" alt="魏奇洛的公众号二维码" class="wechat-qr"/>
 </ul>
 
-- 其他：[Weibo](https://weibo.com/u/7873805545)、[Twitter](https://twitter.com/chiloh_wei)、[Github](https://github.com/chilohwei)
+- 其他：[Twitter](https://twitter.com/chilohwei)、[Github](https://github.com/chilohwei)

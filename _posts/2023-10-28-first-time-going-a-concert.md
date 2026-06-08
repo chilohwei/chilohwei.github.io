@@ -38,7 +38,7 @@ categories: "Share"
 
 最后分享下，跟朋友一起去看演唱会的感受：
 
-![演唱会感受](https://files.chiloh.net/blog/concert.png)
+![演唱会感受](https://files.chiloh.net/blog/concert.jpg)
 
 
 **一切都是最好的安排！**

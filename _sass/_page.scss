@@ -845,3 +845,11 @@ video.bg-img {
   max-width: 100%;
   height: auto;
 }
+
+.entry-content .wechat-qr {
+  display: block;
+  width: min(100%, 560px);
+  height: auto;
+  margin: 1.25em 0;
+  cursor: default;
+}

@@ -25,9 +25,7 @@
       https://fonts.loli.net;
     img-src 'self' data: https: 
       https://files.chiloh.net
-      https://gw.alipayobjects.com 
-      https://gw.alicdn.com 
-      https://cdn.fliggy.com;
+      https://gw.alipayobjects.com;
     font-src 'self' 
       https://gw.alipayobjects.com 
       https://fonts.loli.net
@@ -61,11 +59,11 @@
   {% if page.layout == "post" %}
   <meta name="twitter:card" content="{% if page.feature %}summary_large_image{% else %}summary{% endif %}">
   <meta name="twitter:creator" content="@{{ site.twitter }}">
-  <meta name="twitter:site" content="{{ site.url }}">
+  <meta name="twitter:site" content="@{{ site.twitter }}">
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
   <meta name="twitter:title" content="{{ page.title }} - Chiloh Wei">
   <meta name="twitter:description" content="{{ page.summary }}">
-  <meta name="twitter:image" content="{% if page.feature %}{{ page.feature }}{% else %}https://gw.alicdn.com/imgextra/i3/O1CN01cSkdn72AKKBDPm829_!!6000000008184-2-tps-2664-2664.png{% endif %}">
+  <meta name="twitter:image" content="{% if page.feature %}{{ page.feature }}{% else %}https://files.chiloh.net/avatar.png{% endif %}">
   {% endif %}
 
   <!-- Canonical URL -->
@@ -156,7 +154,8 @@
   {% endif %}
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="https://files.chiloh.net/avatar.png">
+  <link rel="icon" type="image/x-icon" href="https://files.chiloh.net/favicon.ico" referrerpolicy="no-referrer">
+  <link rel="shortcut icon" type="image/x-icon" href="https://files.chiloh.net/favicon.ico" referrerpolicy="no-referrer">
 
   <!-- Additional Meta Tags -->
   <meta name="HandheldFriendly" content="True">

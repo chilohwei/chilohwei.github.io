@@ -6,7 +6,7 @@ date: "2023-10-12"
 categories: "Share"
 ---
 
-![公司分享](https://files.chiloh.net/blog/gitmind-share.png)
+![公司分享](https://files.chiloh.net/blog/gitmind-share.jpg)
 
 之前在部门有过分享，不过这是第 1 次在全公司做了一个半多钟头的分享，从上面公司同事的反馈来看，效果不错。算是一次小小的突破，开心。
 

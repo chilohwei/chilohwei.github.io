@@ -9,7 +9,7 @@ timezone: Africa/El_Aaiun
 # Social Media and External URLs
 github: chilohwei
 zhihu: 
-twitter: chiloh_wei
+twitter: chilohwei
 v2ex: 
 menu:
   - title: "Categories"
@@ -65,6 +65,7 @@ exclude:
     ".cursor",
     ".cursorindexingignore",
     "lighthouserc.js",
+    "scripts",
     "js/ppt",
   ]
 

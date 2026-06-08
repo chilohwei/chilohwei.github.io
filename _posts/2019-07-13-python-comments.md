@@ -12,7 +12,7 @@ categories: "Tech"
 
 以[七麦数据ASO平台](https://www.qimai.cn/)为例，搜索想要获取的 APP 应用，比如微信，然后在微信的七麦详情页选择「评分评论」，最后查看「评论详情」并点击「导出数据」按钮，就可以导出应用评论数据。
 
-![七麦应用数据.png](https://files.chiloh.net/blog/qmaso.png "七麦应用数据.png")
+![七麦应用数据.png](https://files.chiloh.net/blog/qmaso.jpg "七麦应用数据.png")
 
 该方法的优缺点如下：
 
