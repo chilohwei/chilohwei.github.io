@@ -26,9 +26,8 @@ hideHomeActive: true
 
 - 微信：Y2hpbG9oLXdlaQ==
 - 邮件：bWVAY2hpbG9oLmNvbQ==（注：Base 64解码）
-- 公众号：搜索“魏奇洛”，或微信扫码关注
-
-<ul align="left">
+- 公众号：微信扫描下方二维码关注：
+<ul align="center">
     <img src="https://files.chiloh.net/gzh-qr.png" alt="魏奇洛的公众号二维码" class="wechat-qr"/>
 </ul>
 
