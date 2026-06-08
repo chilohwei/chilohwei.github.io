@@ -28,7 +28,7 @@ hideHomeActive: true
 - 邮件：bWVAY2hpbG9oLmNvbQ==（注：Base 64解码）
 - 公众号：微信扫描下方二维码关注：
 <ul align="center">
-    <img src="https://files.chiloh.net/gzh-qr.png" alt="魏奇洛的公众号二维码" class="wechat-qr"/>
+    <img src="https://files.chiloh.net/gzh-qr.png" alt="公众号二维码" class="wechat-qr"/>
 </ul>
 
 - 其他：[Twitter](https://twitter.com/chilohwei)、[Github](https://github.com/chilohwei)
